@@ -9,16 +9,19 @@
   <style>
     body { font-family: 'Poppins', sans-serif; }
     h1.league-title { font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+    .fade-in.show { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
 
   <!-- HERO -->
-  <section class="relative h-[90vh] flex items-center justify-center text-center">
-    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+  <section class="relative h-[90vh] flex items-center justify-center text-center overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1605619733946-fc27d1c638b8?auto=format&fit=crop&w=1600&q=80" class="absolute inset-0 w-full h-full object-cover brightness-50" alt="Basketball Action">
+    <div class="absolute inset-0 bg-black/50"></div>
     <div class="relative z-10 px-4">
-      <h1 class="league-title text-7xl md:text-8xl font-bold text-[#FFD700] drop-shadow-lg">🏀 CEHA Basketball</h1>
-      <p class="mt-4 text-xl md:text-2xl text-gray-300">Where Passion Meets the Game</p>
+      <h1 class="league-title text-7xl md:text-8xl font-bold text-[#FFD700] drop-shadow-lg animate-pulse">🏀 CEHA Basketball</h1>
+      <p class="mt-4 text-xl md:text-2xl text-gray-200">Where Passion Meets the Game</p>
       <div id="timer" class="mt-6 text-3xl font-bold text-[#FFD700]"></div>
     </div>
   </section>
@@ -26,15 +29,15 @@
   <!-- PLAYERS GRID -->
   <section class="py-16 bg-gray-900">
     <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-12 text-[#FFD700]">🔥 Players to Watch</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-[#FFD700] fade-in">🔥 Players to Watch</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        <div class="bg-gray-800 rounded-xl shadow-xl p-6 text-center transform hover:scale-105 transition-transform duration-300">
+        <div class="bg-gray-800 rounded-xl shadow-xl p-6 text-center transform hover:scale-105 hover:shadow-2xl transition-all duration-300 fade-in">
           <img src="images/players/sample1.jpg" alt="Sample Player" class="w-28 h-28 mx-auto rounded-full mb-4 border-2 border-[#FFD700]">
           <h3 class="text-xl font-semibold">Sample Player</h3>
           <p class="text-gray-400">Team: CEHA1</p>
           <p class="text-sm">18 PPG, 6 REB, 4 AST</p>
         </div>
-        <div class="bg-gray-800 rounded-xl shadow-xl p-6 text-center transform hover:scale-105 transition-transform duration-300">
+        <div class="bg-gray-800 rounded-xl shadow-xl p-6 text-center transform hover:scale-105 hover:shadow-2xl transition-all duration-300 fade-in">
           <img src="images/players/sample2.jpg" alt="Sample Player 2" class="w-28 h-28 mx-auto rounded-full mb-4 border-2 border-[#FFD700]">
           <h3 class="text-xl font-semibold">Sample Player 2</h3>
           <p class="text-gray-400">Team: VA</p>
@@ -47,13 +50,13 @@
   <!-- COMMISSIONERS -->
   <section class="py-16 bg-gray-800">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-12 text-[#FFD700]">👔 Commissioners</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-[#FFD700] fade-in">👔 Commissioners</h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-gray-900 rounded-xl shadow-xl p-6 text-center transform hover:scale-105 transition-transform">
+        <div class="bg-gray-900 rounded-xl shadow-xl p-6 text-center transform hover:scale-105 hover:shadow-2xl transition-all duration-300 fade-in">
           <img src="https://img.icons8.com/fluency/150/user-male-circle.png" alt="Commissioner" class="w-32 h-32 mx-auto rounded-full mb-4 border-2 border-[#FFD700]">
           <p class="text-xl font-semibold text-gray-100">Julius Megallos</p>
         </div>
-        <div class="bg-gray-900 rounded-xl shadow-xl p-6 text-center transform hover:scale-105 transition-transform">
+        <div class="bg-gray-900 rounded-xl shadow-xl p-6 text-center transform hover:scale-105 hover:shadow-2xl transition-all duration-300 fade-in">
           <img src="https://img.icons8.com/fluency/150/user-male-circle.png" alt="Commissioner" class="w-32 h-32 mx-auto rounded-full mb-4 border-2 border-[#FFD700]">
           <p class="text-xl font-semibold text-gray-100">Ian Salang</p>
         </div>
@@ -83,6 +86,18 @@
       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
       timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s until next game`;
     }, 1000);
+
+    // Fade-in effect on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
   </script>
 
 </body>
