@@ -1,65 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Basketball League</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEHA Basketball League</title>
   <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Community Basketball League">
 </head>
 <body>
-
-<header class="site-header">
-  <div class="container">
-    <a href="index.html" class="logo">🏀 League</a>
-    <nav id="nav" class="nav">
-      <a href="index.html">Home</a>
-      <a href="teams.html">Teams</a>
-      <a href="schedule.html">Schedule</a>
-      <a href="standings.html">Standings</a>
-      <a href="contact.html">Contact</a>
+  <header>
+    <h1>🏀 CEHA Basketball League</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#players">Players</a>
+      <a href="#commissioners">Commissioners</a>
     </nav>
-    <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">☰</button>
-  </div>
-</header>
+  </header>
 
-<main class="container">
-  <section class="hero">
-    <h1>Community Basketball League</h1>
-    <p>Welcome to the official site for our league. Check schedules, standings, and team info.</p>
-    <div class="cta-group">
-      <a class="btn" href="schedule.html">View Schedule</a>
-      <a class="btn secondary" href="standings.html">Standings</a>
+  <!-- Commissioners Section -->
+  <section id="commissioners">
+    <h2>Commissioners</h2>
+    <div class="commissioner-grid">
+      <div class="comm-card">
+        <img src="images/commissioners/julius-megallos.jpg" alt="Julius Megallos">
+        <p>Julius Megallos</p>
+      </div>
+      <div class="comm-card">
+        <img src="images/commissioners/ian-salang.jpg" alt="Ian Salang">
+        <p>Ian Salang</p>
+      </div>
+      <div class="comm-card">
+        <img src="images/commissioners/Alvin Venturado.jpg" alt="Alvin Venturado">
+        <p>Alvin Venturado</p>
+      </div>
+       <div class="comm-card">
+        <img src="images/commissioners/Jeffrey Esperat.jpg" alt="Ian Salang">
+        <p>Jeffrey Esperat</p>
+      </div>
     </div>
   </section>
 
-  <section class="grid">
-    <div class="card">
-      <h2>Featured Match</h2>
-      <p><strong>VA</strong> vs <strong>SPMC Boys</strong></p>
-      <p>Date: Oct 5, 2025 · Tip-off: 7:00 PM</p>
-      <a class="link" href="schedule.html">See all games →</a>
-    </div>
-    <div class="card">
-      <h2>Teams</h2>
-      <ul class="team-list">
-        <li><img src="images/va.png" alt="VA logo"><span>VA</span></li><li><img src="images/spmc-boys.png" alt="SPMC Boys logo"><span>SPMC Boys</span></li><li><img src="images/tailoring.png" alt="Tailoring logo"><span>Tailoring</span></li><li><img src="images/ceha1.png" alt="Ceha1 logo"><span>Ceha1</span></li><li><img src="images/ceha2.png" alt="Ceha2 logo"><span>Ceha2</span></li><li><img src="images/ceha3.png" alt="Ceha3 logo"><span>Ceha3</span></li>
-      </ul>
-      <a class="link" href="teams.html">View team details →</a>
-    </div>
-    <div class="card">
-      <h2>Latest Update</h2>
-      <p>Season kickoff announced! First games start Oct 1, 2025. Check the schedule for details.</p>
+  <!-- Countdown -->
+  <section id="countdown">
+    <h2>Next Game Countdown</h2>
+    <div id="timer">Loading...</div>
+  </section>
+
+  <!-- Player to Watch Spotlight -->
+  <section id="spotlight">
+    <h2>Player to Watch</h2>
+    <div class="player-spotlight">
+      <img src="images/players/john paul meggalos.jpg" alt="John Paul Megallos">
+      <div class="player-info">
+        <h3>John Paul Megallos</h3>
+        <p><strong>Team:</strong> SPMC Boys</p>
+        <ul>
+          <li><strong>Points:</strong> 22.3</li>
+          <li><strong>Rebounds:</strong> 8.1</li>
+          <li><strong>Assists:</strong> 5.2</li>
+          <li><strong>Steals:</strong> 2.0</li>
+          <li><strong>Blocks:</strong> 1.1</li>
+        </ul>
+      </div>
     </div>
   </section>
-</main>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>© <span id="year"></span> Community Basketball League</p>
-  </div>
-</footer>
-<script src="script.js"></script>
+  <!-- Other Players to Watch -->
+  <section id="players">
+    <h2>Other Players to Watch</h2>
+    <div class="player-grid">
+      <div class="player-card">
+        <img src="images/players/sample1.jpg" alt="Sample Player">
+        <h3>Sample Player</h3>
+        <p>Team: CEHA1</p>
+        <p>Stats: 18 PPG, 6 REB, 4 AST</p>
+      </div>
+      <div class="player-card">
+        <img src="images/players/sample2.jpg" alt="Sample Player">
+        <h3>Sample Player 2</h3>
+        <p>Team: VA</p>
+        <p>Stats: 20 PPG, 5 REB, 7 AST</p>
+      </div>
+    </div>
+  </section>
 
+  <footer>
+    <p>© 2025 CEHA Basketball League</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
