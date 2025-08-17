@@ -170,6 +170,13 @@
     }, { threshold: 0.5 });
     fadeInElements.forEach(element => observer.observe(element));
   </script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.classList.add('show');
+    });
+  });
+</script>
 
 </body>
 </html>
