@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CEHA League — Contact</title>
+  <meta name="description" content="Contact the CEHA Basketball League">
+  <meta property="og:title" content="CEHA League — Contact">
+  <meta property="og:description" content="Contact the CEHA Basketball League">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header class="header">
+  <div class="container row">
+    <a class="brand" href="index.html">🏀 CEHA Basketball League</a>
+    <nav id="nav" class="nav">
+      <a href="index.html">Home</a>
+      <a href="teams.html">Teams</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="standings.html">Standings</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button id="menuBtn" class="menu" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Contact</h1>
+  <p class="muted">Questions? Email us at <a href="mailto:league@example.com">league@example.com</a>.</p>
+  <form class="form" onsubmit="event.preventDefault(); alert('Thanks! This demo form does not submit.');">
+    <label>Name<input type="text" required></label>
+    <label>Email<input type="email" required></label>
+    <label>Message<textarea rows="5" required></textarea></label>
+    <button class="btn" type="submit">Send</button>
+  </form>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>© <span id="year"></span> CEHA League • Built with ❤️</p>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>

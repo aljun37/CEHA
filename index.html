@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CEHA League — Home</title>
+  <meta name="description" content="Official site of the CEHA Basketball League">
+  <meta property="og:title" content="CEHA League — Home">
+  <meta property="og:description" content="Official site of the CEHA Basketball League">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header class="header">
+  <div class="container row">
+    <a class="brand" href="index.html">🏀 CEHA Basketball League</a>
+    <nav id="nav" class="nav">
+      <a href="index.html">Home</a>
+      <a href="teams.html">Teams</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="standings.html">Standings</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button id="menuBtn" class="menu" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="container hero-content">
+      <h1>CEHA Basketball League</h1>
+      <p>Schedules, standings, and teams — all in one place.</p>
+      <div class="cta">
+        <a class="btn" href="schedule.html">View Schedule</a>
+        <a class="btn ghost" href="standings.html">Standings</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container cards">
+    <div class="card">
+      <h2>Latest News</h2>
+      <p>Season tips off on <strong>October 1, 2025</strong>. Check the schedule for game times and venues.</p>
+    </div>
+    <div class="card">
+      <h2>Featured Match</h2>
+      <p><strong>VA</strong> vs <strong>SPMC Boys</strong> — October 5, 2025 • 7:00 PM • Community Gym</p>
+      <a class="link" href="schedule.html">See all games →</a>
+    </div>
+    <div class="card">
+      <h2>Teams</h2>
+      <ul class="team-list">
+        <li><img src="images/va.png" alt="VA logo"><span>VA</span></li><li><img src="images/spmc-boys.png" alt="SPMC Boys logo"><span>SPMC Boys</span></li><li><img src="images/tailoring.png" alt="Tailoring logo"><span>Tailoring</span></li><li><img src="images/ceha1.png" alt="Ceha1 logo"><span>Ceha1</span></li><li><img src="images/ceha2.png" alt="Ceha2 logo"><span>Ceha2</span></li><li><img src="images/ceha3.png" alt="Ceha3 logo"><span>Ceha3</span></li>
+      </ul>
+      <a class="link" href="teams.html">Meet all teams →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>© <span id="year"></span> CEHA League • Built with ❤️</p>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>

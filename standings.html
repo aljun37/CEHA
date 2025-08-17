@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CEHA League — Standings</title>
+  <meta name="description" content="League standings for the CEHA Basketball League">
+  <meta property="og:title" content="CEHA League — Standings">
+  <meta property="og:description" content="League standings for the CEHA Basketball League">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header class="header">
+  <div class="container row">
+    <a class="brand" href="index.html">🏀 CEHA Basketball League</a>
+    <nav id="nav" class="nav">
+      <a href="index.html">Home</a>
+      <a href="teams.html">Teams</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="standings.html">Standings</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button id="menuBtn" class="menu" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Standings</h1>
+  <p class="muted">Click a column to sort.</p>
+  <div class="table-wrap">
+    <table class="table sortable" id="standings">
+      <thead>
+        <tr>
+          <th data-type="text">Team</th>
+          <th data-type="number">W</th>
+          <th data-type="number">L</th>
+          <th data-type="number">Pct</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>VA</td><td>3</td><td>0</td><td>1.000</td></tr><tr><td>SPMC Boys</td><td>2</td><td>1</td><td>0.667</td></tr><tr><td>Tailoring</td><td>2</td><td>1</td><td>0.667</td></tr><tr><td>Ceha1</td><td>1</td><td>2</td><td>0.333</td></tr><tr><td>Ceha2</td><td>1</td><td>2</td><td>0.333</td></tr><tr><td>Ceha3</td><td>0</td><td>3</td><td>0.000</td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>© <span id="year"></span> CEHA League • Built with ❤️</p>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>
