@@ -5,36 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CEHA Basketball League</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Poppins', sans-serif; }
-    h1.league-title { font-family: 'Anton', sans-serif; }
+    h1.league-title { font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; }
   </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
 
   <!-- HERO -->
-  <section class="relative bg-[url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center h-[90vh] flex items-center justify-center text-white">
-    <div class="absolute inset-0 bg-black/70"></div>
-    <div class="relative z-10 text-center px-4">
-      <h1 class="league-title text-6xl md:text-7xl font-extrabold text-[#FFD700] drop-shadow-lg">🏀 CEHA Basketball League</h1>
-      <p class="mt-4 text-xl md:text-2xl text-gray-200">Where Passion Meets the Game</p>
+  <section class="relative h-[90vh] flex items-center justify-center text-center">
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+    <div class="relative z-10 px-4">
+      <h1 class="league-title text-7xl md:text-8xl font-bold text-[#FFD700] drop-shadow-lg">🏀 CEHA Basketball</h1>
+      <p class="mt-4 text-xl md:text-2xl text-gray-300">Where Passion Meets the Game</p>
       <div id="timer" class="mt-6 text-3xl font-bold text-[#FFD700]"></div>
     </div>
   </section>
 
-  <!-- OTHER PLAYERS -->
-  <section class="py-16 bg-gray-900 text-gray-100">
+  <!-- PLAYERS GRID -->
+  <section class="py-16 bg-gray-900">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12 text-[#FFD700]">🔥 Players to Watch</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-gray-800 rounded-2xl shadow-2xl p-6 text-center hover:scale-105 transition-transform">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="bg-gray-800 rounded-xl shadow-xl p-6 text-center transform hover:scale-105 transition-transform duration-300">
           <img src="images/players/sample1.jpg" alt="Sample Player" class="w-28 h-28 mx-auto rounded-full mb-4 border-2 border-[#FFD700]">
           <h3 class="text-xl font-semibold">Sample Player</h3>
           <p class="text-gray-400">Team: CEHA1</p>
           <p class="text-sm">18 PPG, 6 REB, 4 AST</p>
         </div>
-        <div class="bg-gray-800 rounded-2xl shadow-2xl p-6 text-center hover:scale-105 transition-transform">
+        <div class="bg-gray-800 rounded-xl shadow-xl p-6 text-center transform hover:scale-105 transition-transform duration-300">
           <img src="images/players/sample2.jpg" alt="Sample Player 2" class="w-28 h-28 mx-auto rounded-full mb-4 border-2 border-[#FFD700]">
           <h3 class="text-xl font-semibold">Sample Player 2</h3>
           <p class="text-gray-400">Team: VA</p>
@@ -49,11 +49,11 @@
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12 text-[#FFD700]">👔 Commissioners</h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-gray-900 rounded-2xl shadow-2xl p-6 text-center hover:shadow-3xl transition-shadow">
+        <div class="bg-gray-900 rounded-xl shadow-xl p-6 text-center transform hover:scale-105 transition-transform">
           <img src="https://img.icons8.com/fluency/150/user-male-circle.png" alt="Commissioner" class="w-32 h-32 mx-auto rounded-full mb-4 border-2 border-[#FFD700]">
           <p class="text-xl font-semibold text-gray-100">Julius Megallos</p>
         </div>
-        <div class="bg-gray-900 rounded-2xl shadow-2xl p-6 text-center hover:shadow-3xl transition-shadow">
+        <div class="bg-gray-900 rounded-xl shadow-xl p-6 text-center transform hover:scale-105 transition-transform">
           <img src="https://img.icons8.com/fluency/150/user-male-circle.png" alt="Commissioner" class="w-32 h-32 mx-auto rounded-full mb-4 border-2 border-[#FFD700]">
           <p class="text-xl font-semibold text-gray-100">Ian Salang</p>
         </div>
@@ -78,3 +78,12 @@
         return;
       }
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s until next game`;
+    }, 1000);
+  </script>
+
+</body>
+</html>
