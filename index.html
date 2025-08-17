@@ -6,6 +6,7 @@
   <title>CEHA Basketball League</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <style>
     body { font-family: 'Open Sans', sans-serif; }
     h1, h2 { font-family: 'Roboto', sans-serif; }
@@ -31,25 +32,25 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="relative h-screen bg-cover bg-center" style="background-image: url('https://example.com/hero-image.jpg');">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="relative z-10 flex items-center justify-center h-full text-center">
-      <div class="text-white px-6 md:px-12">
-        <h1 class="text-5xl md:text-6xl font-bold mb-4 animate__animated animate__fadeIn">CEHA Basketball League</h1>
-        <p class="text-xl md:text-2xl mb-6 animate__animated animate__fadeIn animate__delay-1s">Where passion meets the court</p>
-        <div id="countdown" class="text-2xl md:text-3xl font-semibold"></div>
+  <section id="home" class="relative h-screen bg-cover bg-center transition-all duration-1000" style="background-image: url('https://your-image-url.jpg');">
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+    <div class="relative z-10 flex items-center justify-center h-full text-center px-6">
+      <div class="text-white max-w-lg md:max-w-xl">
+        <h1 class="text-5xl md:text-6xl font-bold mb-4 animate__animated animate__fadeIn animate__delay-1s">CEHA Basketball League</h1>
+        <p class="text-xl md:text-2xl mb-6 animate__animated animate__fadeIn animate__delay-1.5s">Where passion meets the court</p>
+        <div id="countdown" class="text-2xl md:text-3xl font-semibold animate__animated animate__fadeIn animate__delay-2s"></div>
       </div>
     </div>
   </section>
 
   <!-- Teams Section -->
-  <section id="teams" class="py-16 bg-gray-800">
+  <section id="teams" class="fade-in py-16 bg-gray-800">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">Our Teams</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
         <!-- Team Card -->
-        <div class="bg-gray-700 rounded-lg p-6 text-center">
-          <img src="https://example.com/team-logo.jpg" alt="Team Logo" class="w-24 h-24 mx-auto mb-4">
+        <div class="bg-gray-700 rounded-lg p-6 text-center transform hover:scale-105 hover:bg-gray-600 transition-all duration-300">
+          <img src="https://example.com/team-logo.jpg" alt="Team Logo" class="w-24 h-24 mx-auto mb-4 transition-all duration-300">
           <h3 class="text-xl font-semibold mb-2">Team Name</h3>
           <p class="text-gray-400">City, Country</p>
         </div>
@@ -59,12 +60,12 @@
   </section>
 
   <!-- Schedule Section -->
-  <section id="schedule" class="py-16 bg-gray-900">
+  <section id="schedule" class="fade-in py-16 bg-gray-900">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">Upcoming Games</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
         <!-- Game Card -->
-        <div class="bg-gray-700 rounded-lg p-6 text-center">
+        <div class="bg-gray-700 rounded-lg p-6 text-center transform hover:scale-105 hover:bg-gray-600 transition-all duration-300">
           <h3 class="text-xl font-semibold mb-2">Team A vs Team B</h3>
           <p class="text-gray-400">Date: Oct 7, 2025</p>
           <p class="text-gray-400">Time: 7:00 PM</p>
@@ -78,20 +79,20 @@
   <section id="contact" class="py-16 bg-gray-800">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">Contact Us</h2>
-      <form action="#" method="POST" class="max-w-lg mx-auto bg-gray-700 p-8 rounded-lg">
+      <form action="#" method="POST" class="max-w-lg mx-auto bg-gray-700 p-8 rounded-lg shadow-xl">
         <div class="mb-4">
           <label for="name" class="block text-white">Your Name</label>
-          <input type="text" id="name" name="name" class="w-full p-3 bg-gray-600 text-white rounded-lg" required>
+          <input type="text" id="name" name="name" class="w-full p-3 bg-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-300" required>
         </div>
         <div class="mb-4">
           <label for="email" class="block text-white">Your Email</label>
-          <input type="email" id="email" name="email" class="w-full p-3 bg-gray-600 text-white rounded-lg" required>
+          <input type="email" id="email" name="email" class="w-full p-3 bg-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-300" required>
         </div>
         <div class="mb-4">
           <label for="message" class="block text-white">Your Message</label>
-          <textarea id="message" name="message" rows="4" class="w-full p-3 bg-gray-600 text-white rounded-lg" required></textarea>
+          <textarea id="message" name="message" rows="4" class="w-full p-3 bg-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-300" required></textarea>
         </div>
-        <button type="submit" class="w-full py-3 bg-yellow-500 text-gray-900 font-semibold rounded-lg">Send Message</button>
+        <button type="submit" class="w-full py-3 bg-yellow-500 text-gray-900 font-semibold rounded-lg hover:bg-yellow-400 transition-all duration-200">Send Message</button>
       </form>
     </div>
   </section>
@@ -100,6 +101,11 @@
   <footer class="bg-gray-900 py-8">
     <div class="max-w-7xl mx-auto px-6 text-center text-gray-400">
       <p>&copy; 2025 CEHA Basketball League. All rights reserved.</p>
+      <div class="mt-4 space-x-6">
+        <a href="#" class="hover:text-yellow-500 transition-all duration-300">Facebook</a>
+        <a href="#" class="hover:text-yellow-500 transition-all duration-300">Twitter</a>
+        <a href="#" class="hover:text-yellow-500 transition-all duration-300">Instagram</a>
+      </div>
     </div>
   </footer>
 
@@ -124,6 +130,20 @@
 
       countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }, 1000);
+
+    // Intersection Observer for fade-in animations
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    fadeInElements.forEach(element => {
+      observer.observe(element);
+    });
   </script>
 
 </body>
