@@ -1,109 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CEHA League</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CEHA Basketball League</title>
+
+  <!-- Fonts + Tailwind CDN -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- animate.css (kept since you use it in the hero) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <style>
+    body { font-family: 'Open Sans', sans-serif; }
+    h1, h2 { font-family: 'Roboto', sans-serif; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+    .fade-in.show { opacity: 1; transform: translateY(0); }
+    .nowrap { white-space: nowrap; }
+  </style>
 </head>
-<body>
+<body class="bg-gray-950 text-white">
 
-  <!-- HEADER -->
-  <header>
-    <h1>CEHA League</h1>
-    <nav>
-      <a href="#teams">Teams</a>
-      <a href="#players">Players</a>
-      <a href="#commissioners">Commissioners</a>
-    </nav>
-  </header>
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 w-full z-50">
+    <div class="backdrop-blur-sm bg-black/40 border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <a href="#home" class="text-2xl font-bold tracking-wide">CEHA</a>
+          <ul class="flex space-x-6 text-sm">
+            <li><a href="#home" class="hover:text-yellow-400 transition-colors">Home</a></li>
+            <li><a href="#teams" class="hover:text-yellow-400 transition-colors">Teams</a></li>
+            <li><a href="#player-to-watch" class="hover:text-yellow-400 transition-colors">Player to Watch</a></li>
+            <li><a href="#commissioners" class="hover:text-yellow-400 transition-colors">Commissioners</a></li>
+            <li><a href="#schedule" class="hover:text-yellow-400 transition-colors">Schedule</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-  <!-- COUNTDOWN -->
-  <section id="countdown">
-    <h2>Season Countdown</h2>
-    <p id="timer">Coming Soon...</p>
-  </section>
-
-  <!-- LEAGUE TEAMS -->
-  <section id="teams">
-    <h2>League Teams</h2>
-    <div class="team-grid">
-      <div class="team-card">
-        <img src="images/auto.jpg" alt="AUTO Aesthetics" />
-        <h3>AUTO Aesthetics</h3>
-        <p>Countryville Cabantian</p>
-      </div>
-      <div class="team-card">
-        <img src="images/wear.jpg" alt="Stitch and Wear" />
-        <h3>Stitch and Wear Tailoring Shop</h3>
-        <p>Bansalan</p>
-      </div>
-      <div class="team-card">
-        <img src="images/Soe.jpg" alt="Secret of Eve" />
-        <h3>Secret of Eve</h3>
-        <p>Emily Homes</p>
-      </div>
-      <div class="team-card">
-        <img src="images/spmc.jpg" alt="SPMC Radiology Department" />
-        <h3>SPMC Radiology Department</h3>
-        <p>Pikit Cotabato</p>
+  <!-- Hero -->
+  <section id="home" class="relative h-[90vh] md:h-screen bg-cover bg-center transition-all duration-1000 scroll-mt-24" style="background-image: url('https://raw.githubusercontent.com/aljun37/CEHA/main/images/court.jpg');">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/60 to-black/70"></div>
+    <div class="relative z-10 flex items-center justify-center h-full text-center px-6">
+      <div class="text-white max-w-lg md:max-w-2xl">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-4 animate__animated animate__fadeIn animate__delay-1s">
+          CEHA Basketball League
+        </h1>
+        <p class="text-xl md:text-2xl mb-6 text-white/90 animate__animated animate__fadeIn animate__delay-1_5s">
+          Where passion meets the court
+        </p>
+        <div id="countdown" class="text-2xl md:text-3xl font-semibold animate__animated animate__fadeIn animate__delay-2s"></div>
       </div>
     </div>
   </section>
 
-  <!-- PLAYERS TO WATCH -->
-  <section id="players">
-    <h2>Players to Watch</h2>
-    <div class="player-spotlight fade-in">
-      <img src="images/player1.jpg" alt="Player Spotlight" />
-      <div class="player-info">
-        <h3>John Doe</h3>
-        <p><strong>PPG:</strong> 30.2 | <strong>APG:</strong> 3.0 | <strong>RPG:</strong> 8.1</p>
-        <p>Creates his own shot and dazzles with every possession.</p>
-      </div>
-    </div>
-    <div class="player-grid">
-      <div class="player-card hover-raise">
-        <img src="images/player2.jpg" alt="Player 2" />
-        <h3>Michael Smith</h3>
-        <p>Sharp shooter from downtown.</p>
-      </div>
-      <div class="player-card hover-raise">
-        <img src="images/player3.jpg" alt="Player 3" />
-        <h3>James Lee</h3>
-        <p>Lockdown defender with hustle.</p>
-      </div>
-      <div class="player-card hover-raise">
-        <img src="images/player4.jpg" alt="Player 4" />
-        <h3>Chris Jordan</h3>
-        <p>Dominant in the paint and on the boards.</p>
+  <!-- League Teams (FIRST) -->
+  <section id="teams" class="fade-in py-16 bg-gray-900 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12">League Teams</h2>
+
+      <!-- 2 cols on phones, 3 on md+ -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- Team card -->
+        <div class="group bg-gray-800/80 rounded-2xl p-4 text-center text-sm ring-1 ring-white/5 hover:ring-yellow-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img loading="lazy" src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" alt="AUTO Aesthetics" class="w-16 h-16 mx-auto rounded-full mb-3 object-cover" />
+          <h3 class="font-semibold">AUTO Aesthetics</h3>
+          <p class="text-gray-400 text-xs">Countryville Cabantian</p>
+        </div>
+
+        <div class="group bg-gray-800/80 rounded-2xl p-4 text-center text-sm ring-1 ring-white/5 hover:ring-yellow-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img loading="lazy" src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/wear.jpg" alt="Stitch and Wear Tailoring shop" class="w-16 h-16 mx-auto rounded-full mb-3 object-cover" />
+          <h3 class="font-semibold">Stitch and Wear Tailoring shop</h3>
+          <p class="text-gray-400 text-xs">Bansalan</p>
+        </div>
+
+        <div class="group bg-gray-800/80 rounded-2xl p-4 text-center text-sm ring-1 ring-white/5 hover:ring-yellow-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img loading="lazy" src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" alt="Secret Of Eve" class="w-16 h-16 mx-auto rounded-full mb-3 object-cover" />
+          <h3 class="font-semibold">Secret Of Eve</h3>
+          <p class="text-gray-400 text-xs">Emily homes</p>
+        </div>
+
+        <div class="group bg-gray-800/80 rounded-2xl p-4 text-center text-sm ring-1 ring-white/5 hover:ring-yellow-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 md:col-span-1 col-span-2 md:col-span-1">
+          <img loading="lazy" src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" alt="SPMC" class="w-16 h-16 mx-auto rounded-full mb-3 object-cover" />
+          <h3 class="font-semibold">SPMC Radiology Department</h3>
+          <p class="text-gray-400 text-xs">Pikit Cotabato</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- COMMISSIONERS -->
-  <section id="commissioners">
-    <h2>Commissioners</h2>
-    <div class="commissioner-grid">
-      <div class="comm-card hover-raise">
-        <img src="images/comm1.jpg" alt="Commissioner 1" />
-        <p>Commissioner A</p>
-      </div>
-      <div class="comm-card hover-raise">
-        <img src="images/comm2.jpg" alt="Commissioner 2" />
-        <p>Commissioner B</p>
-      </div>
-      <div class="comm-card hover-raise">
-        <img src="images/comm3.jpg" alt="Commissioner 3" />
-        <p>Commissioner C</p>
+  <!-- Players to Watch (SECOND) -->
+  <section id="player-to-watch" class="fade-in py-16 bg-gray-900 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12">Players to Watch</h2>
+
+      <!-- 2 cols on phones (side-by-side), 3 on md+ -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- Player 1 -->
+        <div class="bg-gray-800/80 rounded-2xl p-4 flex flex-col items-center text-center text-sm ring-1 ring-white/5 hover:ring-yellow-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img loading="lazy" src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/john_paul_meggalos.jpg" alt="John Megallos" class="w-24 h-24 rounded-full object-cover mb-2" />
+          <h3 class="font-semibold mb-1">John Megallos</h3>
+          <p class="text-yellow-400 text-xs mb-1">Mr. Shooter</p>
+          <p class="text-gray-400 text-xs">Position: Guard</p>
+          <p class="text-gray-400 text-xs mb-2">Team: Free Agent</p>
+
+          <div class="grid grid-cols-3 gap-3 mt-2">
+            <div><p class="text-[11px]">PPG</p><p class="text-yellow-400 font-bold">25.6</p></div>
+            <div><p class="text-[11px]">APG</p><p class="text-yellow-400 font-bold">6.3</p></div>
+            <div><p class="text-[11px]">RPG</p><p class="text-yellow-400 font-bold">7.1</p></div>
+          </div>
+          <p class="text-[11px] text-gray-300 mt-2">Top performer with incredible speed and shooting skills.</p>
+        </div>
+
+        <!-- Player 2 -->
+        <div class="bg-gray-800/80 rounded-2xl p-4 flex flex-col items-center text-center text-sm ring-1 ring-white/5 hover:ring-yellow-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img loading="lazy" src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/nhel_reyes.jpg" alt="Nhel Reyes" class="w-24 h-24 rounded-full object-cover mb-2" />
+          <h3 class="font-semibold mb-1">Nhel Reyes</h3>
+          <p class="text-yellow-400 text-xs mb-1">Mr. Highlights</p>
+          <p class="text-gray-400 text-xs">Position: Shooting Guard</p>
+          <p class="text-gray-400 text-xs mb-2">Team: Free Agent</p>
+
+          <div class="grid grid-cols-3 gap-3 mt-2">
+            <div><p class="text-[11px]">PPG</p><p class="text-yellow-400 font-bold">30.2</p></div>
+            <div><p class="text-[11px]">APG</p><p class="text-yellow-400 font-bold">3.0</p></div>
+            <div><p class="text-[11px]">RPG</p><p class="text-yellow-400 font-bold">8.1</p></div>
+          </div>
+          <p class="text-[11px] text-gray-300 mt-2">Creates his own shot and dazzles with every possession.</p>
+        </div>
+
+        <!-- Player 3 -->
+        <div class="bg-gray-800/80 rounded-2xl p-4 flex flex-col items-center text-center text-sm ring-1 ring-white/5 hover:ring-yellow-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img loading="lazy" src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/Paolo_Lagrosa.jpg" alt="Paolo Lagrosa" class="w-24 h-24 rounded-full object-cover mb-2" />
+          <h3 class="font-semibold mb-1">Paolo Lagrosa</h3>
+          <p class="text-yellow-400 text-xs mb-1">Mr. Rebound</p>
+          <p class="text-gray-400 text-xs">Position: Center</p>
+          <p class="text-gray-400 text-xs mb-2">Team: Free Agent</p>
+
+          <div class="grid grid-cols-3 gap-3 mt-2">
+            <div><p class="text-[11px]">PPG</p><p class="text-yellow-400 font-bold">5.0</p></div>
+            <div><p class="text-[11px]">APG</p><p class="text-yellow-400 font-bold">2.0</p></div>
+            <div><p class="text-[11px]">RPG</p><p class="text-yellow-400 font-bold">7.9</p></div>
+          </div>
+          <p class="text-[11px] text-gray-300 mt-2">Dominates the boards with unmatched hustle and positioning.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 CEHA League. All rights reserved.</p>
+  <!-- Commissioners (LAST) -->
+  <section id="commissioners" class="fade-in py-16 bg-gray-900 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12">Commissioners</h2>
+
+      <!-- 2 cols on phones, 4 on md+ -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="flex flex-col items-center text-center bg-gray-800/80 rounded-2xl p-4 ring-1 ring-white/5 hover:ring-yellow-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img loading="lazy" src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/commissioners/Jeffrey_Esperat.jpg" alt="Mr. Jeff" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-yellow-500 mb-3" />
+          <h3 class="text-lg font-semibold text-white whitespace-nowrap nowrap">Mr. Jeff</h3>
+        </div>
+        <div class="flex flex-col items-center text-center bg-gray-800/80 rounded-2xl p-4 ring-1 ring-white/5 hover:ring-yellow-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img loading="lazy" src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/commissioners/Alvin_Venturado.jpg" alt="Mr. Alvin" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-yellow-500 mb-3" />
+          <h3 class="text-lg font-semibold text-white whitespace-nowrap nowrap">Mr. Alvin</h3>
+        </div>
+        <div class="flex flex-col items-center text-center bg-gray-800/80 rounded-2xl p-4 ring-1 ring-white/5 hover:ring-yellow-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img loading="lazy" src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/commissioners/Julius-Megallos.jpg" alt="Mr. Jull" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-yellow-500 mb-3" />
+          <h3 class="text-lg font-semibold text-white whitespace-nowrap nowrap">Mr. Jull</h3>
+        </div>
+        <div class="flex flex-col items-center text-center bg-gray-800/80 rounded-2xl p-4 ring-1 ring-white/5 hover:ring-yellow-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img loading="lazy" src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/commissioners/Ian-Salang.jpg" alt="Mr. Ian" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-yellow-500 mb-3" />
+          <h3 class="text-lg font-semibold text-white whitespace-nowrap nowrap">Mr. Ian</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule -->
+  <section id="schedule" class="fade-in py-16 bg-gray-950 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12">Upcoming Games</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-gray-800/80 rounded-2xl p-6 text-center ring-1 ring-white/5 hover:ring-yellow-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <h3 class="text-xl font-semibold mb-2">Team A vs Team B</h3>
+          <p class="text-gray-400">Date: Oct 7, 2025</p>
+          <p class="text-gray-400">Time: 7:00 PM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-950 py-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 text-center text-gray-400">
+      <p>&copy; 2025 CEHA Basketball League. All rights reserved.</p>
+    </div>
   </footer>
 
+  <script>
+    // Fade in on scroll
+    function onScrollFadeIn() {
+      const fadeEls = document.querySelectorAll('.fade-in');
+      fadeEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('show');
+        }
+      });
+    }
+    window.addEventListener('scroll', onScrollFadeIn);
+    window.addEventListener('load', onScrollFadeIn);
+
+    // Countdown to October 7, 2025 19:00 (Asia/Manila local time on client)
+    function countdown() {
+      const countdownEl = document.getElementById('countdown');
+      if (!countdownEl) return;
+      const targetDate = new Date('October 7, 2025 19:00:00');
+      const now = new Date();
+      const diff = targetDate - now;
+      if (diff <= 0) {
+        countdownEl.textContent = "The season has started!";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+    setInterval(countdown, 1000);
+    countdown();
+  </script>
 </body>
 </html>
