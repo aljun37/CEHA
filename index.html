@@ -4,81 +4,118 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CEHA Basketball League</title>
-  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+  </style>
 </head>
-<body>
-  <header>
-    <h1>🏀 CEHA Basketball League</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#players">Players</a>
-      <a href="#commissioners">Commissioners</a>
-    </nav>
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- Header -->
+  <header class="bg-[#0A192F] text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-[#FFD700]">🏀 CEHA Basketball League</h1>
+      <nav class="space-x-6">
+        <a href="#home" class="hover:text-[#FFD700]">Home</a>
+        <a href="#players" class="hover:text-[#FFD700]">Players</a>
+        <a href="#commissioners" class="hover:text-[#FFD700]">Commissioners</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Commissioners Section -->
-  <section id="commissioners">
-    <h2>Commissioners</h2>
-    <div class="commissioner-grid">
-      <div class="comm-card">
-        <img src="images/commissioners/julius-megallos.jpg" alt="Julius Megallos">
-        <p>Julius Megallos</p>
-      </div>
-      <div class="comm-card">
-        <img src="images/commissioners/ian-salang.jpg" alt="Ian Salang">
-        <p>Ian Salang</p>
-      </div>
-    </div>
-  </section>
-
   <!-- Countdown -->
-  <section id="countdown">
-    <h2>Next Game Countdown</h2>
-    <div id="timer">Loading...</div>
+  <section id="countdown" class="text-center py-12 bg-gray-200">
+    <h2 class="text-3xl font-bold mb-4">⏳ Next Game Countdown</h2>
+    <div id="timer" class="text-2xl font-semibold text-[#0A192F]">Loading...</div>
   </section>
 
-  <!-- Player to Watch Spotlight -->
-  <section id="spotlight">
-    <h2>Player to Watch</h2>
-    <div class="player-spotlight">
-      <img src="images/players/john paul meggalos.jpg" alt="John Paul Megallos">
-      <div class="player-info">
-        <h3>John Paul Megallos</h3>
-        <p><strong>Team:</strong> SPMC Boys</p>
-        <ul>
-          <li><strong>Points:</strong> 22.3</li>
-          <li><strong>Rebounds:</strong> 8.1</li>
-          <li><strong>Assists:</strong> 5.2</li>
-          <li><strong>Steals:</strong> 2.0</li>
-          <li><strong>Blocks:</strong> 1.1</li>
-        </ul>
+  <!-- Commissioners -->
+  <section id="commissioners" class="py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-10">👔 Commissioners</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+          <img src="images/commissioners/julius-megallos.jpg" alt="Julius Megallos" class="w-32 h-32 mx-auto rounded-full mb-4">
+          <p class="text-xl font-semibold">Julius Megallos</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+          <img src="images/commissioners/ian-salang.jpg" alt="Ian Salang" class="w-32 h-32 mx-auto rounded-full mb-4">
+          <p class="text-xl font-semibold">Ian Salang</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Other Players to Watch -->
-  <section id="players">
-    <h2>Other Players to Watch</h2>
-    <div class="player-grid">
-      <div class="player-card">
-        <img src="images/players/sample1.jpg" alt="Sample Player">
-        <h3>Sample Player</h3>
-        <p>Team: CEHA1</p>
-        <p>Stats: 18 PPG, 6 REB, 4 AST</p>
-      </div>
-      <div class="player-card">
-        <img src="images/players/sample2.jpg" alt="Sample Player">
-        <h3>Sample Player 2</h3>
-        <p>Team: VA</p>
-        <p>Stats: 20 PPG, 5 REB, 7 AST</p>
+  <!-- Spotlight Player -->
+  <section id="spotlight" class="bg-gray-200 py-16">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-10">⭐ Player to Watch</h2>
+      <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col md:flex-row items-center gap-6">
+        <img src="images/players/john paul meggalos.jpg" alt="John Paul Megallos" class="w-40 h-40 rounded-full object-cover">
+        <div class="text-left">
+          <h3 class="text-2xl font-semibold">John Paul Megallos</h3>
+          <p class="text-gray-600 mb-4"><strong>Team:</strong> SPMC Boys</p>
+          <div class="grid grid-cols-5 gap-4 text-center">
+            <div><strong>22.3</strong><br><span class="text-sm text-gray-500">PPG</span></div>
+            <div><strong>8.1</strong><br><span class="text-sm text-gray-500">REB</span></div>
+            <div><strong>5.2</strong><br><span class="text-sm text-gray-500">AST</span></div>
+            <div><strong>2.0</strong><br><span class="text-sm text-gray-500">STL</span></div>
+            <div><strong>1.1</strong><br><span class="text-sm text-gray-500">BLK</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 CEHA Basketball League</p>
+  <!-- Other Players -->
+  <section id="players" class="py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-10">🔥 Other Players to Watch</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+          <img src="images/players/sample1.jpg" alt="Sample Player" class="w-28 h-28 mx-auto rounded-full mb-4">
+          <h3 class="text-xl font-semibold">Sample Player</h3>
+          <p class="text-gray-600">Team: CEHA1</p>
+          <p class="text-sm text-gray-500">18 PPG, 6 REB, 4 AST</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+          <img src="images/players/sample2.jpg" alt="Sample Player 2" class="w-28 h-28 mx-auto rounded-full mb-4">
+          <h3 class="text-xl font-semibold">Sample Player 2</h3>
+          <p class="text-gray-600">Team: VA</p>
+          <p class="text-sm text-gray-500">20 PPG, 5 REB, 7 AST</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#0A192F] text-white text-center py-6">
+    <p>© 2025 CEHA Basketball League. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Countdown Script -->
+  <script>
+    const targetDate = new Date("Aug 20, 2025 19:00:00").getTime();
+    const timer = document.getElementById("timer");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        timer.innerHTML = "Game is Live!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+
 </body>
 </html>
