@@ -23,21 +23,38 @@
 </head>
 <body class="bg-gray-900 text-white">
 
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 w-full bg-transparent text-white shadow-md z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4">
-      <div class="flex items-center justify-between">
-        <a href="#" class="text-2xl font-bold">CEHA</a>
-        <ul class="flex space-x-6 text-sm">
-          <li><a href="#home" class="hover:text-yellow-500">Home</a></li>
-          <li><a href="#teams" class="hover:text-yellow-500">Teams</a></li>
-          <li><a href="#player-to-watch" class="hover:text-yellow-500">Player to Watch</a></li>
-          <li><a href="#commissioners" class="hover:text-yellow-500">Commissioners</a></li>
-          <li><a href="#schedule" class="hover:text-yellow-500">Schedule</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md text-white shadow-md z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#" class="text-2xl font-bold">CEHA</a>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex space-x-6 text-sm">
+      <li><a href="#home" class="hover:text-yellow-500">Home</a></li>
+      <li><a href="#teams" class="hover:text-yellow-500">Teams</a></li>
+      <li><a href="#player-to-watch" class="hover:text-yellow-500">Player to Watch</a></li>
+      <li><a href="#commissioners" class="hover:text-yellow-500">Commissioners</a></li>
+      <li><a href="#schedule" class="hover:text-yellow-500">Schedule</a></li>
+    </ul>
+
+    <!-- Mobile Hamburger Button -->
+    <button id="menu-btn" class="md:hidden flex flex-col space-y-1 focus:outline-none">
+      <span class="block w-6 h-0.5 bg-white"></span>
+      <span class="block w-6 h-0.5 bg-white"></span>
+      <span class="block w-6 h-0.5 bg-white"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-6 py-4 space-y-4">
+    <a href="#home" class="block hover:text-yellow-500">Home</a>
+    <a href="#teams" class="block hover:text-yellow-500">Teams</a>
+    <a href="#player-to-watch" class="block hover:text-yellow-500">Player to Watch</a>
+    <a href="#commissioners" class="block hover:text-yellow-500">Commissioners</a>
+    <a href="#schedule" class="block hover:text-yellow-500">Schedule</a>
+  </div>
+</nav>
 
   <!-- Hero -->
   <section id="home" class="relative h-screen bg-cover bg-center transition-all duration-1000" style="background-image: url('https://raw.githubusercontent.com/aljun37/CEHA/main/images/court.jpg');">
@@ -219,5 +236,15 @@
     setInterval(countdown, 1000);
     countdown();
   </script>
+  <script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('animate__animated');
+    mobileMenu.classList.toggle('animate__fadeInDown');
+  });
+</script>
 </body>
 </html>
