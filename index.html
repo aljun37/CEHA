@@ -68,55 +68,117 @@
     </div>
   </section>
 
-<!-- League Teams (UPDATED) -->
+<!-- League Teams (FIRST) -->
 <section id="teams" class="fade-in py-16 bg-gray-800">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">League Teams</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
-
-      <!-- Team Card: AUTO Aesthetics -->
-      <div class="bg-gray-700 rounded-lg p-4 text-center text-sm hover:scale-105 hover:bg-gray-600 transition-all duration-300 cursor-pointer"
-           onclick="openModal('auto')">
-        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" alt="AUTO Aesthetics" class="w-16 h-16 mx-auto rounded-full mb-2 object-cover" />
-        <h3 class="font-semibold">AUTO Aesthetics</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      
+      <!-- Team Card -->
+      <div class="bg-gray-700 rounded-lg p-3 text-center text-sm hover:scale-105 hover:bg-gray-600 transition-all duration-300 cursor-pointer" 
+           onclick="openTeamModal('auto')">
+        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" alt="AUTO Aesthetics" 
+             class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md" />
+        <h3 class="font-semibold text-white">AUTO Aesthetics</h3>
         <p class="text-gray-400 text-xs">Countryville Cabantian</p>
       </div>
 
-      <!-- Team Card: Stitch and Wear -->
-      <div class="bg-gray-700 rounded-lg p-4 text-center text-sm hover:scale-105 hover:bg-gray-600 transition-all duration-300 cursor-pointer"
-           onclick="openModal('stitch')">
-        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/wear.jpg" alt="Stitch and Wear" class="w-16 h-16 mx-auto rounded-full mb-2 object-cover" />
-        <h3 class="font-semibold">Stitch and Wear</h3>
+      <div class="bg-gray-700 rounded-lg p-3 text-center text-sm hover:scale-105 hover:bg-gray-600 transition-all duration-300 cursor-pointer" 
+           onclick="openTeamModal('stitch')">
+        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/wear.jpg" alt="Stitch and Wear" 
+             class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md" />
+        <h3 class="font-semibold text-white">Stitch and Wear</h3>
         <p class="text-gray-400 text-xs">Bansalan</p>
       </div>
 
-      <!-- Team Card: Secret Of Eve -->
-      <div class="bg-gray-700 rounded-lg p-4 text-center text-sm hover:scale-105 hover:bg-gray-600 transition-all duration-300 cursor-pointer"
-           onclick="openModal('soe')">
-        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" alt="Secret Of Eve" class="w-16 h-16 mx-auto rounded-full mb-2 object-cover" />
-        <h3 class="font-semibold">Secret Of Eve</h3>
+      <div class="bg-gray-700 rounded-lg p-3 text-center text-sm hover:scale-105 hover:bg-gray-600 transition-all duration-300 cursor-pointer" 
+           onclick="openTeamModal('soe')">
+        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" alt="Secret Of Eve" 
+             class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md" />
+        <h3 class="font-semibold text-white">Secret Of Eve</h3>
         <p class="text-gray-400 text-xs">Emily Homes</p>
       </div>
 
-      <!-- Team Card: Wadab GuitarSpa -->
-      <div class="bg-gray-700 rounded-lg p-4 text-center text-sm hover:scale-105 hover:bg-gray-600 transition-all duration-300 cursor-pointer"
-           onclick="openModal('wadab')">
-        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/davao.jpg" alt="Wadab GuitarSpa" class="w-16 h-16 mx-auto rounded-full mb-2 object-cover" />
-        <h3 class="font-semibold">Wadab GuitarSpa</h3>
+      <div class="bg-gray-700 rounded-lg p-3 text-center text-sm hover:scale-105 hover:bg-gray-600 transition-all duration-300 cursor-pointer" 
+           onclick="openTeamModal('wadab')">
+        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/davao.jpg" alt="Wadab GuitarSpa" 
+             class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md" />
+        <h3 class="font-semibold text-white">Wadab GuitarSpa</h3>
         <p class="text-gray-400 text-xs">Northcrest</p>
       </div>
 
-      <!-- Team Card: SPMC Radiology -->
-      <div class="bg-gray-700 rounded-lg p-4 text-center text-sm hover:scale-105 hover:bg-gray-600 transition-all duration-300 cursor-pointer"
-           onclick="openModal('spmc')">
-        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" alt="SPMC" class="w-16 h-16 mx-auto rounded-full mb-2 object-cover" />
-        <h3 class="font-semibold">SPMC Radiology</h3>
+      <div class="bg-gray-700 rounded-lg p-3 text-center text-sm hover:scale-105 hover:bg-gray-600 transition-all duration-300 cursor-pointer" 
+           onclick="openTeamModal('spmc')">
+        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" alt="SPMC" 
+             class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md" />
+        <h3 class="font-semibold text-white">SPMC Radiology Dept.</h3>
         <p class="text-gray-400 text-xs">Pikit Cotabato</p>
       </div>
 
     </div>
   </div>
 </section>
+
+<!-- Team Modal -->
+<div id="teamModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+  <div class="bg-gray-800 rounded-lg p-6 max-w-md w-full relative">
+    <button class="absolute top-2 right-2 text-yellow-500 font-bold text-xl" onclick="closeTeamModal()">×</button>
+    <h3 id="teamModalTitle" class="text-2xl font-bold text-yellow-500 mb-4"></h3>
+    <p id="teamModalDesc" class="text-gray-300 mb-4"></p>
+    <h4 class="text-yellow-400 font-semibold mb-2">Team Members:</h4>
+    <ul id="teamModalMembers" class="list-disc list-inside text-gray-300"></ul>
+  </div>
+</div>
+
+<script>
+  const teamsData = {
+    auto: {
+      title: "AUTO Aesthetics",
+      desc: "Located in Countryville Cabantian, AUTO Aesthetics is known for its amazing design and service.",
+      members: ["Alice", "Bob", "Charlie"]
+    },
+    stitch: {
+      title: "Stitch and Wear",
+      desc: "A tailoring shop in Bansalan with expertise in custom garments.",
+      members: ["Diana", "Ethan", "Fiona"]
+    },
+    soe: {
+      title: "Secret Of Eve",
+      desc: "Located in Emily Homes, Secret Of Eve specializes in beauty and wellness.",
+      members: ["Grace", "Hannah", "Ivan"]
+    },
+    wadab: {
+      title: "Wadab GuitarSpa",
+      desc: "Northcrest-based GuitarSpa offering the best music therapy services.",
+      members: ["Jack", "Kara", "Leo"]
+    },
+    spmc: {
+      title: "SPMC Radiology Dept.",
+      desc: "Radiology department in Pikit Cotabato providing top healthcare services.",
+      members: ["Mia", "Noah", "Olivia"]
+    }
+  };
+
+  function openTeamModal(teamKey) {
+    const team = teamsData[teamKey];
+    document.getElementById("teamModalTitle").innerText = team.title;
+    document.getElementById("teamModalDesc").innerText = team.desc;
+    const membersList = document.getElementById("teamModalMembers");
+    membersList.innerHTML = "";
+    team.members.forEach(member => {
+      const li = document.createElement("li");
+      li.textContent = member;
+      membersList.appendChild(li);
+    });
+    document.getElementById("teamModal").classList.remove("hidden");
+    document.getElementById("teamModal").classList.add("flex");
+  }
+
+  function closeTeamModal() {
+    document.getElementById("teamModal").classList.add("hidden");
+    document.getElementById("teamModal").classList.remove("flex");
+  }
+</script>
 
 <!-- Modals -->
 <div id="teamModal" class="fixed inset-0 bg-black bg-opacity-70 hidden justify-center items-center z-50">
