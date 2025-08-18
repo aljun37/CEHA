@@ -452,5 +452,26 @@
     mobileMenu.classList.toggle('animate__fadeInDown');
   });
 </script>
+  
+  <!-- Add this inside your <script> tag or at the bottom of the page NEWLY ADD -->
+<script>
+  // Select all team cards
+  const teamCards = document.querySelectorAll('#teams .bg-gray-700');
+
+  teamCards.forEach(card => {
+    card.addEventListener('click', () => {
+      // Remove zoom from any previously clicked card
+      teamCards.forEach(c => c.classList.remove('scale-110', 'shadow-2xl', 'z-10'));
+
+      // Add zoom effect to clicked card
+      card.classList.add('scale-110', 'shadow-2xl', 'z-10');
+
+      // Optional: remove the zoom after 1.2s so user can click again
+      setTimeout(() => {
+        card.classList.remove('scale-110', 'shadow-2xl', 'z-10');
+      }, 1200);
+    });
+  });
+</script>
 </body>
 </html>
