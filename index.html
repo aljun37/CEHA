@@ -181,16 +181,81 @@
     </div>
   </section>
 
-  <!-- Schedule -->
+  <!-- Standings -->
+  <section id="standings" class="fade-in py-16 bg-gray-800">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">League Standings</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-gray-700 rounded-lg overflow-hidden">
+          <thead class="bg-gray-900">
+            <tr>
+              <th class="py-3 px-4 text-left">Team</th>
+              <th class="py-3 px-4">Wins</th>
+              <th class="py-3 px-4">Losses</th>
+              <th class="py-3 px-4">Points For</th>
+              <th class="py-3 px-4">Points Against</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hover:bg-gray-600 transition">
+              <td class="py-3 px-4 flex items-center space-x-2">
+                <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-8 h-8 rounded-full" />
+                <span>AUTO Aesthetics</span>
+              </td>
+              <td class="text-center">3</td>
+              <td class="text-center">1</td>
+              <td class="text-center">310</td>
+              <td class="text-center">280</td>
+            </tr>
+            <tr class="hover:bg-gray-600 transition">
+              <td class="py-3 px-4 flex items-center space-x-2">
+                <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/wear.jpg" class="w-8 h-8 rounded-full" />
+                <span>Stitch & Wear</span>
+              </td>
+              <td class="text-center">2</td>
+              <td class="text-center">2</td>
+              <td class="text-center">250</td>
+              <td class="text-center">245</td>
+            </tr>
+            <tr class="hover:bg-gray-600 transition">
+              <td class="py-3 px-4 flex items-center space-x-2">
+                <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" class="w-8 h-8 rounded-full" />
+                <span>Secret of Eve</span>
+              </td>
+              <td class="text-center">1</td>
+              <td class="text-center">3</td>
+              <td class="text-center">210</td>
+              <td class="text-center">280</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Improved Schedule -->
   <section id="schedule" class="fade-in py-16 bg-gray-900">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">Upcoming Games</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+        <!-- Game Card -->
         <div class="bg-gray-700 rounded-lg p-6 text-center hover:scale-105 hover:bg-gray-600 transition-all duration-300">
-          <h3 class="text-xl font-semibold mb-2">Team A vs Team B</h3>
+          <div class="flex items-center justify-center space-x-4 mb-4">
+            <div class="flex flex-col items-center">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-12 h-12 rounded-full" />
+              <p class="text-sm mt-1">AUTO Aesthetics</p>
+            </div>
+            <span class="text-xl font-bold">VS</span>
+            <div class="flex flex-col items-center">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/wear.jpg" class="w-12 h-12 rounded-full" />
+              <p class="text-sm mt-1">Stitch & Wear</p>
+            </div>
+          </div>
           <p class="text-gray-400">Date: Oct 7, 2025</p>
           <p class="text-gray-400">Time: 7:00 PM</p>
         </div>
+
       </div>
     </div>
   </section>
