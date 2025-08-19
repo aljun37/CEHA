@@ -29,15 +29,22 @@
 
 <nav class="flex items-center p-4">
   <!-- Logo -->
-  <a href="#" class="whitespace-nowrap opacity-0 animate-fadeIn flex-shrink-0">
-    <span class="text-yellow-400 font-extrabold text-xl">D</span><span class="text-red-600 font-semibold text-lg">istrict</span>
-    <span class="text-yellow-400 font-extrabold text-xl ml-1">B</span><span class="text-red-600 font-semibold text-lg">aller</span>
-    <span class="text-yellow-400 font-extrabold text-xl ml-1">I</span><span class="text-red-600 font-semibold text-lg">nvitational</span>
-    <span class="text-yellow-400 font-extrabold text-xl ml-1">L</span><span class="text-red-600 font-semibold text-lg">eague</span>
+  <a href="#" class="whitespace-nowrap opacity-0 animate-fadeIn flex-shrink-0 hover-scale">
+    <span class="font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow">D</span>
+    <span class="text-red-600 font-semibold text-lg tracking-wide text-shadow">istrict</span>
+    
+    <span class="font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow ml-1">B</span>
+    <span class="text-red-600 font-semibold text-lg tracking-wide text-shadow">aller</span>
+    
+    <span class="font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow ml-1">I</span>
+    <span class="text-red-600 font-semibold text-lg tracking-wide text-shadow">nvitational</span>
+    
+    <span class="font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow ml-1">L</span>
+    <span class="text-red-600 font-semibold text-lg tracking-wide text-shadow">eague</span>
   </a>
 </nav>
 
-<!-- Tailwind CSS Animation -->
+<!-- Tailwind CSS Animations & Effects -->
 <style>
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-5px); }
@@ -46,8 +53,20 @@
 .animate-fadeIn {
   animation: fadeIn 1s ease-in-out forwards;
 }
-</style>
 
+.hover-scale:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.glow {
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+}
+</style>
    
     <!-- Desktop Menu -->
     <ul class="hidden md:flex space-x-6 text-sm">
