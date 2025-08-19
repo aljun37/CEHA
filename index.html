@@ -240,20 +240,17 @@ observer.observe(document.querySelector('#teams'));
 <!-- Single Team Modal with Carousel -->
 <div id="teamModal" class="fixed inset-0 bg-black bg-opacity-70 hidden justify-center items-center z-50">
   <div class="bg-gray-800 rounded-lg max-w-xl w-full p-6 relative">
-    <!-- Close button -->
     <button class="absolute top-2 right-2 text-yellow-500 text-xl font-bold" onclick="closeModal()">×</button>
 
-    <!-- Team Info -->
     <div id="modalContent"></div>
 
-    <!-- Members Carousel -->
     <h4 class="text-lg font-semibold text-yellow-500 mt-4 mb-2">Team Members</h4>
-    <div class="flex items-center gap-2">
-      <button id="modalPrev" class="text-white font-bold">‹</button>
-      <div id="modalMembersCarousel" class="flex overflow-x-auto gap-2 p-1">
-        <!-- JS will inject member cards here -->
+    <div class="relative flex items-center">
+      <button id="modalPrev" class="text-yellow-500 font-bold px-2">&lt;</button>
+      <div class="overflow-hidden flex-1">
+        <div id="modalMembersCarousel" class="flex transition-transform duration-300"></div>
       </div>
-      <button id="modalNext" class="text-white font-bold">›</button>
+      <button id="modalNext" class="text-yellow-500 font-bold px-2">&gt;</button>
     </div>
   </div>
 </div>
