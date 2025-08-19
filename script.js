@@ -78,3 +78,70 @@ function closeModal() {
   document.getElementById("teamModal").classList.remove("flex");
 }
 
+//KARUSEL TEAMS _TESTING
+
+<script>
+// Modal data stays the same
+const teams = { 
+  auto: { /* ... */ }, 
+  stitch: { /* ... */ }, 
+  soe: { /* ... */ }, 
+  wadab: { /* ... */ }, 
+  spmc: { /* ... */ } 
+};
+
+function openModal(teamKey) {
+  const team = teams[teamKey];
+  const membersHTML = team.members.map(m => `
+    <div class="flex flex-col items-center text-center">
+      <img src="${m.img}" class="w-12 h-12 rounded-full mb-1" />
+      <p class="text-gray-200 text-xs">${m.name}</p>
+      <p class="text-gray-400 text-[0.55rem]">${m.role}</p>
+    </div>
+  `).join("");
+
+  document.getElementById("modalContent").innerHTML = `
+    <h3 class="text-xl font-semibold text-white mb-2">${team.name}</h3>
+    <p class="text-gray-300 mb-1"><strong>Location:</strong> ${team.location}</p>
+    <p class="text-gray-300 mb-1"><strong>Coach:</strong> ${team.coach}</p>
+    <p class="text-gray-300 mb-1"><strong>Founded:</strong> ${team.founded}</p>
+    <p class="text-gray-300 mb-1"><strong>Colors:</strong> ${team.colors}</p>
+    <h4 class="text-lg font-semibold text-yellow-500 mt-4 mb-2">Team Members</h4>
+    <div class="grid grid-cols-3 gap-2">${membersHTML}</div>
+  `;
+  document.getElementById("teamModal").classList.remove("hidden");
+  document.getElementById("teamModal").classList.add("flex");
+}
+
+function closeModal() {
+  document.getElementById("teamModal").classList.add("hidden");
+  document.getElementById("teamModal").classList.remove("flex");
+}
+
+// Carousel Buttons
+const carousel = document.getElementById('teamCarousel');
+document.getElementById('prevTeam').onclick = () => { carousel.scrollBy({ left: -200, behavior: 'smooth' }); };
+document.getElementById('nextTeam').onclick = () => { carousel.scrollBy({ left: 200, behavior: 'smooth' }); };
+
+// Center Zoom Effect
+function updateCenterCard() {
+  const carouselRect = carousel.getBoundingClientRect();
+  const center = carouselRect.left + carouselRect.width / 2;
+
+  const cards = document.querySelectorAll('.team-card');
+  cards.forEach(card => {
+    const cardRect = card.getBoundingClientRect();
+    const cardCenter = cardRect.left + cardRect.width / 2;
+    const distance = Math.abs(center - cardCenter);
+    const scale = Math.max(1, 1.3 - distance / 300); // closer to center = bigger
+    card.style.transform = `scale(${scale})`;
+    card.style.transition = 'transform 0.3s';
+    card.style.zIndex = scale > 1 ? 10 : 1;
+  });
+}
+
+// Update on scroll and on load
+carousel.addEventListener('scroll', updateCenterCard);
+window.addEventListener('load', updateCenterCard);
+
+
