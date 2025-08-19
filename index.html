@@ -241,18 +241,27 @@ observer.observe(document.querySelector('#teams'));
 <div id="teamModal" class="fixed inset-0 bg-black bg-opacity-70 hidden justify-center items-center z-50">
   <div class="bg-gray-800 rounded-lg max-w-xl w-full p-6 relative">
     <button class="absolute top-2 right-2 text-yellow-500 text-xl font-bold" onclick="closeModal()">×</button>
-    <div id="modalContent" class="text-center text-white"></div>
-    <div class="mt-4 flex items-center justify-between">
-      <button id="prevMember" class="text-yellow-500 font-bold text-2xl select-none">&lt;</button>
-      <div class="overflow-hidden flex-1 mx-2">
-        <div id="memberCarousel" class="flex transition-transform duration-500"></div>
+
+    <h3 id="modalTeamName" class="text-xl font-semibold text-white mb-2"></h3>
+    <p id="modalTeamLocation" class="text-gray-300 mb-1"></p>
+    <p id="modalTeamCoach" class="text-gray-300 mb-1"></p>
+    <p id="modalTeamFounded" class="text-gray-300 mb-1"></p>
+    <p id="modalTeamColors" class="text-gray-300 mb-1"></p>
+
+    <h4 class="text-lg font-semibold text-yellow-500 mt-4 mb-2">Team Members</h4>
+    <div class="relative">
+      <!-- Carousel wrapper -->
+      <div id="carouselWrapper" class="flex overflow-hidden">
+        <div id="carouselInner" class="flex transition-transform duration-300"></div>
       </div>
-      <button id="nextMember" class="text-yellow-500 font-bold text-2xl select-none">&gt;</button>
+
+      <!-- Carousel controls -->
+      <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 bg-opacity-50 text-white px-2 py-1 rounded">‹</button>
+      <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 bg-opacity-50 text-white px-2 py-1 rounded">›</button>
     </div>
   </div>
 </div>
 
-<script>
 const teams = {
   auto: {
     name: "AUTO Aesthetics",
