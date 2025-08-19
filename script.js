@@ -118,30 +118,3 @@ function closeModal() {
   document.getElementById("teamModal").classList.remove("flex");
 }
 
-// Carousel Buttons
-const carousel = document.getElementById('teamCarousel');
-document.getElementById('prevTeam').onclick = () => { carousel.scrollBy({ left: -200, behavior: 'smooth' }); };
-document.getElementById('nextTeam').onclick = () => { carousel.scrollBy({ left: 200, behavior: 'smooth' }); };
-
-// Center Zoom Effect
-function updateCenterCard() {
-  const carouselRect = carousel.getBoundingClientRect();
-  const center = carouselRect.left + carouselRect.width / 2;
-
-  const cards = document.querySelectorAll('.team-card');
-  cards.forEach(card => {
-    const cardRect = card.getBoundingClientRect();
-    const cardCenter = cardRect.left + cardRect.width / 2;
-    const distance = Math.abs(center - cardCenter);
-    const scale = Math.max(1, 1.3 - distance / 300); // closer to center = bigger
-    card.style.transform = `scale(${scale})`;
-    card.style.transition = 'transform 0.3s';
-    card.style.zIndex = scale > 1 ? 10 : 1;
-  });
-}
-
-// Update on scroll and on load
-carousel.addEventListener('scroll', updateCenterCard);
-window.addEventListener('load', updateCenterCard);
-
-
