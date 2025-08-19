@@ -237,11 +237,18 @@ const observer = new IntersectionObserver(entries => {
 observer.observe(document.querySelector('#teams'));
 </script>
 
-<!-- Single Team Modal -->
-<div id="teamModal" class="fixed inset-0 bg-black bg-opacity-70 hidden justify-center items-center z-50 transition-opacity duration-300">
-  <div class="bg-gray-800 rounded-lg max-w-2xl w-full p-6 relative overflow-hidden">
-    <button class="absolute top-3 right-3 text-yellow-500 text-2xl font-bold hover:text-yellow-400 transition-colors" onclick="closeModal()">×</button>
-    <div id="modalContent" class="text-center text-white max-h-[70vh] overflow-y-auto"></div>
+<!-- Single Team Modal with Carousel -->
+<div id="teamModal" class="fixed inset-0 bg-black bg-opacity-70 hidden justify-center items-center z-50">
+  <div class="bg-gray-800 rounded-lg max-w-xl w-full p-6 relative">
+    <button class="absolute top-2 right-2 text-yellow-500 text-xl font-bold" onclick="closeModal()">×</button>
+    <div id="modalContent" class="text-center text-white"></div>
+    <div class="mt-4 flex items-center justify-between">
+      <button id="prevMember" class="text-yellow-500 font-bold text-2xl select-none">&lt;</button>
+      <div class="overflow-hidden flex-1 mx-2">
+        <div id="memberCarousel" class="flex transition-transform duration-500"></div>
+      </div>
+      <button id="nextMember" class="text-yellow-500 font-bold text-2xl select-none">&gt;</button>
+    </div>
   </div>
 </div>
 
@@ -305,34 +312,59 @@ const teams = {
   }
 };
 
+let currentIndex = 0;
+
 function openModal(teamKey) {
   const team = teams[teamKey];
-  const membersHTML = team.members.map(m => `
-    <div class="flex flex-col items-center text-center p-2">
-      <img src="${m.img}" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-1 shadow-md" />
-      <p class="text-gray-200 text-sm sm:text-base font-medium">${m.name}</p>
-      <p class="text-gray-400 text-[0.65rem] sm:text-xs">${m.role}</p>
-    </div>
-  `).join("");
+  currentIndex = 0;
 
   document.getElementById("modalContent").innerHTML = `
-    <h3 class="text-2xl sm:text-3xl font-semibold text-white mb-3">${team.name}</h3>
+    <h3 class="text-xl font-semibold text-white mb-2">${team.name}</h3>
     <p class="text-gray-300 mb-1"><strong>Location:</strong> ${team.location}</p>
     <p class="text-gray-300 mb-1"><strong>Coach:</strong> ${team.coach}</p>
     <p class="text-gray-300 mb-1"><strong>Founded:</strong> ${team.founded}</p>
-    <p class="text-gray-300 mb-3"><strong>Colors:</strong> ${team.colors}</p>
-    <h4 class="text-lg sm:text-xl font-semibold text-yellow-500 mb-2">Team Members</h4>
-    <div class="grid grid-cols-3 gap-4 justify-items-center">${membersHTML}</div>
+    <p class="text-gray-300 mb-1"><strong>Colors:</strong> ${team.colors}</p>
+    <h4 class="text-lg font-semibold text-yellow-500 mt-4 mb-2">Team Members</h4>
   `;
+
+  const carousel = document.getElementById("memberCarousel");
+  carousel.innerHTML = team.members.map(m => `
+    <div class="flex-none flex flex-col items-center text-center mx-2 min-w-[80px]">
+      <img src="${m.img}" class="w-16 h-16 rounded-full mb-1" />
+      <p class="text-gray-200 text-xs">${m.name}</p>
+      <p class="text-gray-400 text-[0.55rem]">${m.role}</p>
+    </div>
+  `).join("");
 
   document.getElementById("teamModal").classList.remove("hidden");
   document.getElementById("teamModal").classList.add("flex");
+
+  updateCarousel();
 }
 
 function closeModal() {
   document.getElementById("teamModal").classList.add("hidden");
   document.getElementById("teamModal").classList.remove("flex");
 }
+
+function updateCarousel() {
+  const carousel = document.getElementById("memberCarousel");
+  const children = carousel.children.length;
+  const offset = currentIndex * 92; // width of member + margin
+  carousel.style.transform = `translateX(-${offset}px)`;
+}
+
+document.getElementById("prevMember").addEventListener("click", () => {
+  const carousel = document.getElementById("memberCarousel");
+  if(currentIndex > 0) currentIndex--;
+  updateCarousel();
+});
+
+document.getElementById("nextMember").addEventListener("click", () => {
+  const carousel = document.getElementById("memberCarousel");
+  if(currentIndex < carousel.children.length - 3) currentIndex++; // show 3 members
+  updateCarousel();
+});
 </script>
 
   <!-- Players to Watch (SECOND, with stats) -->
