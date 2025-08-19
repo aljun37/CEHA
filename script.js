@@ -1,6 +1,4 @@
-// ===========================
 // Countdown Timer
-// ===========================
 const nextGameDate = new Date("2025-08-20T18:00:00").getTime();
 const timerEl = document.getElementById("timer");
 
@@ -18,16 +16,17 @@ setInterval(() => {
   timerEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }, 1000);
 
-// ===========================
-// Main Teams Carousel
-// ===========================
+
+// Carousel Buttons TEAMS NEW
 const carousel = document.getElementById('teamCarousel');
 const prevBtn = document.getElementById('prevTeam');
 const nextBtn = document.getElementById('nextTeam');
 
+// Scroll carousel left/right
 prevBtn.onclick = () => { carousel.scrollBy({ left: -220, behavior: 'smooth' }); };
 nextBtn.onclick = () => { carousel.scrollBy({ left: 220, behavior: 'smooth' }); };
 
+// Zoom center card effect
 function zoomCenterCard() {
   const cards = document.querySelectorAll('.team-card');
   const carouselRect = carousel.getBoundingClientRect();
@@ -37,130 +36,84 @@ function zoomCenterCard() {
     const cardRect = card.getBoundingClientRect();
     const cardCenter = cardRect.left + cardRect.width / 2;
     const offset = Math.abs(centerX - cardCenter);
-    if (offset < cardRect.width / 2) card.classList.add('centered');
-    else card.classList.remove('centered');
+
+    if (offset < cardRect.width / 2) {
+      card.classList.add('centered'); // zoom & shadow
+    } else {
+      card.classList.remove('centered');
+    }
   });
 }
 
+// Run on scroll and on load
 carousel.addEventListener('scroll', zoomCenterCard);
 window.addEventListener('load', zoomCenterCard);
 
-// ===========================
-// Teams Data
-// ===========================
-const teams = {
-  auto: {
-    name: "AUTO Aesthetics",
-    location: "Countryville Cabantian",
-    coach: "John Doe",
-    founded: "2010",
-    colors: "Blue & White",
-    members: [
-      {name: "Alice", role: "Forward", img:"https://via.placeholder.com/64"},
-      {name: "Bob", role: "Goalkeeper", img:"https://via.placeholder.com/64"},
-      {name: "Charlie", role: "Defender", img:"https://via.placeholder.com/64"},
-    ]
-  },
-  stitch: {
-    name: "Stitch and Wear",
-    location: "Bansalan",
-    coach: "Jane Smith",
-    founded: "2012",
-    colors: "Red & Black",
-    members: [
-      {name: "Dave", role: "Midfielder", img:"https://via.placeholder.com/64"},
-      {name: "Eve", role: "Forward", img:"https://via.placeholder.com/64"},
-    ]
-  },
-  soe: {
-    name: "Secret Of Eve",
-    location: "Emily Homes",
-    coach: "Mark Johnson",
-    founded: "2015",
-    colors: "Green & White",
-    members: [
-      {name: "Fiona", role: "Defender", img:"https://via.placeholder.com/64"},
-      {name: "George", role: "Goalkeeper", img:"https://via.placeholder.com/64"},
-    ]
-  },
-  wadab: {
-    name: "Wadab GuitarSpa",
-    location: "Northcrest",
-    coach: "Anna Lee",
-    founded: "2013",
-    colors: "Yellow & Gray",
-    members: [
-      {name: "Hank", role: "Forward", img:"https://via.placeholder.com/64"},
-      {name: "Ivy", role: "Midfielder", img:"https://via.placeholder.com/64"},
-    ]
-  },
-  spmc: {
-    name: "SPMC Radiology",
-    location: "Pikit Cotabato",
-    coach: "Tom Brown",
-    founded: "2009",
-    colors: "Blue & Gray",
-    members: [
-      {name: "Jack", role: "Defender", img:"https://via.placeholder.com/64"},
-      {name: "Kim", role: "Forward", img:"https://via.placeholder.com/64"},
-    ]
-  }
-};
-
-// ===========================
-// Modal with Carousel for Members
-// ===========================
-let currentIndex = 0;
-
+// Modal functions (already in your script)
 function openModal(teamKey) {
   const team = teams[teamKey];
-  currentIndex = 0;
-
-  // Team info
-  document.getElementById("modalTeamName").innerText = team.name;
-  document.getElementById("modalTeamLocation").innerText = team.location;
-  document.getElementById("modalTeamCoach").innerText = team.coach;
-  document.getElementById("modalTeamFounded").innerText = team.founded;
-  document.getElementById("modalTeamColors").innerText = team.colors;
-
-  // Members carousel
-  const carousel = document.getElementById("carouselInner");
-  carousel.innerHTML = team.members.map(m => `
-    <div class="flex flex-col items-center text-center min-w-[70px] mr-2">
+  const membersHTML = team.members.map(m => `
+    <div class="flex flex-col items-center text-center">
       <img src="${m.img}" class="w-12 h-12 rounded-full mb-1" />
       <p class="text-gray-200 text-xs">${m.name}</p>
       <p class="text-gray-400 text-[0.55rem]">${m.role}</p>
     </div>
   `).join("");
 
-  // Show modal
-  const modal = document.getElementById("teamModal");
-  modal.classList.remove("hidden");
-  modal.classList.add("flex");
-
-  updateCarousel();
+  document.getElementById("modalContent").innerHTML = `
+    <h3 class="text-xl font-semibold text-white mb-2">${team.name}</h3>
+    <p class="text-gray-300 mb-1"><strong>Location:</strong> ${team.location}</p>
+    <p class="text-gray-300 mb-1"><strong>Coach:</strong> ${team.coach}</p>
+    <p class="text-gray-300 mb-1"><strong>Founded:</strong> ${team.founded}</p>
+    <p class="text-gray-300 mb-1"><strong>Colors:</strong> ${team.colors}</p>
+    <h4 class="text-lg font-semibold text-yellow-500 mt-4 mb-2">Team Members</h4>
+    <div class="grid grid-cols-3 gap-2">${membersHTML}</div>
+  `;
+  document.getElementById("teamModal").classList.remove("hidden");
+  document.getElementById("teamModal").classList.add("flex");
 }
 
-function updateCarousel() {
-  const carousel = document.getElementById("carouselInner");
-  const offset = currentIndex * 78; // width + margin
-  carousel.style.transform = `translateX(-${offset}px)`;
-}
-
-// Modal carousel navigation
-document.getElementById("prevMember").onclick = () => {
-  if(currentIndex > 0) currentIndex--;
-  updateCarousel();
-};
-document.getElementById("nextMember").onclick = () => {
-  const carousel = document.getElementById("carouselInner");
-  if(currentIndex < carousel.children.length - 3) currentIndex++;
-  updateCarousel();
-};
-
-// Close modal
 function closeModal() {
-  const modal = document.getElementById("teamModal");
-  modal.classList.add("hidden");
-  modal.classList.remove("flex");
+  document.getElementById("teamModal").classList.add("hidden");
+  document.getElementById("teamModal").classList.remove("flex");
+}
+
+//KARUSEL TEAMS _TESTING
+
+<script>
+// Modal data stays the same
+const teams = { 
+  auto: { /* ... */ }, 
+  stitch: { /* ... */ }, 
+  soe: { /* ... */ }, 
+  wadab: { /* ... */ }, 
+  spmc: { /* ... */ } 
+};
+
+function openModal(teamKey) {
+  const team = teams[teamKey];
+  const membersHTML = team.members.map(m => `
+    <div class="flex flex-col items-center text-center">
+      <img src="${m.img}" class="w-12 h-12 rounded-full mb-1" />
+      <p class="text-gray-200 text-xs">${m.name}</p>
+      <p class="text-gray-400 text-[0.55rem]">${m.role}</p>
+    </div>
+  `).join("");
+
+  document.getElementById("modalContent").innerHTML = `
+    <h3 class="text-xl font-semibold text-white mb-2">${team.name}</h3>
+    <p class="text-gray-300 mb-1"><strong>Location:</strong> ${team.location}</p>
+    <p class="text-gray-300 mb-1"><strong>Coach:</strong> ${team.coach}</p>
+    <p class="text-gray-300 mb-1"><strong>Founded:</strong> ${team.founded}</p>
+    <p class="text-gray-300 mb-1"><strong>Colors:</strong> ${team.colors}</p>
+    <h4 class="text-lg font-semibold text-yellow-500 mt-4 mb-2">Team Members</h4>
+    <div class="grid grid-cols-3 gap-2">${membersHTML}</div>
+  `;
+  document.getElementById("teamModal").classList.remove("hidden");
+  document.getElementById("teamModal").classList.add("flex");
+}
+
+function closeModal() {
+  document.getElementById("teamModal").classList.add("hidden");
+  document.getElementById("teamModal").classList.remove("flex");
 }
