@@ -99,6 +99,7 @@ footer {
   }
 }
 
+
 /* ---------- Existing CSS above stays unchanged ---------- */
 
 /* Teams Section */
@@ -147,8 +148,15 @@ footer {
   border-radius: 0.5rem;
   flex: 0 0 auto;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+}
+
+/* Zoom effect on hover */
+.team-card:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 25px rgba(255, 255, 0, 0.5);
+  z-index: 10;
 }
 
 .team-card img {
@@ -203,4 +211,5 @@ footer {
 }
 
 #modalContent p {
-  color:
+  color: #e5e7eb; /* Tailwind gray-200 */
+}
