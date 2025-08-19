@@ -209,11 +209,11 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 observer.observe(document.querySelector('#teams'));
 
-// Center zoom effect
-const carousel = document.getElementById('carousel');
+// Center zoom effect – ONLY for main team carousel
+const mainCarousel = document.getElementById('carousel');
 function updateScale() {
-  const cards = document.querySelectorAll('.team-card');
-  const center = carousel.scrollLeft + carousel.offsetWidth / 2;
+  const cards = mainCarousel.querySelectorAll('.team-card'); // scoped to main carousel
+  const center = mainCarousel.scrollLeft + mainCarousel.offsetWidth / 2;
 
   cards.forEach(card => {
     const cardCenter = card.offsetLeft + card.offsetWidth / 2;
@@ -223,9 +223,10 @@ function updateScale() {
   });
 }
 
-carousel.addEventListener('scroll', updateScale);
+mainCarousel.addEventListener('scroll', updateScale);
 window.addEventListener('resize', updateScale);
 updateScale();
+
 </script>
 
 <!-- Modal stays intact -->
