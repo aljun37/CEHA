@@ -135,46 +135,49 @@
     <h2 class="text-4xl sm:text-5xl font-extrabold text-yellow-500 mb-12 animate-fadeIn">
       DBIL TEAMS
     </h2>
-    <div class="carousel-container">
-      <div class="carousel-track">
-        <!-- Team Cards -->
-        <div class="team-card" onclick="openModal('auto')">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" alt="AUTO Aesthetics" 
-               class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md" />
-          <h3 class="font-semibold text-white">AUTO Aesthetics</h3>
-          <p class="text-gray-400 text-xs">Countryville Cabantian</p>
-        </div>
 
-        <div class="team-card" onclick="openModal('stitch')">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/wear.jpg" alt="Stitch and Wear" 
-               class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md" />
-          <h3 class="font-semibold text-white">Stitch and Wear</h3>
-          <p class="text-gray-400 text-xs">Bansalan</p>
-        </div>
-
-        <div class="team-card" onclick="openModal('soe')">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" alt="Secret Of Eve" 
-               class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md" />
-          <h3 class="font-semibold text-white">Secret Of Eve</h3>
-          <p class="text-gray-400 text-xs">Emily Homes</p>
-        </div>
-
-        <div class="team-card" onclick="openModal('wadab')">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/davao.jpg" alt="Wadab GuitarSpa" 
-               class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md" />
-          <h3 class="font-semibold text-white">Wadab GuitarSpa</h3>
-          <p class="text-gray-400 text-xs">Northcrest</p>
-        </div>
-
-        <div class="team-card" onclick="openModal('spmc')">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" alt="SPMC" 
-               class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md" />
-          <h3 class="font-semibold text-white">SPMC Radiology Dept.</h3>
-          <p class="text-gray-400 text-xs">Pikit Cotabato</p>
-        </div>
+    <!-- Teams Carousel -->
+    <div id="teamsCarousel" class="flex overflow-x-auto space-x-6 py-4 scroll-smooth">
+      <!-- Team Cards -->
+      <div class="team-card bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
+           onclick="openModal('auto')">
+        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" alt="AUTO Aesthetics" 
+             class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md transition-transform duration-500 hover:scale-110" />
+        <h3 class="font-semibold text-white transition-colors duration-300 hover:text-yellow-400">AUTO Aesthetics</h3>
+        <p class="text-gray-400 text-xs">Countryville Cabantian</p>
       </div>
-      <button class="carousel-btn prev">&lt;</button>
-      <button class="carousel-btn next">&gt;</button>
+
+      <div class="team-card bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
+           onclick="openModal('stitch')">
+        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/wear.jpg" alt="Stitch and Wear" 
+             class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md transition-transform duration-500 hover:scale-110" />
+        <h3 class="font-semibold text-white transition-colors duration-300 hover:text-yellow-400">Stitch and Wear</h3>
+        <p class="text-gray-400 text-xs">Bansalan</p>
+      </div>
+
+      <div class="team-card bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
+           onclick="openModal('soe')">
+        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" alt="Secret Of Eve" 
+             class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md transition-transform duration-500 hover:scale-110" />
+        <h3 class="font-semibold text-white transition-colors duration-300 hover:text-yellow-400">Secret Of Eve</h3>
+        <p class="text-gray-400 text-xs">Emily Homes</p>
+      </div>
+
+      <div class="team-card bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
+           onclick="openModal('wadab')">
+        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/davao.jpg" alt="Wadab GuitarSpa" 
+             class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md transition-transform duration-500 hover:scale-110" />
+        <h3 class="font-semibold text-white transition-colors duration-300 hover:text-yellow-400">Wadab GuitarSpa</h3>
+        <p class="text-gray-400 text-xs">Northcrest</p>
+      </div>
+
+      <div class="team-card bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
+           onclick="openModal('spmc')">
+        <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" alt="SPMC" 
+             class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md transition-transform duration-500 hover:scale-110" />
+        <h3 class="font-semibold text-white transition-colors duration-300 hover:text-yellow-400">SPMC Radiology Dept.</h3>
+        <p class="text-gray-400 text-xs">Pikit Cotabato</p>
+      </div>
     </div>
   </div>
 </section>
@@ -185,49 +188,102 @@
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.animate-fadeIn { animation: fadeInUp 0.8s ease forwards; }
-
-/* Carousel */
-.carousel-container { position: relative; overflow: hidden; margin: auto; }
-.carousel-track { display: flex; transition: transform 0.5s ease; }
-.team-card { flex: 0 0 200px; margin: 0 10px; background: #374151; padding: 1rem; border-radius: 0.5rem; cursor: pointer; text-align: center; transition: transform 0.3s; }
-.team-card:hover { transform: scale(1.1); }
-.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #FFD700; border: none; font-size: 2rem; cursor: pointer; padding: 0 0.5rem; border-radius: 0.25rem; }
-.prev { left: 0; } .next { right: 0; }
-
-/* Modal Zoom */
-@keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
-.modal-zoom { animation: zoomIn 0.4s ease forwards; }
+.animate-fadeIn {
+  animation: fadeInUp 0.8s ease forwards;
+}
 </style>
+
+<script>
+// Teams Carousel Zoom (centered card)
+const mainCarousel = document.getElementById('teamsCarousel');
+function updateTeamScale() {
+  const cards = mainCarousel.querySelectorAll('.team-card');
+  const center = mainCarousel.scrollLeft + mainCarousel.offsetWidth / 2;
+
+  cards.forEach(card => {
+    const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+    const distance = Math.abs(center - cardCenter);
+    const scale = Math.max(0.8, 1 - distance / 600);
+    card.style.transform = `scale(${scale})`;
+  });
+}
+mainCarousel.addEventListener('scroll', updateTeamScale);
+window.addEventListener('resize', updateTeamScale);
+updateTeamScale();
+</script>
 
 <!-- Single Team Modal -->
 <div id="teamModal" class="fixed inset-0 bg-black bg-opacity-70 hidden justify-center items-center z-50">
-  <div id="modalInner" class="bg-gray-800 rounded-lg max-w-xl w-full p-6 relative">
+  <div class="bg-gray-800 rounded-lg max-w-xl w-full p-6 relative">
     <button class="absolute top-2 right-2 text-yellow-500 text-xl font-bold" onclick="closeModal()">×</button>
     <div id="modalContent" class="text-center text-white"></div>
   </div>
 </div>
 
 <script>
-// Team data
 const teams = {
-  auto: { name: "AUTO Aesthetics", location: "Countryville Cabantian", coach: "John Doe", founded: "2010", colors: "Blue & White",
-    members: [{name: "Alice", role: "Forward", img:"https://via.placeholder.com/64"}, {name: "Bob", role: "Goalkeeper", img:"https://via.placeholder.com/64"}, {name: "Charlie", role: "Defender", img:"https://via.placeholder.com/64"}] },
-  stitch: { name: "Stitch and Wear", location: "Bansalan", coach: "Jane Smith", founded: "2012", colors: "Red & Black",
-    members: [{name: "Dave", role: "Midfielder", img:"https://via.placeholder.com/64"}, {name: "Eve", role: "Forward", img:"https://via.placeholder.com/64"}] },
-  soe: { name: "Secret Of Eve", location: "Emily Homes", coach: "Mark Johnson", founded: "2015", colors: "Green & White",
-    members: [{name: "Fiona", role: "Defender", img:"https://via.placeholder.com/64"}, {name: "George", role: "Goalkeeper", img:"https://via.placeholder.com/64"}] },
-  wadab: { name: "Wadab GuitarSpa", location: "Northcrest", coach: "Anna Lee", founded: "2013", colors: "Yellow & Gray",
-    members: [{name: "Hank", role: "Forward", img:"https://via.placeholder.com/64"}, {name: "Ivy", role: "Midfielder", img:"https://via.placeholder.com/64"}] },
-  spmc: { name: "SPMC Radiology", location: "Pikit Cotabato", coach: "Tom Brown", founded: "2009", colors: "Blue & Gray",
-    members: [{name: "Jack", role: "Defender", img:"https://via.placeholder.com/64"}, {name: "Kim", role: "Forward", img:"https://via.placeholder.com/64"}] }
+  auto: {
+    name: "AUTO Aesthetics",
+    location: "Countryville Cabantian",
+    coach: "John Doe",
+    founded: "2010",
+    colors: "Blue & White",
+    members: [
+      {name: "Alice", role: "Forward", img:"https://via.placeholder.com/64"},
+      {name: "Bob", role: "Goalkeeper", img:"https://via.placeholder.com/64"},
+      {name: "Charlie", role: "Defender", img:"https://via.placeholder.com/64"},
+    ]
+  },
+  stitch: {
+    name: "Stitch and Wear",
+    location: "Bansalan",
+    coach: "Jane Smith",
+    founded: "2012",
+    colors: "Red & Black",
+    members: [
+      {name: "Dave", role: "Midfielder", img:"https://via.placeholder.com/64"},
+      {name: "Eve", role: "Forward", img:"https://via.placeholder.com/64"},
+    ]
+  },
+  soe: {
+    name: "Secret Of Eve",
+    location: "Emily Homes",
+    coach: "Mark Johnson",
+    founded: "2015",
+    colors: "Green & White",
+    members: [
+      {name: "Fiona", role: "Defender", img:"https://via.placeholder.com/64"},
+      {name: "George", role: "Goalkeeper", img:"https://via.placeholder.com/64"},
+    ]
+  },
+  wadab: {
+    name: "Wadab GuitarSpa",
+    location: "Northcrest",
+    coach: "Anna Lee",
+    founded: "2013",
+    colors: "Yellow & Gray",
+    members: [
+      {name: "Hank", role: "Forward", img:"https://via.placeholder.com/64"},
+      {name: "Ivy", role: "Midfielder", img:"https://via.placeholder.com/64"},
+    ]
+  },
+  spmc: {
+    name: "SPMC Radiology",
+    location: "Pikit Cotabato",
+    coach: "Tom Brown",
+    founded: "2009",
+    colors: "Blue & Gray",
+    members: [
+      {name: "Jack", role: "Defender", img:"https://via.placeholder.com/64"},
+      {name: "Kim", role: "Forward", img:"https://via.placeholder.com/64"},
+    ]
+  }
 };
 
-// Modal functions
 function openModal(teamKey) {
   const team = teams[teamKey];
   const membersHTML = team.members.map(m => `
-    <div class="flex flex-col items-center text-center">
+    <div class="flex flex-col items-center text-center min-w-[80px]">
       <img src="${m.img}" class="w-12 h-12 rounded-full mb-1" />
       <p class="text-gray-200 text-xs">${m.name}</p>
       <p class="text-gray-400 text-[0.55rem]">${m.role}</p>
@@ -241,22 +297,19 @@ function openModal(teamKey) {
     <p class="text-gray-300 mb-1"><strong>Founded:</strong> ${team.founded}</p>
     <p class="text-gray-300 mb-1"><strong>Colors:</strong> ${team.colors}</p>
     <h4 class="text-lg font-semibold text-yellow-500 mt-4 mb-2">Team Members</h4>
-    <div class="grid grid-cols-3 gap-2">${membersHTML}</div>
+    <div id="playersCarousel" class="flex overflow-x-auto gap-4 py-2 scroll-smooth">
+      ${membersHTML}
+    </div>
   `;
-
-  const modal = document.getElementById("teamModal");
-  const modalInner = document.getElementById("modalInner");
-  modal.classList.remove("hidden");
-  modal.classList.add("flex");
-
-  modalInner.classList.remove("modal-zoom"); // reset animation
-  void modalInner.offsetWidth; // trigger reflow
-  modalInner.classList.add("modal-zoom");
+  document.getElementById("teamModal").classList.remove("hidden");
+  document.getElementById("teamModal").classList.add("flex");
 }
 
 function closeModal() {
-  document.getElementById("teamModal").
-
+  document.getElementById("teamModal").classList.add("hidden");
+  document.getElementById("teamModal").classList.remove("flex");
+}
+</script>
 
   <!-- Players to Watch (SECOND, with stats) -->
  <section id="player-to-watch" class="fade-in py-16 bg-gray-800">
