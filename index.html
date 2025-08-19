@@ -56,17 +56,34 @@
   </div>
 </nav>
 
-  <!-- Hero -->
-  <section id="home" class="relative h-screen bg-cover bg-center transition-all duration-1000" style="background-image: url('https://raw.githubusercontent.com/aljun37/CEHA/main/images/court.jpg');">
-    <div class="absolute inset-0 bg-black opacity-60"></div>
-    <div class="relative z-10 flex items-center justify-center h-full text-center px-6">
-      <div class="text-white max-w-lg md:max-w-xl">
-        <h1 class="text-5xl md:text-6xl font-bold mb-4 animate__animated animate__fadeIn animate__delay-1s">District Ballers Invitational League</h1>
-        <p class="text-xl md:text-2xl mb-6 animate__animated animate__fadeIn animate__delay-1.5s">Where passion meets the court</p>
-        <div id="countdown" class="text-2xl md:text-3xl font-semibold animate__animated animate__fadeIn animate__delay-2s"></div>
-      </div>
+<!-- Hero -->
+<section id="home" 
+         class="relative h-screen bg-cover bg-center transition-all duration-1000" 
+         style="background-image: url('https://raw.githubusercontent.com/aljun37/CEHA/main/images/court.jpg');">
+
+  <div class="absolute inset-0 bg-black opacity-60"></div>
+
+  <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+
+    <!-- Logo + Tagline + Countdown Group -->
+    <div>
+      <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/logo.webp" 
+           alt="District Ballers Invitational League Logo"
+           class="mx-auto mb-0 max-h-[40vh] w-auto max-w-none animate__animated animate__fadeIn animate__delay-1s">
+
+      <!-- Single tagline (tight under logo) -->
+      <p class="text-2xl md:text-4xl font-bold mt-1 mb-2 animate__animated animate__fadeIn animate__delay-1.5s">
+        Where passion meets the court
+      </p>
+
+      <!-- Countdown -->
+      <div id="countdown" 
+           class="text-2xl md:text-3xl font-semibold animate__animated animate__fadeIn animate__delay-2s"></div>
     </div>
-  </section>
+
+  </div>
+</section>
+
 
 <!-- League Teams (FIRST) -->
 <section id="teams" class="fade-in py-16 bg-gray-800">
