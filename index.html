@@ -132,8 +132,8 @@
     <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12 animate-fadeIn">D.BiL Teams</h2>
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
       
-      <!-- Team Card -->
-      <div class="team-card bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
+      <!-- Team Cards -->
+      <div class="team-card opacity-0 translate-y-6 bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
            onclick="openTeamModal('auto')">
         <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" alt="AUTO Aesthetics" 
              class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md transition-transform duration-500 hover:scale-110" />
@@ -141,7 +141,7 @@
         <p class="text-gray-400 text-xs">Countryville Cabantian</p>
       </div>
 
-      <div class="team-card bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
+      <div class="team-card opacity-0 translate-y-6 bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
            onclick="openTeamModal('stitch')">
         <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/wear.jpg" alt="Stitch and Wear" 
              class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md transition-transform duration-500 hover:scale-110" />
@@ -149,7 +149,7 @@
         <p class="text-gray-400 text-xs">Bansalan</p>
       </div>
 
-      <div class="team-card bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
+      <div class="team-card opacity-0 translate-y-6 bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
            onclick="openTeamModal('soe')">
         <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" alt="Secret Of Eve" 
              class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md transition-transform duration-500 hover:scale-110" />
@@ -157,7 +157,7 @@
         <p class="text-gray-400 text-xs">Emily Homes</p>
       </div>
 
-      <div class="team-card bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
+      <div class="team-card opacity-0 translate-y-6 bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
            onclick="openTeamModal('wadab')">
         <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/davao.jpg" alt="Wadab GuitarSpa" 
              class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md transition-transform duration-500 hover:scale-110" />
@@ -165,7 +165,7 @@
         <p class="text-gray-400 text-xs">Northcrest</p>
       </div>
 
-      <div class="team-card bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
+      <div class="team-card opacity-0 translate-y-6 bg-gray-700 rounded-lg p-4 text-center text-sm cursor-pointer transition-all duration-500 transform hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 hover:shadow-2xl"
            onclick="openTeamModal('spmc')">
         <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" alt="SPMC" 
              class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full mb-2 object-cover shadow-md transition-transform duration-500 hover:scale-110" />
@@ -179,14 +179,35 @@
 
 <!-- Animations -->
 <style>
-@keyframes fadeIn {
+@keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .animate-fadeIn {
-  animation: fadeIn 1s ease forwards;
+  animation: fadeInUp 1s ease forwards;
 }
 </style>
+
+<script>
+// Staggered animation for team cards
+const teamCards = document.querySelectorAll('.team-card');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      teamCards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.remove('opacity-0', 'translate-y-6');
+          card.classList.add('animate-fadeIn');
+        }, index * 150); // stagger delay
+      });
+      observer.disconnect(); // run once
+    }
+  });
+}, { threshold: 0.2 });
+
+observer.observe(document.querySelector('#teams'));
+</script>
 
 <!-- Team Modal -->
 <div id="teamModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
