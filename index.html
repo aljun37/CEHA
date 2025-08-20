@@ -317,9 +317,11 @@ function closeModal() {
 
 <!-- Players to Watch (SECOND, with stats) -->
 <!-- Players to Watch -->
-<section id="player-to-watch" class="fade-in py-10 bg-gray-800">
-  <div class="max-w-6xl mx-auto px-2 sm:px-4">
-    <h2 class="text-2xl md:text-3xl font-bold text-center text-yellow-500 mb-8">Players to Watch</h2>
+<section id="player-to-watch" class="fade-in py-12 bg-gray-800">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold text-center text-yellow-500 mb-6 md:mb-10">
+      Players to Watch
+    </h2>
 
     <!-- Carousel Container -->
     <div class="relative flex items-center justify-center overflow-hidden">
@@ -327,7 +329,22 @@ function closeModal() {
       <button id="prev" class="absolute left-2 text-yellow-500 hover:text-yellow-400 text-2xl md:text-3xl z-10">‹</button>
 
       <!-- Carousel Wrapper -->
-      <div id="carousel" class="flex transition-transform duration-500 ease-in-out touch-pan-x">
+      <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
+        
+        <!-- Example Player -->
+        <div class="carousel-item bg-gray-700 rounded-xl p-3 flex flex-col items-center text-center text-xs mx-1 flex-shrink-0 w-44 sm:w-48 md:w-52 transform scale-90 opacity-70 transition-all duration-500">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/john_paul_meggalos.jpg" alt="John Megallos" class="w-16 h-16 rounded-full object-cover mb-2" />
+          <h3 class="font-semibold mb-1 text-sm">John Megallos</h3>
+          <p class="text-yellow-500 text-xs mb-1">Mr. Shooter</p>
+          <p class="text-gray-400 text-xs">Position: Guard</p>
+          <p class="text-gray-400 text-xs mb-1">Team: Free Agent</p>
+          <div class="grid grid-cols-3 gap-2 mt-1">
+            <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">25.6</p></div>
+            <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">6.3</p></div>
+            <div><p class="text-xs">RPG</p><p class="text-yellow-500 font-bold">7.1</p></div>
+          </div>
+          <p class="text-xs text-gray-300 mt-2">Top performer with incredible speed and shooting skills.</p>
+        </div>
         
         <!-- Player Example -->
         <div class="carousel-item bg-gray-700 rounded-xl p-3 flex flex-col items-center text-center text-xs mx-1 flex-shrink-0 w-44 sm:w-48 md:w-52 transform scale-90 opacity-70 transition-all duration-500">
@@ -414,7 +431,7 @@ function closeModal() {
           </div>
           <p class="text-xs text-gray-300 mt-2">A thinker on the sidelines, adjusts on the fly and outsmarts opponents with clever tactics.</p>>
         </div>
-        <!-- Repeat your players here (same structure)... -->
+        <!-- Add the rest of your players here (same structure) -->
 
       </div>
 
@@ -431,49 +448,43 @@ function closeModal() {
 
   function updateCarousel() {
     const itemWidth = items[0].offsetWidth + 8; // width + margin
-    const centerOffset = (carousel.parentElement.offsetWidth / 2) - (itemWidth / 2);
+    const containerWidth = carousel.parentElement.offsetWidth;
+    const centerOffset = (containerWidth / 2) - (itemWidth / 2);
+
+    // Loop back instead of going blank
+    index = (index + items.length) % items.length;
+
     const offset = -(index * itemWidth) + centerOffset;
     carousel.style.transform = `translateX(${offset}px)`;
 
     items.forEach((item, i) => {
       if (i === index) {
-        item.classList.add('scale-105','opacity-100','z-10');
-        item.classList.remove('scale-90','opacity-70','z-0');
+        // Center item zoom in
+        item.classList.add("scale-110", "opacity-100", "z-10");
+        item.classList.remove("scale-90", "opacity-70", "z-0");
       } else {
-        item.classList.remove('scale-105','opacity-100','z-10');
-        item.classList.add('scale-90','opacity-70','z-0');
+        // Others smaller
+        item.classList.remove("scale-110", "opacity-100", "z-10");
+        item.classList.add("scale-90", "opacity-70", "z-0");
       }
     });
   }
 
-  document.getElementById('prev').addEventListener('click', () => {
+  document.getElementById("prev").addEventListener("click", () => {
     index = (index - 1 + items.length) % items.length;
     updateCarousel();
   });
 
-  document.getElementById('next').addEventListener('click', () => {
+  document.getElementById("next").addEventListener("click", () => {
     index = (index + 1) % items.length;
     updateCarousel();
   });
 
-  // Swipe support for mobile
-  let startX = 0;
-  carousel.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
-  carousel.addEventListener('touchend', (e) => {
-    const diff = e.changedTouches[0].clientX - startX;
-    if (diff > 50) {
-      index = (index - 1 + items.length) % items.length;
-      updateCarousel();
-    } else if (diff < -50) {
-      index = (index + 1) % items.length;
-      updateCarousel();
-    }
-  });
-
   // initialize
-  window.addEventListener('load', updateCarousel);
-  window.addEventListener('resize', updateCarousel);
+  window.addEventListener("load", updateCarousel);
+  window.addEventListener("resize", updateCarousel);
 </script>
+
 
     <!-- Leaderboard -->
   <section id="leaderboard" class="fade-in py-16 bg-gray-900">
