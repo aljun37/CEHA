@@ -27,74 +27,29 @@
 <nav class="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md text-white shadow-md z-50">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
- <!-- Logo -->
-<a href="#" class="whitespace-nowrap opacity-0 animate-fadeIn flex-shrink-0 hover-scale relative z-10">
-  <div class="flex flex-col items-start">
-    <div class="flex items-center">
-      <span class="font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow">D</span>
-      <span class="text-red-600 font-semibold text-lg tracking-wide text-shadow">istrict</span>
+    <nav class="flex flex-col p-4">
+      <!-- Logo -->
+      <a href="#" class="whitespace-nowrap opacity-0 animate-fadeIn flex-shrink-0 hover-scale">
+        <div class="flex flex-wrap items-baseline">
+          <span class="font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow">D</span>
+          <span class="text-red-600 font-semibold text-lg tracking-wide text-shadow">istrict</span>
 
-      <span class="font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow ml-1">B</span>
-      <span class="text-red-600 font-semibold text-lg tracking-wide text-shadow">aller</span>
+          <span class="font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow ml-1">B</span>
+          <span class="text-red-600 font-semibold text-lg tracking-wide text-shadow">aller</span>
 
-      <span class="font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow ml-1">I</span>
-      <span class="text-red-600 font-semibold text-lg tracking-wide text-shadow">nvitational</span>
+          <span class="font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow ml-1">I</span>
+          <span class="text-red-600 font-semibold text-lg tracking-wide text-shadow">nvitational</span>
 
-      <span class="font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow ml-1">L</span>
-      <span class="text-red-600 font-semibold text-lg tracking-wide text-shadow">eague</span>
-    </div>
-    <!-- New line below DBIL -->
-    <div class="mt-1 text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow animate-fadeIn">
-      BASKETBALL GAME
-    </div>
-  </div>
-</a>
+          <span class="font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow ml-1">L</span>
+          <span class="text-red-600 font-semibold text-lg tracking-wide text-shadow">eague</span>
+        </div>
+        <!-- New line below DBIL -->
+        <div class="mt-1 text-lg font-bold text-yellow-400 animate-fadeIn">
+          BASKETBALL GAME
+        </div>
+      </a>
+    </nav>
 
-    <!-- Desktop Menu -->
-    <ul class="hidden md:flex space-x-6 text-sm">
-      <li><a href="#home" class="hover:text-yellow-500">Home</a></li>
-      <li><a href="#teams" class="hover:text-yellow-500">Teams</a></li>
-      <li><a href="#player-to-watch" class="hover:text-yellow-500">Player to Watch</a></li>
-      <li><a href="#commissioners" class="hover:text-yellow-500">Commissioners</a></li>
-      <li><a href="#schedule" class="hover:text-yellow-500">Schedule</a></li>
-    </ul>
-
-    <!-- Mobile Hamburger Button -->
-    <button id="menu-btn" class="md:hidden flex flex-col space-y-1 focus:outline-none">
-      <span class="block w-6 h-0.5 bg-white"></span>
-      <span class="block w-6 h-0.5 bg-white"></span>
-      <span class="block w-6 h-0.5 bg-white"></span>
-    </button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-6 py-4 sp
-
-
-<!-- Tailwind CSS Animations & Effects -->
-<style>
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fadeIn {
-  animation: fadeIn 1s ease-in-out forwards;
-}
-
-.hover-scale:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
-}
-
-.text-shadow {
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
-
-.glow {
-  text-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
-}
-</style>
-   
     <!-- Desktop Menu -->
     <ul class="hidden md:flex space-x-6 text-sm">
       <li><a href="#home" class="hover:text-yellow-500">Home</a></li>
@@ -121,6 +76,30 @@
     <a href="#schedule" class="block hover:text-yellow-500">Schedule</a>
   </div>
 </nav>
+
+<!-- Tailwind CSS Animations & Effects -->
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.glow {
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+}
+</style>
 
 <!-- Hero -->
 <section id="home" 
