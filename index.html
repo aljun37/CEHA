@@ -431,35 +431,39 @@ function closeModal() {
 </section>
 
 <script>
-  const carousel = document.getElementById('carousel');
-  const items = document.querySelectorAll('.carousel-item');
-  let index = 0;
+ const carousel = document.getElementById('carousel');
+const items = document.querySelectorAll('.carousel-item');
+let index = 0;
+const visibleCount = 3; // Number of items visible at once
 
-  function updateCarousel() {
-    items.forEach((item, i) => {
-      if(i === index) {
-        item.classList.add('scale-110','opacity-100','z-10');
-        item.classList.remove('scale-90','opacity-70','z-0');
-      } else {
-        item.classList.remove('scale-110','opacity-100','z-10');
-        item.classList.add('scale-90','opacity-70','z-0');
-      }
-    });
-    const offset = -index * (items[0].offsetWidth + 16); // 16 = margin
-    carousel.style.transform = `translateX(${offset}px)`;
-  }
+function updateCarousel() {
+  const itemWidth = items[0].offsetWidth + 16; // 16 = margin
+  const offset = -index * itemWidth;
+  carousel.style.transform = `translateX(${offset}px)`;
 
-  document.getElementById('prev').addEventListener('click', () => {
-    index = (index - 1 + items.length) % items.length;
-    updateCarousel();
+  items.forEach((item, i) => {
+    if(i >= index && i < index + visibleCount) {
+      item.classList.add('scale-100','opacity-100','z-10');
+      item.classList.remove('scale-90','opacity-70','z-0');
+    } else {
+      item.classList.remove('scale-100','opacity-100','z-10');
+      item.classList.add('scale-90','opacity-70','z-0');
+    }
   });
+}
 
-  document.getElementById('next').addEventListener('click', () => {
-    index = (index + 1) % items.length;
-    updateCarousel();
-  });
-
+document.getElementById('prev').addEventListener('click', () => {
+  index = Math.max(0, index - 1);
   updateCarousel();
+});
+
+document.getElementById('next').addEventListener('click', () => {
+  index = Math.min(items.length - visibleCount, index + 1);
+  updateCarousel();
+});
+	
+updateCarousel();
+	
 </script>
 
     <!-- Leaderboard -->
