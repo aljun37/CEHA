@@ -23,11 +23,7 @@
 </head>
 <body class="bg-gray-900 text-white">
 
-<!-- Navigation -->
-<nav class="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md text-white shadow-md z-50">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
-<nav class="flex items-center p-4">
+<nav class="flex flex-col items-start p-4">
   <!-- Logo -->
   <a href="#" class="whitespace-nowrap opacity-0 animate-fadeIn flex-shrink-0 hover-scale">
     <span class="font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow">D</span>
@@ -42,9 +38,14 @@
     <span class="font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 glow ml-1">L</span>
     <span class="text-red-600 font-semibold text-lg tracking-wide text-shadow">eague</span>
   </a>
+
+  <!-- New Strong Animated Subtitle -->
+  <div class="mt-2 text-3xl font-extrabold uppercase tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-yellow-500 to-orange-500 animate-slideInGlow">
+    BASKETBALL GAME
+  </div>
 </nav>
 
-<!-- Tailwind CSS Animations & Effects -->
+<!-- Styles -->
 <style>
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-5px); }
@@ -54,19 +55,43 @@
   animation: fadeIn 1s ease-in-out forwards;
 }
 
+@keyframes slideInGlow {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px) scale(0.95); 
+    text-shadow: none;
+  }
+  50% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1.05); 
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 140, 0, 0.6);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+    text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+  }
+}
+.animate-slideInGlow {
+  animation: slideInGlow 1.5s ease-out forwards;
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
 .hover-scale:hover {
   transform: scale(1.05);
-  transition: transform 0.3s ease;
 }
 
 .text-shadow {
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.45);
 }
 
 .glow {
   text-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
 }
 </style>
+
    
     <!-- Desktop Menu -->
     <ul class="hidden md:flex space-x-6 text-sm">
