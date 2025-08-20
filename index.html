@@ -373,7 +373,7 @@ function closeModal() {
           </div>
           <p class="text-xs text-gray-300 mt-2">Dominates the boards with unmatched hustle and positioning.</p>
         </div>
-   <!-- Player 4 -->
+		     <!-- Player 4 -->
         <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-xs mx-2 flex-shrink-0 w-72 sm:w-60 xs:w-52 transform scale-90 opacity-70 transition-all duration-500">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/Alfe.jpg" alt="Alfe Cabilan" class="w-20 h-20 rounded-full object-cover mb-2" />
           <h3 class="font-semibold mb-1">Alfe Cabilan</h3>
@@ -387,7 +387,7 @@ function closeModal() {
           </div>
           <p class="text-xs text-gray-300 mt-2">Strategic mastermind, known for building tough defenses and motivating players to go all-out.</p>
         </div>
-		     <!-- Player 5 -->
+		  	     <!-- Player 4 -->
         <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-xs mx-2 flex-shrink-0 w-72 sm:w-60 xs:w-52 transform scale-90 opacity-70 transition-all duration-500">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/Gilbert.jpg" alt="Gilbert Gevera" class="w-20 h-20 rounded-full object-cover mb-2" />
           <h3 class="font-semibold mb-1">Gilbert Gevera</h3>
@@ -395,14 +395,14 @@ function closeModal() {
           <p class="text-gray-400 text-xs">Position: Power Forward</p>
           <p class="text-gray-400 text-xs mb-2">Team: Free Agent</p>
           <div class="grid grid-cols-3 gap-2 mt-2">
-            <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">10</p></div>
-            <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">10</p></div>
-            <div><p class="text-xs">RPG</p><p class="text-yellow-500 font-bold">10</p></div>
+            <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">20</p></div>
+            <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">25</p></div>
+            <div><p class="text-xs">RPG</p><p class="text-yellow-500 font-bold">9</p></div>
           </div>
           <p class="text-xs text-gray-300 mt-2">Clutch shooter, always calm under pressure—hits the big shots when it matters most.</p>
         </div>
 
-		   <!-- Player 4 -->
+		  	  	     <!-- Player 4 -->
         <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-xs mx-2 flex-shrink-0 w-72 sm:w-60 xs:w-52 transform scale-90 opacity-70 transition-all duration-500">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/wardi.jpg" alt="Coach Wardi" class="w-20 h-20 rounded-full object-cover mb-2" />
           <h3 class="font-semibold mb-1">Coach Wardi</h3>
@@ -410,13 +410,14 @@ function closeModal() {
           <p class="text-gray-400 text-xs">Position: COACH</p>
           <p class="text-gray-400 text-xs mb-2">Team: Free Agent</p>
           <div class="grid grid-cols-3 gap-2 mt-2">
-            <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">10</p></div>
-            <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">10</p></div>
-            <div><p class="text-xs">RPG</p><p class="text-yellow-500 font-bold">10</p></div>
+            <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">20</p></div>
+            <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">25</p></div>
+            <div><p class="text-xs">RPG</p><p class="text-yellow-500 font-bold">9</p></div>
           </div>
           <p class="text-xs text-gray-300 mt-2">A thinker on the sidelines, adjusts on the fly and outsmarts opponents with clever tactics.</p>
         </div>
-        <!-- 🔥 Add more players here using same structure -->
+
+        <!-- 🔥 Add more players here -->
 
       </div>
 
@@ -458,17 +459,11 @@ function closeModal() {
     updateCarousel();
   });
 
-  // Auto-scroll every 4s
-  setInterval(() => {
-    index = (index + 1) % items.length;
-    updateCarousel();
-  }, 4000);
-
+  // initialize
   updateCarousel();
   window.addEventListener('resize', updateCarousel);
 </script>
 
-	
 
     <!-- Leaderboard -->
   <section id="leaderboard" class="fade-in py-16 bg-gray-900">
