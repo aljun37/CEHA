@@ -315,7 +315,7 @@ function closeModal() {
 }
 </script>
 
-<!-- Players to Watch (Smooth Carousel) -->
+<!-- Players to Watch (SECOND, with stats) -->
 <section id="player-to-watch" class="fade-in py-16 bg-gray-800">
   <div class="max-w-7xl mx-auto px-4">
     <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">Players to Watch</h2>
@@ -326,51 +326,41 @@ function closeModal() {
       <button id="prev" class="absolute left-0 text-yellow-500 hover:text-yellow-400 text-3xl z-10">‹</button>
 
       <!-- Carousel Wrapper -->
-      <div id="carousel-wrapper" class="overflow-hidden w-full">
-        <div id="carousel" class="flex transition-transform duration-500 will-change-transform">
-          <!-- Example Players (Duplicate / Add more as needed) -->
-          <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-sm mx-2">
-            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/john_paul_meggalos.jpg" alt="John Megallos" class="w-24 h-24 rounded-full object-cover mb-2" />
-            <h3 class="font-semibold mb-1">John Megallos</h3>
-            <p class="text-yellow-500 text-xs mb-1">Mr. Shooter</p>
-            <p class="text-gray-400 text-xs">Position: Guard</p>
-            <p class="text-gray-400 text-xs mb-2">Team: Free Agent</p>
-            <div class="grid grid-cols-3 gap-2 mt-2">
-              <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">25.6</p></div>
-              <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">6.3</p></div>
-              <div><p class="text-xs">RPG</p><p class="text-yellow-500 font-bold">7.1</p></div>
-            </div>
-            <p class="text-xs text-gray-300 mt-2">Top performer with incredible speed and shooting skills.</p>
-          </div>
+      <div id="carousel" class="flex transition-transform duration-500">
 
-          <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-sm mx-2">
-            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/nhel_reyes.jpg" alt="Nhel Reyes" class="w-24 h-24 rounded-full object-cover mb-2" />
-            <h3 class="font-semibold mb-1">Nhel Reyes</h3>
-            <p class="text-yellow-500 text-xs mb-1">Mr. Highlights</p>
-            <p class="text-gray-400 text-xs">Position: Shooting Guard</p>
-            <p class="text-gray-400 text-xs mb-2">Team: Free Agent</p>
-            <div class="grid grid-cols-3 gap-2 mt-2">
-              <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">30.2</p></div>
-              <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">3.0</p></div>
-              <div><p class="text-xs">RPG</p><p class="text-yellow-500 font-bold">8.1</p></div>
-            </div>
-            <p class="text-xs text-gray-300 mt-2">Creates his own shot and dazzles with every possession.</p>
-          </div>
+        <!-- Player 1 -->
+        <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-sm mx-2">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/john_paul_meggalos.jpg" alt="John Megallos" class="w-20 h-20 rounded-full object-cover mb-2" />
+          <h3 class="font-semibold mb-1">John Megallos</h3>
+          <p class="text-yellow-500 text-xs mb-1">Mr. Shooter</p>
+          <p class="text-gray-400 text-xs">Position: Guard</p>
+          <p class="text-gray-400 text-xs mb-2">Team: Free Agent</p>
 
-          <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-sm mx-2">
-            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/Paolo_Lagrosa.jpg" alt="Paolo Lagrosa" class="w-24 h-24 rounded-full object-cover mb-2" />
-            <h3 class="font-semibold mb-1">Paolo Lagrosa</h3>
-            <p class="text-yellow-500 text-xs mb-1">Sakuragi</p>
-            <p class="text-gray-400 text-xs">Position: Center</p>
-            <p class="text-gray-400 text-xs mb-2">Team: Free Agent</p>
-            <div class="grid grid-cols-3 gap-2 mt-2">
-              <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">5.0</p></div>
-              <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">2.0</p></div>
-              <div><p class="text-xs">RPG</p><p class="text-yellow-500 font-bold">7.9</p></div>
-            </div>
-            <p class="text-xs text-gray-300 mt-2">Dominates the boards with unmatched hustle and positioning.</p>
+          <div class="grid grid-cols-3 gap-2 mt-2">
+            <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">25.6</p></div>
+            <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">6.3</p></div>
+            <div><p class="text-xs">RPG</p><p class="text-yellow-500 font-bold">7.1</p></div>
           </div>
-            <!-- Player 3 -->
+          <p class="text-xs text-gray-300 mt-2">Top performer with incredible speed and shooting skills.</p>
+        </div>
+
+        <!-- Player 2 -->
+        <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-sm mx-2">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/nhel_reyes.jpg" alt="Nhel Reyes" class="w-20 h-20 rounded-full object-cover mb-2" />
+          <h3 class="font-semibold mb-1">Nhel Reyes</h3>
+          <p class="text-yellow-500 text-xs mb-1">Mr. Highlights</p>
+          <p class="text-gray-400 text-xs">Position: Shooting Guard</p>
+          <p class="text-gray-400 text-xs mb-2">Team: Free Agent</p>
+
+          <div class="grid grid-cols-3 gap-2 mt-2">
+            <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">30.2</p></div>
+            <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">3.0</p></div>
+            <div><p class="text-xs">RPG</p><p class="text-yellow-500 font-bold">8.1</p></div>
+          </div>
+          <p class="text-xs text-gray-300 mt-2">Creates his own shot and dazzles with every possession.</p>
+        </div>
+		  
+		    <!-- Player 3 -->
         <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-sm mx-2 transform scale-90 opacity-70 transition-all duration-500">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/Alfe.jpg" alt="Alfe Cabilan" class="w-24 h-24 rounded-full object-cover mb-2" />
           <h3 class="font-semibold mb-1">Alfe Cabilan</h3>
@@ -417,8 +407,24 @@ function closeModal() {
           <p class="text-xs text-gray-300 mt-2">A thinker on the sidelines, adjusts on the fly and outsmarts opponents with clever tactics.</p>
         </div>
 
-          <!-- Add more players here (up to 10+) -->
+        <!-- Player 6 -->
+        <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-sm mx-2">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/Paolo_Lagrosa.jpg" alt="Paolo Lagrosa" class="w-20 h-20 rounded-full object-cover mb-2" />
+          <h3 class="font-semibold mb-1">Paolo Lagrosa</h3>
+          <p class="text-yellow-500 text-xs mb-1">Sakuragi</p>
+          <p class="text-gray-400 text-xs">Position: Center</p>
+          <p class="text-gray-400 text-xs mb-2">Team: Free Agent</p>
+
+          <div class="grid grid-cols-3 gap-2 mt-2">
+            <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">5.0</p></div>
+            <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">2.0</p></div>
+            <div><p class="text-xs">RPG</p><p class="text-yellow-500 font-bold">7.9</p></div>
+          </div>
+          <p class="text-xs text-gray-300 mt-2">Dominates the boards with unmatched hustle and positioning.</p>
         </div>
+
+        <!-- Add more players here as needed -->
+
       </div>
 
       <!-- Right Arrow -->
@@ -429,38 +435,37 @@ function closeModal() {
 
 <style>
 .carousel-item {
-  flex: 0 0 200px; /* Width of each player card */
+  flex: 0 0 25%;
   margin: 0 8px;
   transition: transform 0.5s ease, opacity 0.5s ease;
-  transform: scale(0.9);
+  transform: scale(0.85);
   opacity: 0.7;
 }
 .carousel-item.active {
-  transform: scale(1.05);
+  transform: scale(1);
   opacity: 1;
   z-index: 10;
 }
+@media (max-width: 1024px) { .carousel-item { flex: 0 0 35%; } }
+@media (max-width: 768px) { .carousel-item { flex: 0 0 55%; } }
+@media (max-width: 480px) { .carousel-item { flex: 0 0 75%; } }
 </style>
 
 <script>
 const carousel = document.getElementById('carousel');
-const items = Array.from(document.querySelectorAll('.carousel-item'));
+const items = document.querySelectorAll('.carousel-item');
 let index = 0;
-const visibleCount = 3; // number of players visible at once
 
 function updateCarousel() {
-  const itemWidth = items[0].offsetWidth + 16; // width + margin
-  const totalWidth = items.length * itemWidth;
-  const centerOffset = ((visibleCount - 1) / 2) * itemWidth;
-
   items.forEach((item, i) => {
-    item.classList.remove('active');
-    if (i === index) item.classList.add('active');
+    if(i === index) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
   });
-
-  let offset = index * itemWidth - centerOffset;
-  offset = Math.min(Math.max(0, offset), totalWidth - itemWidth * visibleCount); // keep within bounds
-  carousel.style.transform = `translateX(${-offset}px)`;
+  const offset = -index * (items[0].offsetWidth + 16);
+  carousel.style.transform = `translateX(${offset}px)`;
 }
 
 document.getElementById('prev').addEventListener('click', () => {
@@ -473,7 +478,6 @@ document.getElementById('next').addEventListener('click', () => {
   updateCarousel();
 });
 
-window.addEventListener('resize', updateCarousel); // recalc on resize
 updateCarousel();
 </script>
 
