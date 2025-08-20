@@ -315,8 +315,8 @@ function closeModal() {
 }
 </script>
 
-<!-- Players to Watch (Updated Carousel) -->
-<section id="player-to-watch" class="fade-in py-16 bg-gray-800">
+  <!-- Players to Watch (SECOND, with stats) -->
+ <section id="player-to-watch" class="fade-in py-16 bg-gray-800">
   <div class="max-w-7xl mx-auto px-4">
     <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">Players to Watch</h2>
 
@@ -326,13 +326,16 @@ function closeModal() {
       <button id="prev" class="absolute left-0 text-yellow-500 hover:text-yellow-400 text-3xl z-10">‹</button>
 
       <!-- Carousel Wrapper -->
-      <div id="carousel" class="flex transition-transform duration-500">
-        <!-- Player Items -->
+      <div id="carousel" class="flex transition-transform duration-500 perspective-1000">
+
+        <!-- Player 1 -->
         <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-sm mx-2 transform scale-90 opacity-70 transition-all duration-500">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/john_paul_meggalos.jpg" alt="John Megallos" class="w-24 h-24 rounded-full object-cover mb-2" />
-          <h3 class="font-semibold mb-1 text-base">John Megallos</h3>
+          <h3 class="font-semibold mb-1">John Megallos</h3>
           <p class="text-yellow-500 text-xs mb-1">Mr. Shooter</p>
-          <p class="text-gray-400 text-xs">Guard | Free Agent</p>
+          <p class="text-gray-400 text-xs">Position: Guard</p>
+          <p class="text-gray-400 text-xs mb-2">Team: Free Agent</p>
+
           <div class="grid grid-cols-3 gap-2 mt-2">
             <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">25.6</p></div>
             <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">6.3</p></div>
@@ -341,11 +344,14 @@ function closeModal() {
           <p class="text-xs text-gray-300 mt-2">Top performer with incredible speed and shooting skills.</p>
         </div>
 
+        <!-- Player 2 -->
         <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-sm mx-2 transform scale-90 opacity-70 transition-all duration-500">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/nhel_reyes.jpg" alt="Nhel Reyes" class="w-24 h-24 rounded-full object-cover mb-2" />
-          <h3 class="font-semibold mb-1 text-base">Nhel Reyes</h3>
+          <h3 class="font-semibold mb-1">Nhel Reyes</h3>
           <p class="text-yellow-500 text-xs mb-1">Mr. Highlights</p>
-          <p class="text-gray-400 text-xs">Shooting Guard | Free Agent</p>
+          <p class="text-gray-400 text-xs">Position: Shooting Guard</p>
+          <p class="text-gray-400 text-xs mb-2">Team: Free Agent</p>
+
           <div class="grid grid-cols-3 gap-2 mt-2">
             <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">30.2</p></div>
             <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">3.0</p></div>
@@ -354,55 +360,22 @@ function closeModal() {
           <p class="text-xs text-gray-300 mt-2">Creates his own shot and dazzles with every possession.</p>
         </div>
 
-        <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-sm mx-2 transform scale-90 opacity-70 transition-all duration-500">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/Alfe.jpg" alt="Alfe Cabilan" class="w-24 h-24 rounded-full object-cover mb-2" />
-          <h3 class="font-semibold mb-1 text-base">Alfe Cabilan</h3>
-          <p class="text-yellow-500 text-xs mb-1">The General</p>
-          <p class="text-gray-400 text-xs">Guard | Free Agent</p>
-          <div class="grid grid-cols-3 gap-2 mt-2">
-            <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">10.2</p></div>
-            <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">10.0</p></div>
-            <div><p class="text-xs">RPG</p><p class="text-yellow-500 font-bold">10.1</p></div>
-          </div>
-          <p class="text-xs text-gray-300 mt-2">Strategic mastermind, known for building tough defenses and motivating players.</p>
-        </div>
-
-        <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-sm mx-2 transform scale-90 opacity-70 transition-all duration-500">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/Gilbert.jpg" alt="Gilbert Gevera" class="w-24 h-24 rounded-full object-cover mb-2" />
-          <h3 class="font-semibold mb-1 text-base">Gilbert Gevera</h3>
-          <p class="text-yellow-500 text-xs mb-1">Iceman</p>
-          <p class="text-gray-400 text-xs">Power Forward | Free Agent</p>
-          <div class="grid grid-cols-3 gap-2 mt-2">
-            <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">15.2</p></div>
-            <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">15.0</p></div>
-            <div><p class="text-xs">RPG</p><p class="text-yellow-500 font-bold">15.1</p></div>
-          </div>
-          <p class="text-xs text-gray-300 mt-2">Clutch shooter, always calm under pressure.</p>
-        </div>
-
-        <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-sm mx-2 transform scale-90 opacity-70 transition-all duration-500">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/wardi.jpg" alt="Coach Wardi" class="w-24 h-24 rounded-full object-cover mb-2" />
-          <h3 class="font-semibold mb-1 text-base">Coach Wardi</h3>
-          <p class="text-yellow-500 text-xs mb-1">The Strategist</p>
-          <p class="text-gray-400 text-xs">Coach | Free Agent</p>
-          <div class="grid grid-cols-3 gap-2 mt-2">
-            <div><p class="text-xs">Championship</p><p class="text-yellow-500 font-bold">60-5</p></div>
-          </div>
-          <p class="text-xs text-gray-300 mt-2">Adjusts on the fly and outsmarts opponents with clever tactics.</p>
-        </div>
-
+        <!-- Player 3 -->
         <div class="carousel-item bg-gray-700 rounded-xl p-4 flex flex-col items-center text-center text-sm mx-2 transform scale-90 opacity-70 transition-all duration-500">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/Paolo_Lagrosa.jpg" alt="Paolo Lagrosa" class="w-24 h-24 rounded-full object-cover mb-2" />
-          <h3 class="font-semibold mb-1 text-base">Paolo Lagrosa</h3>
+          <h3 class="font-semibold mb-1">Paolo Lagrosa</h3>
           <p class="text-yellow-500 text-xs mb-1">Sakuragi</p>
-          <p class="text-gray-400 text-xs">Center | Free Agent</p>
+          <p class="text-gray-400 text-xs">Position: Center</p>
+          <p class="text-gray-400 text-xs mb-2">Team: Free Agent</p>
+
           <div class="grid grid-cols-3 gap-2 mt-2">
             <div><p class="text-xs">PPG</p><p class="text-yellow-500 font-bold">5.0</p></div>
             <div><p class="text-xs">APG</p><p class="text-yellow-500 font-bold">2.0</p></div>
             <div><p class="text-xs">RPG</p><p class="text-yellow-500 font-bold">7.9</p></div>
           </div>
-          <p class="text-xs text-gray-300 mt-2">Dominates the boards with unmatched hustle.</p>
+          <p class="text-xs text-gray-300 mt-2">Dominates the boards with unmatched hustle and positioning.</p>
         </div>
+
       </div>
 
       <!-- Right Arrow -->
@@ -415,31 +388,28 @@ function closeModal() {
   const carousel = document.getElementById('carousel');
   const items = document.querySelectorAll('.carousel-item');
   let index = 0;
-  const visibleCount = 3; // Number of items visible at once
 
   function updateCarousel() {
-    const itemWidth = items[0].offsetWidth + 16; // 16 = margin
-    const offset = -index * itemWidth;
-    carousel.style.transform = `translateX(${offset}px)`;
-
     items.forEach((item, i) => {
-      if (i >= index && i < index + visibleCount) {
-        item.classList.add('scale-100','opacity-100','z-10');
+      if(i === index) {
+        item.classList.add('scale-110','opacity-100','z-10');
         item.classList.remove('scale-90','opacity-70','z-0');
       } else {
-        item.classList.remove('scale-100','opacity-100','z-10');
+        item.classList.remove('scale-110','opacity-100','z-10');
         item.classList.add('scale-90','opacity-70','z-0');
       }
     });
+    const offset = -index * (items[0].offsetWidth + 16); // 16 = margin
+    carousel.style.transform = `translateX(${offset}px)`;
   }
 
   document.getElementById('prev').addEventListener('click', () => {
-    index = Math.max(0, index - 1);
+    index = (index - 1 + items.length) % items.length;
     updateCarousel();
   });
 
   document.getElementById('next').addEventListener('click', () => {
-    index = Math.min(items.length - visibleCount, index + 1);
+    index = (index + 1) % items.length;
     updateCarousel();
   });
 
