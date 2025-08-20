@@ -325,10 +325,10 @@ function closeModal() {
 
     <!-- Scrollable Carousel -->
     <div id="carousel" 
-         class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide space-x-4 px-4">
+         class="flex overflow-x-auto scroll-smooth scrollbar-hide space-x-4 px-4">
       
       <!-- Player 1 -->
-      <div class="carousel-item snap-center bg-gray-700 rounded-xl p-3 flex flex-col items-center text-center text-xs flex-shrink-0 w-32 sm:w-40 md:w-48 transition-all duration-300">
+      <div class="carousel-item bg-gray-700 rounded-xl p-3 flex flex-col items-center text-center text-xs flex-shrink-0 w-28 sm:w-36 md:w-44 transition-all duration-300 cursor-pointer">
         <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/john_paul_meggalos.jpg" 
              alt="John Megallos" 
              class="w-16 h-16 rounded-full object-cover mb-2" />
@@ -345,7 +345,7 @@ function closeModal() {
       </div>
 
       <!-- Player 2 -->
-      <div class="carousel-item snap-center bg-gray-700 rounded-xl p-3 flex flex-col items-center text-center text-xs flex-shrink-0 w-32 sm:w-40 md:w-48 transition-all duration-300">
+      <div class="carousel-item bg-gray-700 rounded-xl p-3 flex flex-col items-center text-center text-xs flex-shrink-0 w-28 sm:w-36 md:w-44 transition-all duration-300 cursor-pointer">
         <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/nhel_reyes.jpg" 
              alt="Nhel Reyes" 
              class="w-16 h-16 rounded-full object-cover mb-2" />
@@ -458,6 +458,7 @@ function closeModal() {
   window.addEventListener("load", highlightCenter);
   window.addEventListener("resize", highlightCenter);
 </script>
+
 
     <!-- Leaderboard -->
   <section id="leaderboard" class="fade-in py-16 bg-gray-900">
