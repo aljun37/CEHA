@@ -134,12 +134,37 @@
   
 <!-- League Teams Carousel -->
 <!-- League Teams -->
-<section id="teams" class="py-20 bg-gray-900">
+<section id="teams" class="py-20 bg-gray-900 relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-6 text-center">
-    <!-- Title -->
-    <h2 class="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-yellow-400 to-yellow-600 text-transparent bg-clip-text drop-shadow-lg mb-12 animate-fadeIn">
-      Meet the DBIL Teams
+    <!-- Title with animation -->
+    <h2 class="relative inline-block text-4xl sm:text-5xl font-extrabold 
+               bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 
+               text-transparent bg-clip-text drop-shadow-xl 
+               animate-fadeIn tracking-wide">
+
+      <span class="animate-pulse">⚡</span> Meet the DBIL Teams <span class="animate-pulse">⚡</span>
     </h2>
+
+    <!-- Animated underline -->
+    <div class="mt-4 h-1 w-40 mx-auto bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full animate-pulse"></div>
+
+    <!-- Floating background glow -->
+    <div class="absolute inset-0 -z-10 opacity-20">
+      <div class="w-72 h-72 bg-yellow-500 rounded-full blur-3xl mx-auto animate-bounce-slow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Custom keyframe for slow bounce -->
+<style>
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 6s infinite;
+}
+</style>
 
     <!-- Teams Carousel -->
     <div id="teamsCarousel" class="flex overflow-x-auto space-x-6 py-4 scroll-smooth">
