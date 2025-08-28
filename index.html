@@ -508,7 +508,7 @@ function closeModal() {
   window.addEventListener("resize", highlightCenter);
 </script>
 	
-	<!-- Random Game Photo Viewer -->
+<!-- Random Game Photo Gallery -->
 <section id="random-gallery" class="py-12 bg-gray-900">
   <div class="max-w-4xl mx-auto px-4 text-center">
     <h2 class="text-3xl font-bold text-yellow-500 mb-6">
@@ -518,7 +518,7 @@ function closeModal() {
     <!-- Image Display Area -->
     <div class="flex justify-center">
       <img id="randomImage"
-           src=""
+           src="images/game1/1.jpg" <!-- initial image -->
            alt="Game"
            class="rounded-lg shadow-lg max-h-[70vh] object-contain transition-opacity duration-500 ease-in-out">
     </div>
@@ -532,27 +532,41 @@ function closeModal() {
 </section>
 
 <script>
-  let gameImages = [];
+  // ----------------------------
+  // MANUAL IMAGE ARRAY
+  // ----------------------------
+  const gameImages = [
+    "images/game1a/1.jpg",
+    "images/game1a/2.jpg",
+    "images/game1a/3.jpg",
+    "images/game1a/4.jpg",
+    "images/game1a/5.jpg"
+	"images/game1a/6.jpg"
+	"images/game1a/7.jpg"
+    // Add more images here as needed
+  ];
 
-  // Fetch all JPGs from folder automatically via PHP
-  fetch("get-images.php")
-    .then(res => res.json())
-    .then(data => {
-      gameImages = data;
-      showRandomImage(); // Show first random image
-    });
-
+  // ----------------------------
+  // FUNCTION TO SHOW RANDOM IMAGE
+  // ----------------------------
   function showRandomImage() {
     if (gameImages.length === 0) return;
+
     const randomIndex = Math.floor(Math.random() * gameImages.length);
     const imgElement = document.getElementById("randomImage");
 
+    // Fade-out and fade-in transition
     imgElement.style.opacity = 0;
     setTimeout(() => {
       imgElement.src = gameImages[randomIndex];
       imgElement.style.opacity = 1;
     }, 300);
   }
+
+  // ----------------------------
+  // OPTIONAL: Show first random image on load
+  // ----------------------------
+  window.addEventListener("load", showRandomImage);
 </script>
 
     <!-- Leaderboard -->
