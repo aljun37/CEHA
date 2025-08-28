@@ -507,7 +507,53 @@ function closeModal() {
   window.addEventListener("load", highlightCenter);
   window.addEventListener("resize", highlightCenter);
 </script>
+	
+	<!-- Random Game Photo Viewer -->
+<section id="random-gallery" class="py-12 bg-gray-900">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold text-yellow-500 mb-6">
+      Game Photo Gallery
+    </h2>
 
+    <!-- Image Display Area -->
+    <div class="flex justify-center">
+      <img id="randomImage"
+           src=""
+           alt="Game"
+           class="rounded-lg shadow-lg max-h-[70vh] object-contain transition-opacity duration-500 ease-in-out">
+    </div>
+
+    <!-- Show Random Button -->
+    <button onclick="showRandomImage()"
+            class="mt-6 px-6 py-2 bg-yellow-500 text-black font-semibold rounded-lg shadow-md hover:bg-yellow-400 transition-colors">
+      Show Another Picture
+    </button>
+  </div>
+</section>
+
+<script>
+  let gameImages = [];
+
+  // Fetch all JPGs from folder automatically via PHP
+  fetch("get-images.php")
+    .then(res => res.json())
+    .then(data => {
+      gameImages = data;
+      showRandomImage(); // Show first random image
+    });
+
+  function showRandomImage() {
+    if (gameImages.length === 0) return;
+    const randomIndex = Math.floor(Math.random() * gameImages.length);
+    const imgElement = document.getElementById("randomImage");
+
+    imgElement.style.opacity = 0;
+    setTimeout(() => {
+      imgElement.src = gameImages[randomIndex];
+      imgElement.style.opacity = 1;
+    }, 300);
+  }
+</script>
 
     <!-- Leaderboard -->
   <section id="leaderboard" class="fade-in py-16 bg-gray-900">
