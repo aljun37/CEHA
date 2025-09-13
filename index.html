@@ -510,26 +510,30 @@ function closeModal() {
 	
 <!-- Random Game Photo Gallery -->
 <section id="random-gallery" class="py-12 bg-gray-900">
-  <div class="max-w-4xl mx-auto px-4 text-center">
+  <div class="max-w-5xl mx-auto px-4 text-center">
     <h2 class="text-3xl font-bold text-yellow-500 mb-6">
       Game Photo Gallery
     </h2>
 
-    <!-- Game Selector -->
-    <div class="mb-4">
-      <select id="gameSelect" class="px-4 py-2 rounded-lg text-black">
-        <option value="game1">Game 1</option>
-        <option value="game2">Game 2</option>
-        <option value="game3">Game 3</option>
-      </select>
+    <!-- Game Selector as Folder Cards -->
+    <div id="gameSelector" class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+      <div class="game-card cursor-pointer bg-gray-800 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-500 transition-all p-4 text-center" data-game="game1">
+        <img src="images/game1a/1.jpg" alt="Game 1" class="mx-auto rounded-md max-h-32 mb-2 object-cover">
+        <span class="text-yellow-400 font-semibold">Game 1</span>
+      </div>
+      <div class="game-card cursor-pointer bg-gray-800 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-500 transition-all p-4 text-center" data-game="game2">
+        <img src="images/game2a/1.jpg" alt="Game 2" class="mx-auto rounded-md max-h-32 mb-2 object-cover">
+        <span class="text-yellow-400 font-semibold">Game 2</span>
+      </div>
+      <div class="game-card cursor-pointer bg-gray-800 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-500 transition-all p-4 text-center" data-game="game3">
+        <img src="images/game3a/1.jpg" alt="Game 3" class="mx-auto rounded-md max-h-32 mb-2 object-cover">
+        <span class="text-yellow-400 font-semibold">Game 3</span>
+      </div>
     </div>
 
     <!-- Image Display Area -->
     <div class="flex justify-center relative">
-      <img id="randomImage"
-           src=""
-           alt="Game"
-           class="rounded-lg shadow-lg max-h-[70vh] object-contain transition-opacity duration-500 ease-in-out">
+      <img id="randomImage" src="" alt="Game" class="rounded-lg shadow-lg max-h-[70vh] object-contain transition-opacity duration-500 ease-in-out">
     </div>
 
     <!-- Image Counter -->
@@ -553,54 +557,38 @@ function closeModal() {
   // ----------------------------
   const gameImages = {
     game1: [
-      "images/game1a/1.jpg",
-      "images/game1a/2.jpg",
-      "images/game1a/3.jpg",
-      "images/game1a/4.jpg",
-      "images/game1a/5.jpg",
-      "images/game1a/6.jpg",
-      "images/game1a/7.jpg"
+      "images/game1a/1.jpg","images/game1a/2.jpg","images/game1a/3.jpg",
+      "images/game1a/4.jpg","images/game1a/5.jpg","images/game1a/6.jpg","images/game1a/7.jpg"
     ],
     game2: [
-      "images/game2a/1.jpg",
-      "images/game2a/2.jpg",
-      "images/game2a/3.jpg",
-      "images/game2a/4.jpg",
-      "images/game2a/5.jpg",
-      "images/game2a/6.jpg",
-      "images/game2a/7.jpg",
-      "images/game2a/8.jpg",
-      "images/game2a/9.jpg"
+      "images/game2a/1.jpg","images/game2a/2.jpg","images/game2a/3.jpg",
+      "images/game2a/4.jpg","images/game2a/5.jpg","images/game2a/6.jpg",
+      "images/game2a/7.jpg","images/game2a/8.jpg","images/game2a/9.jpg"
     ],
     game3: [
-      "images/game3a/1.jpg",
-      "images/game3a/2.jpg",
-      "images/game3a/3.jpg",
-      "images/game3a/4.jpg",
-      "images/game3a/5.jpg",
-      "images/game3a/6.jpg",
-      "images/game3a/7.jpg",
-      "images/game3a/8.jpg"
+      "images/game3a/1.jpg","images/game3a/2.jpg","images/game3a/3.jpg",
+      "images/game3a/4.jpg","images/game3a/5.jpg","images/game3a/6.jpg",
+      "images/game3a/7.jpg","images/game3a/8.jpg"
     ]
   };
 
   const imgElement = document.getElementById("randomImage");
-  const gameSelect = document.getElementById("gameSelect");
+  const imageCounter = document.getElementById("imageCounter");
   const showButton = document.getElementById("showButton");
   const pauseButton = document.getElementById("pauseButton");
-  const imageCounter = document.getElementById("imageCounter");
+  const gameCards = document.querySelectorAll(".game-card");
 
+  let currentGame = "game1"; // default game
+  let currentIndex = 0;
   let autoRotateInterval;
   let userActiveTimeout;
-  let currentIndex = 0;
   let isPaused = false;
 
   // ----------------------------
-  // FUNCTION TO SHOW RANDOM IMAGE
+  // SHOW RANDOM IMAGE FUNCTION
   // ----------------------------
   function showRandomImage() {
-    const selectedGame = gameSelect.value;
-    const images = gameImages[selectedGame];
+    const images = gameImages[currentGame];
     if (!images || images.length === 0) return;
 
     currentIndex = Math.floor(Math.random() * images.length);
@@ -609,15 +597,8 @@ function closeModal() {
     setTimeout(() => {
       imgElement.src = images[currentIndex];
       imgElement.style.opacity = 1;
-      updateCounter(images.length);
+      imageCounter.textContent = `${currentIndex + 1} of ${images.length}`;
     }, 300);
-  }
-
-  // ----------------------------
-  // UPDATE IMAGE COUNTER
-  // ----------------------------
-  function updateCounter(total) {
-    imageCounter.textContent = `${currentIndex + 1} of ${total}`;
   }
 
   // ----------------------------
@@ -625,9 +606,7 @@ function closeModal() {
   // ----------------------------
   function startAutoRotate() {
     stopAutoRotate();
-    if (!isPaused) {
-      autoRotateInterval = setInterval(showRandomImage, 5000);
-    }
+    if (!isPaused) autoRotateInterval = setInterval(showRandomImage, 5000);
   }
 
   function stopAutoRotate() {
@@ -646,24 +625,32 @@ function closeModal() {
   pauseButton.addEventListener("click", () => {
     isPaused = !isPaused;
     pauseButton.textContent = isPaused ? "Play" : "Pause";
-    if (isPaused) {
-      stopAutoRotate();
-    } else {
-      startAutoRotate();
-    }
+    if (isPaused) stopAutoRotate();
+    else startAutoRotate();
   });
 
   // ----------------------------
-  // EVENT LISTENERS
+  // SHOW BUTTON
   // ----------------------------
-  gameSelect.addEventListener("change", () => {
-    showRandomImage();
-    userInteraction();
-  });
-
   showButton.addEventListener("click", () => {
     showRandomImage();
     userInteraction();
+  });
+
+  // ----------------------------
+  // GAME CARD SELECTION
+  // ----------------------------
+  gameCards.forEach(card => {
+    card.addEventListener("click", () => {
+      gameCards.forEach(c => c.classList.remove("bg-yellow-500"));
+      gameCards.forEach(c => c.classList.add("bg-gray-800"));
+      card.classList.add("bg-yellow-500");
+      card.classList.remove("bg-gray-800");
+
+      currentGame = card.dataset.game;
+      showRandomImage();
+      userInteraction();
+    });
   });
 
   // ----------------------------
