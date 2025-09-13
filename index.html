@@ -537,20 +537,20 @@ function closeModal() {
     <!-- Image Display Area -->
     <div class="flex justify-center mb-2">
       <img id="randomImage" src="" alt="Game"
-           class="rounded-lg shadow-lg max-h-[60vh] w-full object-contain transition-opacity duration-500 ease-in-out">
+           class="rounded-lg shadow-lg max-h-[60vh] w-full object-contain transition-opacity duration-500 ease-in-out transform">
     </div>
 
     <!-- Image Counter -->
-    <div id="imageCounter" class="mb-4 text-yellow-400 font-semibold text-lg"></div>
+    <div id="imageCounter" class="mb-4 text-yellow-400 font-semibold text-lg transition-transform duration-300"></div>
 
     <!-- Buttons -->
     <div class="flex flex-col sm:flex-row justify-center gap-4">
       <button id="showButton"
-              class="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition-colors w-full sm:w-auto">
+              class="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition-transform duration-200 w-full sm:w-auto">
         Show Another Picture
       </button>
       <button id="pauseButton"
-              class="px-6 py-3 bg-gray-700 text-yellow-400 font-semibold rounded-lg hover:bg-gray-600 transition-colors w-full sm:w-auto">
+              class="px-6 py-3 bg-gray-700 text-yellow-400 font-semibold rounded-lg hover:bg-gray-600 transition-transform duration-200 w-full sm:w-auto">
         Pause
       </button>
     </div>
@@ -558,24 +558,10 @@ function closeModal() {
 </section>
 
 <script>
-  // ----------------------------
-  // IMAGE ARRAYS FOR EACH GAME
-  // ----------------------------
   const gameImages = {
-    game1: [
-      "images/game1a/1.jpg","images/game1a/2.jpg","images/game1a/3.jpg",
-      "images/game1a/4.jpg","images/game1a/5.jpg","images/game1a/6.jpg","images/game1a/7.jpg"
-    ],
-    game2: [
-      "images/game2a/1.jpg","images/game2a/2.jpg","images/game2a/3.jpg",
-      "images/game2a/4.jpg","images/game2a/5.jpg","images/game2a/6.jpg",
-      "images/game2a/7.jpg","images/game2a/8.jpg","images/game2a/9.jpg"
-    ],
-    game3: [
-      "images/game3a/1.jpg","images/game3a/2.jpg","images/game3a/3.jpg",
-      "images/game3a/4.jpg","images/game3a/5.jpg","images/game3a/6.jpg",
-      "images/game3a/7.jpg","images/game3a/8.jpg"
-    ]
+    game1: ["images/game1a/1.jpg","images/game1a/2.jpg","images/game1a/3.jpg","images/game1a/4.jpg","images/game1a/5.jpg","images/game1a/6.jpg","images/game1a/7.jpg"],
+    game2: ["images/game2a/1.jpg","images/game2a/2.jpg","images/game2a/3.jpg","images/game2a/4.jpg","images/game2a/5.jpg","images/game2a/6.jpg","images/game2a/7.jpg","images/game2a/8.jpg","images/game2a/9.jpg"],
+    game3: ["images/game3a/1.jpg","images/game3a/2.jpg","images/game3a/3.jpg","images/game3a/4.jpg","images/game3a/5.jpg","images/game3a/6.jpg","images/game3a/7.jpg","images/game3a/8.jpg"]
   };
 
   const imgElement = document.getElementById("randomImage");
@@ -584,32 +570,33 @@ function closeModal() {
   const pauseButton = document.getElementById("pauseButton");
   const gameCards = document.querySelectorAll(".game-card");
 
-  let currentGame = "game1"; // default game
+  let currentGame = "game1";
   let currentIndex = 0;
   let autoRotateInterval;
   let userActiveTimeout;
   let isPaused = false;
 
-  // ----------------------------
-  // SHOW RANDOM IMAGE FUNCTION
-  // ----------------------------
   function showRandomImage() {
     const images = gameImages[currentGame];
     if (!images || images.length === 0) return;
 
     currentIndex = Math.floor(Math.random() * images.length);
 
+    // Image animation: fade + slide up
     imgElement.style.opacity = 0;
+    imgElement.style.transform = "translateY(20px)";
     setTimeout(() => {
       imgElement.src = images[currentIndex];
       imgElement.style.opacity = 1;
+      imgElement.style.transform = "translateY(0)";
+      
+      // Counter animation: pop
+      imageCounter.style.transform = "scale(1.2)";
       imageCounter.textContent = `${currentIndex + 1} of ${images.length}`;
+      setTimeout(() => { imageCounter.style.transform = "scale(1)"; }, 300);
     }, 300);
   }
 
-  // ----------------------------
-  // AUTO ROTATE CONTROL
-  // ----------------------------
   function startAutoRotate() {
     stopAutoRotate();
     if (!isPaused) autoRotateInterval = setInterval(showRandomImage, 5000);
@@ -622,12 +609,9 @@ function closeModal() {
   function userInteraction() {
     stopAutoRotate();
     clearTimeout(userActiveTimeout);
-    userActiveTimeout = setTimeout(startAutoRotate, 10000); // resume after 10s
+    userActiveTimeout = setTimeout(startAutoRotate, 10000);
   }
 
-  // ----------------------------
-  // PAUSE/RESUME BUTTON
-  // ----------------------------
   pauseButton.addEventListener("click", () => {
     isPaused = !isPaused;
     pauseButton.textContent = isPaused ? "Play" : "Pause";
@@ -635,17 +619,11 @@ function closeModal() {
     else startAutoRotate();
   });
 
-  // ----------------------------
-  // SHOW BUTTON
-  // ----------------------------
   showButton.addEventListener("click", () => {
     showRandomImage();
     userInteraction();
   });
 
-  // ----------------------------
-  // GAME CARD SELECTION
-  // ----------------------------
   gameCards.forEach(card => {
     card.addEventListener("click", () => {
       gameCards.forEach(c => c.classList.remove("bg-yellow-500"));
@@ -656,17 +634,35 @@ function closeModal() {
       currentGame = card.dataset.game;
       showRandomImage();
       userInteraction();
+
+      // Smooth scroll selected card into view
+      card.scrollIntoView({ behavior: "smooth", inline: "center" });
     });
   });
 
-  // ----------------------------
-  // INIT
-  // ----------------------------
   window.addEventListener("load", () => {
     showRandomImage();
     startAutoRotate();
   });
 </script>
+
+<style>
+  /* Game card hover/tap animation */
+  .game-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .game-card:hover {
+    transform: scale(1.05);
+  }
+
+  /* Button hover/tap animation */
+  button:hover {
+    transform: scale(1.05);
+  }
+  button:active {
+    transform: scale(0.95);
+  }
+</style>
 
     <!-- Leaderboard -->
   <section id="leaderboard" class="fade-in py-16 bg-gray-900">
