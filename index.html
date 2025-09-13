@@ -510,41 +510,47 @@ function closeModal() {
 	
 <!-- Random Game Photo Gallery -->
 <section id="random-gallery" class="py-12 bg-gray-900">
-  <div class="max-w-5xl mx-auto px-4 text-center">
+  <div class="max-w-4xl mx-auto px-4 text-center">
     <h2 class="text-3xl font-bold text-yellow-500 mb-6">
       Game Photo Gallery
     </h2>
 
-    <!-- Game Selector as Folder Cards -->
-    <div id="gameSelector" class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
-      <div class="game-card cursor-pointer bg-gray-800 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-500 transition-all p-4 text-center" data-game="game1">
-        <img src="images/game1a/1.jpg" alt="Game 1" class="mx-auto rounded-md max-h-32 mb-2 object-cover">
-        <span class="text-yellow-400 font-semibold">Game 1</span>
+    <!-- Game Selector as Mobile-Friendly Cards -->
+    <div id="gameSelector" class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+      <div class="game-card cursor-pointer bg-gray-800 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-500 transition-all p-4 flex flex-col items-center"
+           data-game="game1">
+        <img src="images/game1a/1.jpg" alt="Game 1" class="rounded-md max-h-36 mb-3 object-cover w-full">
+        <span class="text-yellow-400 font-semibold text-lg">Game 1</span>
       </div>
-      <div class="game-card cursor-pointer bg-gray-800 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-500 transition-all p-4 text-center" data-game="game2">
-        <img src="images/game2a/1.jpg" alt="Game 2" class="mx-auto rounded-md max-h-32 mb-2 object-cover">
-        <span class="text-yellow-400 font-semibold">Game 2</span>
+      <div class="game-card cursor-pointer bg-gray-800 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-500 transition-all p-4 flex flex-col items-center"
+           data-game="game2">
+        <img src="images/game2a/1.jpg" alt="Game 2" class="rounded-md max-h-36 mb-3 object-cover w-full">
+        <span class="text-yellow-400 font-semibold text-lg">Game 2</span>
       </div>
-      <div class="game-card cursor-pointer bg-gray-800 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-500 transition-all p-4 text-center" data-game="game3">
-        <img src="images/game3a/1.jpg" alt="Game 3" class="mx-auto rounded-md max-h-32 mb-2 object-cover">
-        <span class="text-yellow-400 font-semibold">Game 3</span>
+      <div class="game-card cursor-pointer bg-gray-800 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-500 transition-all p-4 flex flex-col items-center"
+           data-game="game3">
+        <img src="images/game3a/1.jpg" alt="Game 3" class="rounded-md max-h-36 mb-3 object-cover w-full">
+        <span class="text-yellow-400 font-semibold text-lg">Game 3</span>
       </div>
     </div>
 
     <!-- Image Display Area -->
-    <div class="flex justify-center relative">
-      <img id="randomImage" src="" alt="Game" class="rounded-lg shadow-lg max-h-[70vh] object-contain transition-opacity duration-500 ease-in-out">
+    <div class="flex justify-center mb-2">
+      <img id="randomImage" src="" alt="Game"
+           class="rounded-lg shadow-lg max-h-[60vh] w-full object-contain transition-opacity duration-500 ease-in-out">
     </div>
 
     <!-- Image Counter -->
-    <div id="imageCounter" class="mt-2 text-yellow-400 font-semibold"></div>
+    <div id="imageCounter" class="mb-4 text-yellow-400 font-semibold text-lg"></div>
 
     <!-- Buttons -->
-    <div class="mt-4 flex justify-center gap-4">
-      <button id="showButton" class="px-6 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition-colors">
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <button id="showButton"
+              class="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition-colors w-full sm:w-auto">
         Show Another Picture
       </button>
-      <button id="pauseButton" class="px-6 py-2 bg-gray-700 text-yellow-400 font-semibold rounded-lg hover:bg-gray-600 transition-colors">
+      <button id="pauseButton"
+              class="px-6 py-3 bg-gray-700 text-yellow-400 font-semibold rounded-lg hover:bg-gray-600 transition-colors w-full sm:w-auto">
         Pause
       </button>
     </div>
