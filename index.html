@@ -515,11 +515,20 @@ function closeModal() {
       Game Photo Gallery
     </h2>
 
+    <!-- Game Selector -->
+    <div class="mb-4">
+      <select id="gameSelect"
+              class="px-4 py-2 rounded-lg text-black">
+        <option value="game1">Game 1</option>
+        <option value="game2">Game 2</option>
+        <option value="game3">Game 3</option>
+      </select>
+    </div>
+
     <!-- Image Display Area -->
-    <!-- initial image -->
     <div class="flex justify-center">
       <img id="randomImage"
-           src="images/game1a/1.jpg"
+           src=""
            alt="Game"
            class="rounded-lg shadow-lg max-h-[70vh] object-contain transition-opacity duration-500 ease-in-out">
     </div>
@@ -534,32 +543,48 @@ function closeModal() {
 
 <script>
   // ----------------------------
-  // MANUAL IMAGE ARRAY
+  // IMAGE ARRAYS FOR EACH GAME
   // ----------------------------
-  const gameImages = [
-    "images/game1a/1.jpg",
-    "images/game1a/2.jpg",
-    "images/game1a/3.jpg",
-    "images/game1a/4.jpg",
-    "images/game1a/5.jpg",
-    "images/game1a/6.jpg",
-    "images/game1a/7.jpg"
-    // Add more images as needed
-  ];
+  const gameImages = {
+    game1: [
+      "images/game1a/1.jpg",
+      "images/game1a/2.jpg",
+      "images/game1a/3.jpg",
+	"images/game1a/4.jpg",
+      "images/game1a/5.jpg",
+      "images/game1a/6.jpg",
+	"images/game1a/7.jpg"
+    ],
+    game3: [
+      "images/game3a/1.jpg",
+      "images/game3a/2.jpg",
+      "images/game3a/3.jpg",
+	  "images/game3a/4.jpg",
+	 "images/game3a/5.jpg",
+	 "images/game3a/6.jpg",
+	"images/game3a/7.jpg",
+	"images/game3a/8.jpg"
+    ]
+  };
 
   const imgElement = document.getElementById("randomImage");
+  const gameSelect = document.getElementById("gameSelect");
 
   // ----------------------------
   // FUNCTION TO SHOW RANDOM IMAGE
   // ----------------------------
   function showRandomImage() {
-    if (gameImages.length === 0) return;
-    const randomIndex = Math.floor(Math.random() * gameImages.length);
+    const selectedGame = gameSelect.value;
+    const images = gameImages[selectedGame];
+
+    if (!images || images.length === 0) return;
+
+    const randomIndex = Math.floor(Math.random() * images.length);
 
     // Fade-out and fade-in transition
     imgElement.style.opacity = 0;
     setTimeout(() => {
-      imgElement.src = gameImages[randomIndex];
+      imgElement.src = images[randomIndex];
       imgElement.style.opacity = 1;
     }, 300);
   }
@@ -572,7 +597,6 @@ function closeModal() {
   // Show first random image on page load
   window.addEventListener("load", showRandomImage);
 </script>
-
 
     <!-- Leaderboard -->
   <section id="leaderboard" class="fade-in py-16 bg-gray-900">
