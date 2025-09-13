@@ -517,8 +517,7 @@ function closeModal() {
 
     <!-- Game Selector -->
     <div class="mb-4">
-      <select id="gameSelect"
-              class="px-4 py-2 rounded-lg text-black">
+      <select id="gameSelect" class="px-4 py-2 rounded-lg text-black">
         <option value="game1">Game 1</option>
         <option value="game2">Game 2</option>
         <option value="game3">Game 3</option>
@@ -526,18 +525,25 @@ function closeModal() {
     </div>
 
     <!-- Image Display Area -->
-    <div class="flex justify-center">
+    <div class="flex justify-center relative">
       <img id="randomImage"
            src=""
            alt="Game"
            class="rounded-lg shadow-lg max-h-[70vh] object-contain transition-opacity duration-500 ease-in-out">
     </div>
 
-    <!-- Show Random Button -->
-    <button onclick="showRandomImage()"
-            class="mt-4 px-6 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition-colors">
-      Show Another Picture
-    </button>
+    <!-- Image Counter -->
+    <div id="imageCounter" class="mt-2 text-yellow-400 font-semibold"></div>
+
+    <!-- Buttons -->
+    <div class="mt-4 flex justify-center gap-4">
+      <button id="showButton" class="px-6 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition-colors">
+        Show Another Picture
+      </button>
+      <button id="pauseButton" class="px-6 py-2 bg-gray-700 text-yellow-400 font-semibold rounded-lg hover:bg-gray-600 transition-colors">
+        Pause
+      </button>
+    </div>
   </div>
 </section>
 
@@ -550,36 +556,44 @@ function closeModal() {
       "images/game1a/1.jpg",
       "images/game1a/2.jpg",
       "images/game1a/3.jpg",
-	"images/game1a/4.jpg",
+      "images/game1a/4.jpg",
       "images/game1a/5.jpg",
       "images/game1a/6.jpg",
-	"images/game1a/7.jpg"
+      "images/game1a/7.jpg"
     ],
-	    game2: [
+    game2: [
       "images/game2a/1.jpg",
       "images/game2a/2.jpg",
       "images/game2a/3.jpg",
-	"images/game2a/4.jpg",
+      "images/game2a/4.jpg",
       "images/game2a/5.jpg",
       "images/game2a/6.jpg",
-		"images/game2a/7.jpg",
+      "images/game2a/7.jpg",
       "images/game2a/8.jpg",
-	"images/game2a/9.jpg"
+      "images/game2a/9.jpg"
     ],
     game3: [
       "images/game3a/1.jpg",
       "images/game3a/2.jpg",
       "images/game3a/3.jpg",
-	  "images/game3a/4.jpg",
-	 "images/game3a/5.jpg",
-	 "images/game3a/6.jpg",
-	"images/game3a/7.jpg",
-	"images/game3a/8.jpg"
+      "images/game3a/4.jpg",
+      "images/game3a/5.jpg",
+      "images/game3a/6.jpg",
+      "images/game3a/7.jpg",
+      "images/game3a/8.jpg"
     ]
   };
 
   const imgElement = document.getElementById("randomImage");
   const gameSelect = document.getElementById("gameSelect");
+  const showButton = document.getElementById("showButton");
+  const pauseButton = document.getElementById("pauseButton");
+  const imageCounter = document.getElementById("imageCounter");
+
+  let autoRotateInterval;
+  let userActiveTimeout;
+  let currentIndex = 0;
+  let isPaused = false;
 
   // ----------------------------
   // FUNCTION TO SHOW RANDOM IMAGE
@@ -587,26 +601,78 @@ function closeModal() {
   function showRandomImage() {
     const selectedGame = gameSelect.value;
     const images = gameImages[selectedGame];
-
     if (!images || images.length === 0) return;
 
-    const randomIndex = Math.floor(Math.random() * images.length);
+    currentIndex = Math.floor(Math.random() * images.length);
 
-    // Fade-out and fade-in transition
     imgElement.style.opacity = 0;
     setTimeout(() => {
-      imgElement.src = images[randomIndex];
+      imgElement.src = images[currentIndex];
       imgElement.style.opacity = 1;
+      updateCounter(images.length);
     }, 300);
   }
 
   // ----------------------------
-  // AUTO ROTATE EVERY 5 SECONDS
+  // UPDATE IMAGE COUNTER
   // ----------------------------
-  setInterval(showRandomImage, 5000); // Change every 5 seconds
+  function updateCounter(total) {
+    imageCounter.textContent = `${currentIndex + 1} of ${total}`;
+  }
 
-  // Show first random image on page load
-  window.addEventListener("load", showRandomImage);
+  // ----------------------------
+  // AUTO ROTATE CONTROL
+  // ----------------------------
+  function startAutoRotate() {
+    stopAutoRotate();
+    if (!isPaused) {
+      autoRotateInterval = setInterval(showRandomImage, 5000);
+    }
+  }
+
+  function stopAutoRotate() {
+    clearInterval(autoRotateInterval);
+  }
+
+  function userInteraction() {
+    stopAutoRotate();
+    clearTimeout(userActiveTimeout);
+    userActiveTimeout = setTimeout(startAutoRotate, 10000); // resume after 10s
+  }
+
+  // ----------------------------
+  // PAUSE/RESUME BUTTON
+  // ----------------------------
+  pauseButton.addEventListener("click", () => {
+    isPaused = !isPaused;
+    pauseButton.textContent = isPaused ? "Play" : "Pause";
+    if (isPaused) {
+      stopAutoRotate();
+    } else {
+      startAutoRotate();
+    }
+  });
+
+  // ----------------------------
+  // EVENT LISTENERS
+  // ----------------------------
+  gameSelect.addEventListener("change", () => {
+    showRandomImage();
+    userInteraction();
+  });
+
+  showButton.addEventListener("click", () => {
+    showRandomImage();
+    userInteraction();
+  });
+
+  // ----------------------------
+  // INIT
+  // ----------------------------
+  window.addEventListener("load", () => {
+    showRandomImage();
+    startAutoRotate();
+  });
 </script>
 
     <!-- Leaderboard -->
