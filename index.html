@@ -670,112 +670,31 @@ function closeModal() {
   }
 </style>
 
-    <!-- Leaderboard -->
-  <section id="leaderboard" class="fade-in py-16 bg-gray-900">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">Leaderboard</h2>
+ <!-- Video Highlights -->
+<section id="video-highlights" class="fade-in py-16 bg-gray-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">
+      Video Highlights
+    </h2>
 
-      <!-- Tabs (Scorers, Rebounds, Assists) -->
-      <div class="flex justify-center mb-6 space-x-4">
-        <button class="tab-btn bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold" data-tab="scorers">Top Scorers</button>
-        <button class="tab-btn bg-gray-700 text-white px-4 py-2 rounded-lg font-semibold" data-tab="rebounds">Top Rebounds</button>
-        <button class="tab-btn bg-gray-700 text-white px-4 py-2 rounded-lg font-semibold" data-tab="assists">Top Assists</button>
-      </div>
-
-      <!-- Tables -->
-      <div class="overflow-x-auto">
-        <!-- Top Scorers -->
-        <table id="scorers" class="leaderboard-table min-w-full bg-gray-700 rounded-lg overflow-hidden">
-          <thead class="bg-gray-800">
-            <tr>
-              <th class="py-3 px-4 text-left">#</th>
-              <th class="py-3 px-4 text-left">Player</th>
-              <th class="py-3 px-4 text-left">Team</th>
-              <th class="py-3 px-4 text-center">PPG</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="hover:bg-gray-600">
-              <td class="py-3 px-4">1</td>
-              <td class="py-3 px-4 flex items-center space-x-2">
-                <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Game1/alloy.jpg" class="w-8 h-8 rounded-full" />
-                <span>Alloy Premacio</span>
-              </td>
-              <td class="py-3 px-4">SOE Team</td>
-              <td class="py-3 px-4 text-center font-bold text-yellow-500">30.2</td>
-            </tr>
-            <tr class="hover:bg-gray-600">
-              <td class="py-3 px-4">2</td>
-              <td class="py-3 px-4 flex items-center space-x-2">
-                <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/john_paul_meggalos.jpg" class="w-8 h-8 rounded-full" />
-                <span>John Megallos</span>
-              </td>
-              <td class="py-3 px-4">Free Agent</td>
-              <td class="py-3 px-4 text-center font-bold text-yellow-500">25.6</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <!-- Top Rebounds -->
-        <table id="rebounds" class="leaderboard-table hidden min-w-full bg-gray-700 rounded-lg overflow-hidden">
-          <thead class="bg-gray-800">
-            <tr>
-              <th class="py-3 px-4 text-left">#</th>
-              <th class="py-3 px-4 text-left">Player</th>
-              <th class="py-3 px-4 text-left">Team</th>
-              <th class="py-3 px-4 text-center">RPG</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="hover:bg-gray-600">
-              <td class="py-3 px-4">1</td>
-              <td class="py-3 px-4 flex items-center space-x-2">
-                <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/players/Paolo_Lagrosa.jpg" class="w-8 h-8 rounded-full" />
-                <span>Paolo Lagrosa</span>
-              </td>
-              <td class="py-3 px-4">Free Agent</td>
-              <td class="py-3 px-4 text-center font-bold text-yellow-500">7.9</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <!-- Top Assists -->
-        <table id="assists" class="leaderboard-table hidden min-w-full bg-gray-700 rounded-lg overflow-hidden">
-          <thead class="bg-gray-800">
-            <tr>
-              <th class="py-3 px-4 text-left">#</th>
-              <th class="py-3 px-4 text-left">Player</th>
-              <th class="py-3 px-4 text-left">Team</th>
-              <th class="py-3 px-4 text-center">APG</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="hover:bg-gray-600">
-              <td class="py-3 px-4">1</td>
-              <td class="py-3 px-4 flex items-center space-x-2">
-                <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Game1/Millan.jpg" class="w-8 h-8 rounded-full" />
-                <span>John Megallos</span>
-              </td>
-              <td class="py-3 px-4">SPMC team</td>
-              <td class="py-3 px-4 text-center font-bold text-yellow-500">10</td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
+      <!-- GitHub-hosted Video -->
+      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+        <video controls class="w-full h-auto rounded-lg">
+          <source src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/game4a/x.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="p-4">
+          <h3 class="text-lg font-semibold text-white">Game 4 Highlights</h3>
+          <p class="text-sm text-gray-400">Exciting moments from Game 4.</p>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <script>
-    // Tab switching for leaderboard
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.leaderboard-table').forEach(tbl => tbl.classList.add('hidden'));
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('bg-yellow-500','text-black'));
-        document.getElementById(btn.dataset.tab).classList.remove('hidden');
-        btn.classList.add('bg-yellow-500','text-black');
-      });
-    });
-  </script>
+<!-- No JS needed anymore -->
+
   <!-- Standings -->
   <section id="standings" class="fade-in py-16 bg-gray-800">
     <div class="max-w-7xl mx-auto px-6">
