@@ -537,6 +537,12 @@ function closeModal() {
         <img src="images/game4a/1.jpg" alt="Game 4" class="rounded-md max-h-24 mb-2 object-cover w-full">
         <span class="text-yellow-400 font-semibold text-sm">Game 4</span>
       </div>
+		   </div>
+		 <div class="game-card flex-shrink-0 cursor-pointer bg-gray-800 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-500 transition-all p-3 text-center w-36"
+           data-game="game5">
+        <img src="images/game5a/1.jpg" alt="Game 4" class="rounded-md max-h-24 mb-2 object-cover w-full">
+        <span class="text-yellow-400 font-semibold text-sm">Game 5</span>
+      </div>
     </div>
 
     <!-- Image Display Area -->
@@ -567,7 +573,8 @@ function closeModal() {
     game1: ["images/game1a/1.jpg","images/game1a/2.jpg","images/game1a/3.jpg","images/game1a/4.jpg","images/game1a/5.jpg","images/game1a/6.jpg","images/game1a/7.jpg"],
     game2: ["images/game2a/1.jpg","images/game2a/2.jpg","images/game2a/3.jpg","images/game2a/4.jpg","images/game2a/5.jpg","images/game2a/6.jpg","images/game2a/7.jpg","images/game2a/8.jpg","images/game2a/9.jpg"],
     game3: ["images/game3a/1.jpg","images/game3a/2.jpg","images/game3a/3.jpg","images/game3a/4.jpg","images/game3a/5.jpg","images/game3a/6.jpg","images/game3a/7.jpg","images/game3a/8.jpg"],
-	game4: ["images/game4a/1.jpg","images/game4a/2.jpg","images/game4a/3.jpg","images/game4a/4.jpg","images/game4a/5.jpg","images/game4a/6.jpg","images/game4a/7.jpg"]
+	game4: ["images/game4a/1.jpg","images/game4a/2.jpg","images/game4a/3.jpg","images/game4a/4.jpg","images/game4a/5.jpg","images/game4a/6.jpg","images/game4a/7.jpg"],
+	game5: ["images/game5a/1.jpg","images/game5a/2.jpg","images/game5a/3.jpg","images/game5a/4.jpg","images/game5a/5.jpg","images/game5a/6.jpg"]
   };
 
   const imgElement = document.getElementById("randomImage");
@@ -670,15 +677,15 @@ function closeModal() {
   }
 </style>
 
- <!-- Video Highlights -->
+<!-- Video Highlights -->
 <section id="video-highlights" class="fade-in py-16 bg-gray-900">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">
       Video Highlights
     </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
-      <!-- GitHub-hosted Video -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+      <!-- Game 4 Video -->
       <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg">
         <video controls class="w-full h-auto rounded-lg">
           <source src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/game4a/x.mp4" type="video/mp4">
@@ -689,9 +696,35 @@ function closeModal() {
           <p class="text-sm text-gray-400">Exciting moments from Game 4.</p>
         </div>
       </div>
+
+      <!-- Game 5 Video 1 -->
+      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+        <video controls class="w-full h-auto rounded-lg">
+          <source src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/game5a/h1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="p-4">
+          <h3 class="text-lg font-semibold text-white">Game 5 Highlights - Part 1</h3>
+          <p class="text-sm text-gray-400">First set of highlights from Game 5.</p>
+        </div>
+      </div>
+
+      <!-- Game 5 Video 2 -->
+      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+        <video controls class="w-full h-auto rounded-lg">
+          <source src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/game5a/h2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="p-4">
+          <h3 class="text-lg font-semibold text-white">Game 5 Highlights - Part 2</h3>
+          <p class="text-sm text-gray-400">Second set of highlights from Game 5.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+
 
 <!-- No JS needed anymore -->
 
@@ -716,7 +749,7 @@ function closeModal() {
                 <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-8 h-8 rounded-full" />
                 <span>AUTO Aesthetics</span>
               </td>
-              <td class="text-center">3</td>
+              <td class="text-center">4</td>
               <td class="text-center">1</td>
               <td class="text-center">0</td>
               <td class="text-center">0</td>
@@ -727,7 +760,7 @@ function closeModal() {
                 <span>Stitch & Wear</span>
               </td>
               <td class="text-center">0</td>
-              <td class="text-center">4</td>
+              <td class="text-center">5</td>
               <td class="text-center">0</td>
               <td class="text-center">5</td>
             </tr>
@@ -737,7 +770,7 @@ function closeModal() {
                 <span>IN THE ZONE</span>
               </td>
               <td class="text-center">3</td>
-              <td class="text-center">1</td>
+              <td class="text-center">2</td>
               <td class="text-center">0</td>
               <td class="text-center">0</td>
             </tr>
@@ -747,7 +780,7 @@ function closeModal() {
                 <span>SPMC Radiology Department</span>
               </td>
               <td class="text-center">1</td>
-              <td class="text-center">3</td>
+              <td class="text-center">4</td>
               <td class="text-center">0</td>
               <td class="text-center">0</td>
             </tr>
@@ -756,7 +789,7 @@ function closeModal() {
                 <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-8 h-8 rounded-full" />
                 <span>OUZO</span>
               </td>
-              <td class="text-center">1</td>
+              <td class="text-center">2</td>
               <td class="text-center">3</td>
               <td class="text-center">0</td>
               <td class="text-center">0</td>
