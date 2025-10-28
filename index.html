@@ -601,7 +601,7 @@ cards.forEach(card => observer.observe(card));
       Playoff Bracket
     </h2>
 
-    <div id="bracket-wrapper" class="relative overflow-visible min-w-[900px]">
+    <div id="bracket-wrapper" class="relative overflow-visible min-w-[1000px]">
 
       <svg id="links" class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg"></svg>
 
@@ -609,6 +609,7 @@ cards.forEach(card => observer.observe(card));
 
         <!-- Quarterfinals -->
         <div class="flex flex-col justify-between space-y-6 py-6">
+          <!-- QF1 -->
           <div id="qf1-top" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 cursor-pointer">
             <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
             <span class="text-xs md:text-base">#3 OUZO</span>
@@ -620,6 +621,7 @@ cards.forEach(card => observer.observe(card));
 
           <div class="h-4 md:h-8"></div>
 
+          <!-- QF2 -->
           <div id="qf2-top" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 cursor-pointer">
             <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
             <span class="text-xs md:text-base">#4 Secret of Eve</span>
@@ -632,34 +634,35 @@ cards.forEach(card => observer.observe(card));
 
         <!-- Semifinals -->
         <div class="flex flex-col justify-between space-y-8 py-6">
+          <!-- SF1: Winner QF1 vs #1 -->
           <div class="flex flex-col items-center space-y-2">
-            <div id="sf1-top" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700">
+            <div id="sf1-seed" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700">
               <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
               <span class="text-xs md:text-base">#1</span>
             </div>
             <div id="sf1-winner" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-800 w-[160px]">
-              <span class="text-xs md:text-base text-gray-400">Winner #3/#6</span>
+              <span class="text-xs md:text-base text-gray-400">Winner QF1 vs #1</span>
             </div>
           </div>
 
+          <!-- SF2: Winner QF2 vs #2 -->
           <div class="flex flex-col items-center space-y-2">
-            <div id="sf2-top" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700">
+            <div id="sf2-seed" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700">
               <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
               <span class="text-xs md:text-base">#2</span>
             </div>
             <div id="sf2-winner" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-800 w-[160px]">
-              <span class="text-xs md:text-base text-gray-400">Winner #4/#5</span>
+              <span class="text-xs md:text-base text-gray-400">Winner QF2 vs #2</span>
             </div>
           </div>
         </div>
 
-        <!-- Final Box -->
+        <!-- Final -->
         <div class="flex flex-col justify-center items-center py-6">
           <div id="final-box" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px]">
-            <span class="text-xs md:text-base">Final: SF1 vs SF2</span>
+            <span class="text-xs md:text-base">Final: SF1 Winner vs SF2 Winner</span>
           </div>
 
-          <!-- Champion Box -->
           <div id="champion-box" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px] mt-4">
             <span class="text-xs md:text-base">Champion</span>
           </div>
@@ -684,24 +687,24 @@ cards.forEach(card => observer.observe(card));
 </style>
 
 <script>
-(function() {
+(function(){
   const svg = document.getElementById('links');
   const padding = 5;
 
-  function getEdge(el, container, side) {
+  function getEdge(el, container, side){
     const rect = el.getBoundingClientRect();
     const cRect = container.getBoundingClientRect();
-    switch(side) {
+    switch(side){
       case 'left': return { x: rect.left - cRect.left - padding, y: rect.top + rect.height/2 - cRect.top };
       case 'right': return { x: rect.right - cRect.left + padding, y: rect.top + rect.height/2 - cRect.top };
     }
   }
 
-  function drawCurve(a, b, color = '#FBBF24', stroke = 3) {
-    const dx = (b.x - a.x) * 0.5;
+  function drawCurve(a,b,color='#FBBF24',stroke=3){
+    const dx = (b.x-a.x)*0.5;
     const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-    const d = `M ${a.x} ${a.y} C ${a.x + dx} ${a.y}, ${b.x - dx} ${b.y}, ${b.x} ${b.y}`;
-    path.setAttribute('d', d);
+    const d = `M ${a.x} ${a.y} C ${a.x+dx} ${a.y}, ${b.x-dx} ${b.y}, ${b.x} ${b.y}`;
+    path.setAttribute('d',d);
     path.setAttribute('fill','none');
     path.setAttribute('stroke',color);
     path.setAttribute('stroke-width',stroke);
@@ -709,59 +712,44 @@ cards.forEach(card => observer.observe(card));
     svg.appendChild(path);
   }
 
-  function clearSvg() { while(svg.firstChild) svg.removeChild(svg.firstChild); }
+  function clearSvg(){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
 
-  function renderLines() {
+  function renderLines(){
     clearSvg();
     const container = document.getElementById('bracket-wrapper');
 
-    // QF1 -> SF1
-    const src1Top = getEdge(document.getElementById('qf1-top'), container, 'right');
-    const src1Bottom = getEdge(document.getElementById('qf1-bottom'), container, 'right');
-    const src1 = { x: src1Top.x, y: (src1Top.y + src1Bottom.y)/2 };
-    const tgt1 = getEdge(document.getElementById('sf1-winner'), container, 'left');
-    drawCurve(src1, tgt1);
+    // QF1 -> SF1 Winner
+    drawCurve(
+      { x:getEdge(document.getElementById('qf1-top'),container,'right').x, y:(getEdge(document.getElementById('qf1-top'),container,'right').y+getEdge(document.getElementById('qf1-bottom'),container,'right').y)/2 },
+      getEdge(document.getElementById('sf1-winner'),container,'left')
+    );
 
-    // QF2 -> SF2
-    const src2Top = getEdge(document.getElementById('qf2-top'), container, 'right');
-    const src2Bottom = getEdge(document.getElementById('qf2-bottom'), container, 'right');
-    const src2 = { x: src2Top.x, y: (src2Top.y + src2Bottom.y)/2 };
-    const tgt2 = getEdge(document.getElementById('sf2-winner'), container, 'left');
-    drawCurve(src2, tgt2);
+    // QF2 -> SF2 Winner
+    drawCurve(
+      { x:getEdge(document.getElementById('qf2-top'),container,'right').x, y:(getEdge(document.getElementById('qf2-top'),container,'right').y+getEdge(document.getElementById('qf2-bottom'),container,'right').y)/2 },
+      getEdge(document.getElementById('sf2-winner'),container,'left')
+    );
 
-    // SF winners -> Final
-    const sf1Edge = getEdge(document.getElementById('sf1-winner'), container, 'right');
-    const sf2Edge = getEdge(document.getElementById('sf2-winner'), container, 'right');
-    const finalEdge = getEdge(document.getElementById('final-box'), container, 'left');
-    drawCurve(sf1Edge, finalEdge);
-    drawCurve(sf2Edge, finalEdge);
+    // SF1 & SF2 Winners -> Final
+    drawCurve(getEdge(document.getElementById('sf1-winner'),container,'right'),getEdge(document.getElementById('final-box'),container,'left'));
+    drawCurve(getEdge(document.getElementById('sf2-winner'),container,'right'),getEdge(document.getElementById('final-box'),container,'left'));
 
     // Final -> Champion
-    const finalRight = getEdge(document.getElementById('final-box'), container, 'right');
-    const championEdge = getEdge(document.getElementById('champion-box'), container, 'left');
-    drawCurve(finalRight, championEdge);
+    drawCurve(getEdge(document.getElementById('final-box'),container,'right'),getEdge(document.getElementById('champion-box'),container,'left'));
   }
 
-  // Click to select winner
-  document.querySelectorAll('.team-box').forEach(box => {
-    box.addEventListener('click', () => {
-      box.classList.toggle('winner');
-    });
+  document.querySelectorAll('.team-box').forEach(box=>{
+    box.addEventListener('click',()=>box.classList.toggle('winner'));
   });
 
-  function debounce(fn, t=80){ let id; return (...args)=>{ clearTimeout(id); id=setTimeout(()=>fn(...args), t);}; }
+  function debounce(fn,t=80){ let id; return (...args)=>{ clearTimeout(id); id=setTimeout(()=>fn(...args),t);}; }
 
-  function init() {
-    renderLines();
-    window.addEventListener('resize', debounce(renderLines,60));
-    window.addEventListener('load', renderLines);
-  }
-
+  function init(){ renderLines(); window.addEventListener('resize',debounce(renderLines,60)); window.addEventListener('load',renderLines); }
   if(document.readyState==='complete'||document.readyState==='interactive'){ init(); }
-  else { document.addEventListener('DOMContentLoaded', init); }
+  else document.addEventListener('DOMContentLoaded',init);
+
 })();
 </script>
-
 
 	
 <!-- Commissioners (Compact 4-in-a-row) -->
