@@ -495,21 +495,21 @@ function closeModal() {
 
 
   <!-- Improved Schedule -->
- <!-- Animated Schedule (Compact & Smooth) -->
-<section id="schedule" class="py-12 bg-gray-900">
+<!-- Floating Animated Schedule -->
+<section id="schedule" class="py-12 bg-gray-900 overflow-x-hidden">
   <div class="max-w-6xl mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center text-yellow-500 mb-10">Upcoming Games</h2>
     <div id="games" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
       <!-- Example Game Card -->
-      <div class="game-card opacity-0 transform translate-y-6 bg-gray-700 rounded-lg p-4 text-center shadow-lg hover:scale-105 hover:bg-gray-600 transition-all duration-500 cursor-pointer">
+      <div class="game-card opacity-0 transform -translate-x-10 bg-gray-700 rounded-lg p-4 text-center shadow-lg hover:scale-105 hover:bg-gray-600 transition-all duration-500 cursor-pointer">
         <div class="flex items-center justify-center space-x-3 mb-3">
-          <div class="flex flex-col items-center animate-bounce-slow">
+          <div class="flex flex-col items-center animate-float">
             <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-10 h-10 md:w-12 md:h-12 rounded-full" />
             <p class="text-xs md:text-sm mt-1">SOE</p>
           </div>
           <span class="text-lg md:text-xl font-bold">VS</span>
-          <div class="flex flex-col items-center animate-bounce-slow">
+          <div class="flex flex-col items-center animate-float">
             <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/wear.jpg" class="w-10 h-10 md:w-12 md:h-12 rounded-full" />
             <p class="text-xs md:text-sm mt-1">Stitch & Wear</p>
           </div>
@@ -519,14 +519,14 @@ function closeModal() {
       </div>
 
       <!-- Another Game Card -->
-      <div class="game-card opacity-0 transform translate-y-6 bg-gray-700 rounded-lg p-4 text-center shadow-lg hover:scale-105 hover:bg-gray-600 transition-all duration-500 cursor-pointer">
+      <div class="game-card opacity-0 transform translate-x-10 bg-gray-700 rounded-lg p-4 text-center shadow-lg hover:scale-105 hover:bg-gray-600 transition-all duration-500 cursor-pointer">
         <div class="flex items-center justify-center space-x-3 mb-3">
-          <div class="flex flex-col items-center animate-bounce-slow">
+          <div class="flex flex-col items-center animate-float">
             <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-10 h-10 md:w-12 md:h-12 rounded-full" />
             <p class="text-xs md:text-sm mt-1">In the Zone</p>
           </div>
           <span class="text-lg md:text-xl font-bold">VS</span>
-          <div class="flex flex-col items-center animate-bounce-slow">
+          <div class="flex flex-col items-center animate-float">
             <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-10 h-10 md:w-12 md:h-12 rounded-full" />
             <p class="text-xs md:text-sm mt-1">OUZO</p>
           </div>
@@ -542,32 +542,38 @@ function closeModal() {
 </section>
 
 <style>
-/* Slow bounce for logos */
-@keyframes bounce-slow {
+/* Floating effect for logos */
+@keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-5px); }
 }
-.animate-bounce-slow {
-  animation: bounce-slow 2s infinite;
+.animate-float {
+  animation: float 2.5s ease-in-out infinite;
 }
 
-/* Fade-in + move-up animation with stagger */
-.fade-in-up {
+/* Fade-in + slide animation */
+.fade-in-left {
   opacity: 1 !important;
-  transform: translateY(0) !important;
+  transform: translateX(0) !important;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in-right {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 </style>
 
 <script>
-// Animate cards on scroll with stagger
+// Animate cards on scroll with stagger and direction
 const cards = document.querySelectorAll('.game-card');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, index) => {
     if(entry.isIntersecting){
+      const directionClass = entry.target.classList.contains('-translate-x-10') ? 'fade-in-left' : 'fade-in-right';
       setTimeout(() => {
-        entry.target.classList.add('fade-in-up');
-      }, index * 150); // stagger 150ms
+        entry.target.classList.add(directionClass);
+      }, index * 200); // stagger 200ms
       observer.unobserve(entry.target);
     }
   });
