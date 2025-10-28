@@ -657,10 +657,18 @@ cards.forEach(card => observer.observe(card));
           </div>
         </div>
 
-        <!-- Champion Vertical Between SF1 & SF2 -->
+        <!-- Champion Horizontal Between SF1 & SF2 -->
         <div class="flex flex-col justify-center items-center py-6 space-y-6">
-          <div id="champion-box" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px]">
-            <span class="text-xs md:text-base">Champion</span>
+          <div class="flex flex-row items-center justify-center space-x-6">
+            <div id="final-sf1" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[160px]">
+              <span class="text-xs md:text-base">SF1 Winner</span>
+            </div>
+            <div id="champion-box" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px]">
+              <span class="text-xs md:text-base">Champion</span>
+            </div>
+            <div id="final-sf2" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[160px]">
+              <span class="text-xs md:text-base">SF2 Winner</span>
+            </div>
           </div>
           <div class="text-yellow-300 font-bold text-sm md:text-lg mt-2">🏆 Champion</div>
         </div>
@@ -669,81 +677,6 @@ cards.forEach(card => observer.observe(card));
     </div>
   </div>
 </section>
-
-<style>
-.team-box:hover {
-  border-color: #facc15;
-  transform: scale(1.05);
-  transition: all 0.2s ease;
-}
-.team-box.winner {
-  background-color: #22c55e !important;
-  color: white;
-}
-</style>
-
-<script>
-(function(){
-  const svg = document.getElementById('links');
-  const padding = 5;
-
-  function getEdge(el, container, side){
-    const rect = el.getBoundingClientRect();
-    const cRect = container.getBoundingClientRect();
-    switch(side){
-      case 'left': return { x: rect.left - cRect.left - padding, y: rect.top + rect.height/2 - cRect.top };
-      case 'right': return { x: rect.right - cRect.left + padding, y: rect.top + rect.height/2 - cRect.top };
-    }
-  }
-
-  function drawCurve(a,b,color='#FBBF24',stroke=3){
-    const dx = (b.x-a.x)*0.5;
-    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-    const d = `M ${a.x} ${a.y} C ${a.x+dx} ${a.y}, ${b.x-dx} ${b.y}, ${b.x} ${b.y}`;
-    path.setAttribute('d',d);
-    path.setAttribute('fill','none');
-    path.setAttribute('stroke',color);
-    path.setAttribute('stroke-width',stroke);
-    path.setAttribute('stroke-linecap','round');
-    svg.appendChild(path);
-  }
-
-  function clearSvg(){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
-
-  function renderLines(){
-    clearSvg();
-    const container = document.getElementById('bracket-wrapper');
-
-    // QF1 -> SF1 Winner
-    drawCurve(
-      { x:getEdge(document.getElementById('qf1-top'),container,'right').x, y:(getEdge(document.getElementById('qf1-top'),container,'right').y+getEdge(document.getElementById('qf1-bottom'),container,'right').y)/2 },
-      getEdge(document.getElementById('sf1-winner'),container,'left')
-    );
-
-    // QF2 -> SF2 Winner
-    drawCurve(
-      { x:getEdge(document.getElementById('qf2-top'),container,'right').x, y:(getEdge(document.getElementById('qf2-top'),container,'right').y+getEdge(document.getElementById('qf2-bottom'),container,'right').y)/2 },
-      getEdge(document.getElementById('sf2-winner'),container,'left')
-    );
-
-    // SF1 -> Champion
-    drawCurve(getEdge(document.getElementById('sf1-winner'),container,'right'),getEdge(document.getElementById('champion-box'),container,'left'));
-    // SF2 -> Champion
-    drawCurve(getEdge(document.getElementById('sf2-winner'),container,'right'),getEdge(document.getElementById('champion-box'),container,'left'));
-  }
-
-  document.querySelectorAll('.team-box').forEach(box=>{
-    box.addEventListener('click',()=>box.classList.toggle('winner'));
-  });
-
-  function debounce(fn,t=80){ let id; return (...args)=>{ clearTimeout(id); id=setTimeout(()=>fn(...args),t);}; }
-
-  function init(){ renderLines(); window.addEventListener('resize',debounce(renderLines,60)); window.addEventListener('load',renderLines); }
-  if(document.readyState==='complete'||document.readyState==='interactive'){ init(); }
-  else document.addEventListener('DOMContentLoaded',init);
-
-})();
-</script>
 
 	
 <!-- Commissioners (Compact 4-in-a-row) -->
