@@ -595,7 +595,7 @@ cards.forEach(card => observer.observe(card));
 
 	
   <!----------- bracket  ----------->
-<!----------- bracket ----------->
+<!----------- bracket  ----------->
 <section id="bracket" class="py-6 bg-gray-800 text-white overflow-x-auto">
   <div class="max-w-full px-4">
     <h2 class="text-xl md:text-3xl font-bold text-center text-yellow-500 mb-6 md:mb-8">
@@ -606,80 +606,77 @@ cards.forEach(card => observer.observe(card));
 
       <svg id="links" class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg"></svg>
 
-      <div class="flex flex-row justify-start gap-10 md:gap-16">
+      <div class="flex flex-row justify-start gap-8 md:gap-12">
 
         <!-- Quarterfinals -->
-        <div class="flex flex-col justify-between space-y-8 py-6">
+        <div class="flex flex-col justify-between space-y-6 py-6">
           <!-- QF1 -->
-          <div id="qf1-top" class="team-box flex items-center space-x-3 p-2 border border-yellow-500 rounded bg-gray-700 cursor-pointer">
-            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-8 h-8 rounded-full">
+          <div id="qf1-top" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 cursor-pointer">
+            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
             <span class="text-xs md:text-base">#3 OUZO</span>
           </div>
-          <div id="qf1-bottom" class="team-box flex items-center space-x-3 p-2 border border-yellow-500 rounded bg-gray-700 cursor-pointer">
-            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-8 h-8 rounded-full">
+          <div id="qf1-bottom" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 cursor-pointer">
+            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
             <span class="text-xs md:text-base">#6 IN THE ZONE</span>
           </div>
 
-          <!-- Spacer -->
-          <div class="h-8"></div>
+          <div class="h-4 md:h-8"></div>
 
           <!-- QF2 -->
-          <div id="qf2-top" class="team-box flex items-center space-x-3 p-2 border border-yellow-500 rounded bg-gray-700 cursor-pointer">
-            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" class="w-8 h-8 rounded-full">
+          <div id="qf2-top" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 cursor-pointer">
+            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
             <span class="text-xs md:text-base">#4 Secret of Eve</span>
           </div>
-          <div id="qf2-bottom" class="team-box flex items-center space-x-3 p-2 border border-yellow-500 rounded bg-gray-700 cursor-pointer">
-            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" class="w-8 h-8 rounded-full">
+          <div id="qf2-bottom" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 cursor-pointer">
+            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
             <span class="text-xs md:text-base">#5 SPMC Radiology</span>
           </div>
         </div>
 
         <!-- Semifinals -->
-        <div class="flex flex-col justify-between py-6 space-y-16">
+        <div class="flex flex-col justify-between space-y-10 py-6">
           <!-- SF1 -->
           <div class="flex flex-col items-center space-y-2">
-            <div id="sf1-seed" class="team-box flex items-center space-x-3 p-2 border border-yellow-500 rounded bg-gray-700">
-              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-8 h-8 rounded-full">
-              <span class="text-xs md:text-base">#1 Seed</span>
+            <div id="sf1-seed" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
+              <span class="text-xs md:text-base">#1</span>
             </div>
-            <div id="sf1-winner" class="team-box flex items-center justify-center space-x-3 p-2 border border-yellow-500 rounded bg-gray-800 w-[160px]">
+            <div id="sf1-winner" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-800 w-[160px]">
               <span class="text-xs md:text-base text-gray-400">Winner QF1 vs #1</span>
             </div>
           </div>
 
           <!-- SF2 -->
           <div class="flex flex-col items-center space-y-2">
-            <div id="sf2-seed" class="team-box flex items-center space-x-3 p-2 border border-yellow-500 rounded bg-gray-700">
-              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-8 h-8 rounded-full">
-              <span class="text-xs md:text-base">#2 Seed</span>
+            <div id="sf2-seed" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
+              <span class="text-xs md:text-base">#2</span>
             </div>
-            <div id="sf2-winner" class="team-box flex items-center justify-center space-x-3 p-2 border border-yellow-500 rounded bg-gray-800 w-[160px]">
+            <div id="sf2-winner" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-800 w-[160px]">
               <span class="text-xs md:text-base text-gray-400">Winner QF2 vs #2</span>
             </div>
           </div>
         </div>
 
-        <!-- Final & Champion aligned horizontally -->
-        <div class="flex flex-col justify-center py-6">
-          <div class="flex flex-col items-start space-y-12">
-            <!-- SF Winners -->
-            <div id="final-sf1" class="team-box flex items-center justify-center p-2 border border-yellow-500 rounded bg-gray-700 w-[160px]">
+        <!-- Final (Horizontal) -->
+        <div class="flex flex-col justify-center items-center py-6 space-y-16">
+          <div class="flex flex-col space-y-16 items-center">
+            <div id="final-sf1" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[160px]">
               <span class="text-xs md:text-base">SF1 Winner</span>
             </div>
-            <div id="final-sf2" class="team-box flex items-center justify-center p-2 border border-yellow-500 rounded bg-gray-700 w-[160px]">
+
+            <div id="final-sf2" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[160px]">
               <span class="text-xs md:text-base">SF2 Winner</span>
             </div>
           </div>
         </div>
 
-        <!-- Champion Parallel -->
-        <div class="flex flex-col justify-center py-6">
-          <div class="flex flex-col items-center space-y-12">
-            <div id="champion-box" class="team-box flex items-center justify-center space-x-3 p-2 border border-yellow-500 rounded bg-gray-700 w-[180px]">
-              <span class="text-xs md:text-base">Champion</span>
-            </div>
-            <div class="text-yellow-300 font-bold text-sm md:text-lg text-center">🏆 Champion</div>
+        <!-- Champion (Parallel to Finals) -->
+        <div class="flex flex-col justify-center items-center py-6 space-y-6">
+          <div id="champion-box" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px] animate-glow">
+            <span class="text-xs md:text-base">Champion</span>
           </div>
+          <div class="text-yellow-300 font-bold text-sm md:text-lg mt-2">🏆 Champion</div>
         </div>
 
       </div>
@@ -696,6 +693,23 @@ cards.forEach(card => observer.observe(card));
 .team-box.winner {
   background-color: #22c55e !important;
   color: white;
+}
+
+/* Smooth glowing line animation */
+@keyframes glow {
+  0% { stroke-dashoffset: 1000; stroke: #facc15; opacity: 0.5; }
+  50% { stroke: #fde047; opacity: 1; }
+  100% { stroke-dashoffset: 0; stroke: #facc15; opacity: 0.9; }
+}
+
+.animate-glow {
+  box-shadow: 0 0 10px #facc15, 0 0 20px #facc15 inset;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from { box-shadow: 0 0 5px #facc15; }
+  to { box-shadow: 0 0 20px #facc15, 0 0 30px #facc15 inset; }
 }
 </style>
 
@@ -722,6 +736,9 @@ cards.forEach(card => observer.observe(card));
     path.setAttribute('stroke',color);
     path.setAttribute('stroke-width',stroke);
     path.setAttribute('stroke-linecap','round');
+    path.setAttribute('stroke-dasharray','1000');
+    path.setAttribute('stroke-dashoffset','1000');
+    path.style.animation = 'glow 2s ease forwards';
     svg.appendChild(path);
   }
 
@@ -731,25 +748,25 @@ cards.forEach(card => observer.observe(card));
     clearSvg();
     const container = document.getElementById('bracket-wrapper');
 
-    // QF1 → SF1
+    // QF1 -> SF1 Winner
     drawCurve(
       { x:getEdge(document.getElementById('qf1-top'),container,'right').x, y:(getEdge(document.getElementById('qf1-top'),container,'right').y+getEdge(document.getElementById('qf1-bottom'),container,'right').y)/2 },
       getEdge(document.getElementById('sf1-winner'),container,'left')
     );
 
-    // QF2 → SF2
+    // QF2 -> SF2 Winner
     drawCurve(
       { x:getEdge(document.getElementById('qf2-top'),container,'right').x, y:(getEdge(document.getElementById('qf2-top'),container,'right').y+getEdge(document.getElementById('qf2-bottom'),container,'right').y)/2 },
       getEdge(document.getElementById('sf2-winner'),container,'left')
     );
 
-    // SF1 → Final (SF1 Winner)
+    // SF1 -> Final 1
     drawCurve(getEdge(document.getElementById('sf1-winner'),container,'right'),getEdge(document.getElementById('final-sf1'),container,'left'));
 
-    // SF2 → Final (SF2 Winner)
+    // SF2 -> Final 2
     drawCurve(getEdge(document.getElementById('sf2-winner'),container,'right'),getEdge(document.getElementById('final-sf2'),container,'left'));
 
-    // Final Winners → Champion
+    // Final 1 + Final 2 -> Champion
     drawCurve(getEdge(document.getElementById('final-sf1'),container,'right'),getEdge(document.getElementById('champion-box'),container,'left'));
     drawCurve(getEdge(document.getElementById('final-sf2'),container,'right'),getEdge(document.getElementById('champion-box'),container,'left'));
   }
@@ -763,6 +780,7 @@ cards.forEach(card => observer.observe(card));
   function init(){ renderLines(); window.addEventListener('resize',debounce(renderLines,60)); window.addEventListener('load',renderLines); }
   if(document.readyState==='complete'||document.readyState==='interactive'){ init(); }
   else document.addEventListener('DOMContentLoaded',init);
+
 })();
 </script>
 
