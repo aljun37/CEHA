@@ -523,63 +523,64 @@ function closeModal() {
 
 	
   <!-- bracket  -->
-<section id="bracket" class="py-8 bg-gray-800 text-white">
+<section id="bracket" class="py-6 bg-gray-800 text-white">
   <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-2xl md:text-3xl font-bold text-center text-yellow-500 mb-8">
+    <h2 class="text-xl md:text-3xl font-bold text-center text-yellow-500 mb-6 md:mb-8">
       Playoff Bracket
     </h2>
 
-    <div class="flex flex-row justify-between gap-4 relative">
+    <div class="flex flex-col md:flex-row justify-between gap-4 md:gap-8 relative">
 
       <!-- Quarterfinals -->
-      <div class="flex flex-col justify-around space-y-6">
+      <div class="flex flex-col justify-around space-y-3 md:space-y-6">
         <!-- QF1: #3 vs #6 -->
-        <div class="team-box flex items-center space-x-2 p-2 border border-yellow-500 rounded">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-10 h-10 rounded-full">
-          <span>#3 OUZO</span>
+        <div class="team-box flex items-center space-x-2 p-1 md:p-2 border border-yellow-500 rounded">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
+          <span class="text-xs md:text-base">#3 OUZO</span>
         </div>
-        <div class="team-box flex items-center space-x-2 p-2 border border-yellow-500 rounded">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-10 h-10 rounded-full">
-          <span>#6 IN THE ZONE</span>
+        <div class="team-box flex items-center space-x-2 p-1 md:p-2 border border-yellow-500 rounded">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
+          <span class="text-xs md:text-base">#6 IN THE ZONE</span>
         </div>
 
         <!-- QF2: #4 vs #5 -->
-        <div class="team-box flex items-center space-x-2 p-2 border border-yellow-500 rounded">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" class="w-10 h-10 rounded-full">
-          <span>#4 Secret of Eve</span>
+        <div class="team-box flex items-center space-x-2 p-1 md:p-2 border border-yellow-500 rounded">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
+          <span class="text-xs md:text-base">#4 Secret of Eve</span>
         </div>
-        <div class="team-box flex items-center space-x-2 p-2 border border-yellow-500 rounded">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" class="w-10 h-10 rounded-full">
-          <span>#5 SPMC Radiology</span>
+        <div class="team-box flex items-center space-x-2 p-1 md:p-2 border border-yellow-500 rounded">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
+          <span class="text-xs md:text-base">#5 SPMC Radiology</span>
         </div>
       </div>
 
       <!-- Semifinals -->
-      <div class="flex flex-col justify-around space-y-12">
+      <div class="flex flex-col justify-around space-y-6 md:space-y-12">
         <!-- SF1: #1 vs Winner QF1 -->
-        <div class="team-box flex items-center space-x-2 p-2 border border-yellow-500 rounded">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-10 h-10 rounded-full">
-          <span>#1 Waiting</span>
+        <div class="team-box flex items-center space-x-2 p-1 md:p-2 border border-yellow-500 rounded">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
+          <span class="text-xs md:text-base">#1 Waiting</span>
         </div>
         <!-- SF2: #2 vs Winner QF2 -->
-        <div class="team-box flex items-center space-x-2 p-2 border border-yellow-500 rounded">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-10 h-10 rounded-full">
-          <span>#2 Waiting</span>
+        <div class="team-box flex items-center space-x-2 p-1 md:p-2 border border-yellow-500 rounded">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
+          <span class="text-xs md:text-base">#2 Waiting</span>
         </div>
       </div>
 
       <!-- Final -->
-      <div class="flex flex-col justify-center items-center space-y-6">
-        <div class="team-box flex items-center space-x-2 p-2 border border-yellow-500 rounded">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-12 h-12 rounded-full">
-          <span>Winner SF1</span>
+      <div class="flex flex-col justify-center items-center space-y-4 md:space-y-6">
+        <div class="team-box flex items-center space-x-2 p-1 md:p-2 border border-yellow-500 rounded">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-10 h-10 md:w-12 md:h-12 rounded-full">
+          <span class="text-xs md:text-base">Winner SF1</span>
         </div>
-        <div class="text-yellow-300 font-bold text-lg">🏆 Champion</div>
+        <div class="text-yellow-300 font-bold text-sm md:text-lg">🏆 Champion</div>
       </div>
 
     </div>
   </div>
 </section>
+
 
 
 	
