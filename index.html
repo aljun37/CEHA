@@ -530,19 +530,19 @@ function closeModal() {
     <div class="grid grid-cols-8 gap-4 relative">
       <!-- Quarterfinals -->
       <div class="col-span-2 space-y-4 flex flex-col justify-between">
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 p-2 border border-yellow-500 rounded">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-10 h-10 rounded-full" />
           <span>IN THE ZONE</span>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 p-2 border border-yellow-500 rounded">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" class="w-10 h-10 rounded-full" />
           <span>SPMC Radiology</span>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 p-2 border border-yellow-500 rounded">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-10 h-10 rounded-full" />
           <span>OUZO</span>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 p-2 border border-yellow-500 rounded">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" class="w-10 h-10 rounded-full" />
           <span>Secret of Eve</span>
         </div>
@@ -551,20 +551,27 @@ function closeModal() {
       <!-- Connectors to Semifinals -->
       <div class="col-span-1 relative">
         <!-- QF1 → SF1 -->
-        <div class="absolute top-2 left-0 w-4 h-16 border-t-2 border-l-2 border-yellow-500"></div>
-        <div class="absolute top-20 left-0 w-4 h-16 border-t-2 border-l-2 border-yellow-500"></div>
-        <!-- QF2 → SF2 -->
-        <div class="absolute top-36 left-0 w-4 h-16 border-t-2 border-l-2 border-yellow-500"></div>
-        <div class="absolute top-54 left-0 w-4 h-16 border-t-2 border-l-2 border-yellow-500"></div>
+        <div class="absolute top-6 left-0 h-16 w-6 border-l-2 border-yellow-500"></div>
+        <div class="absolute top-18 left-0 w-8 border-t-2 border-yellow-500"></div>
+        <!-- QF2 → SF1 -->
+        <div class="absolute top-24 left-0 h-16 w-6 border-l-2 border-yellow-500"></div>
+        <div class="absolute top-36 left-0 w-8 border-t-2 border-yellow-500"></div>
+
+        <!-- QF3 → SF2 -->
+        <div class="absolute top-42 left-0 h-16 w-6 border-l-2 border-yellow-500"></div>
+        <div class="absolute top-54 left-0 w-8 border-t-2 border-yellow-500"></div>
+        <!-- QF4 → SF2 -->
+        <div class="absolute top-60 left-0 h-16 w-6 border-l-2 border-yellow-500"></div>
+        <div class="absolute top-72 left-0 w-8 border-t-2 border-yellow-500"></div>
       </div>
 
       <!-- Semifinals -->
       <div class="col-span-2 space-y-32 flex flex-col justify-between">
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 p-2 border border-yellow-500 rounded">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-10 h-10 rounded-full" />
           <span>Winner QF1</span>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 p-2 border border-yellow-500 rounded">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" class="w-10 h-10 rounded-full" />
           <span>Winner QF2</span>
         </div>
@@ -572,13 +579,15 @@ function closeModal() {
 
       <!-- Connectors to Final -->
       <div class="col-span-1 relative">
-        <div class="absolute top-10 left-0 w-4 h-16 border-t-2 border-l-2 border-yellow-500"></div>
-        <div class="absolute top-40 left-0 w-4 h-16 border-t-2 border-l-2 border-yellow-500"></div>
+        <div class="absolute top-20 left-0 h-16 w-6 border-l-2 border-yellow-500"></div>
+        <div class="absolute top-32 left-0 w-8 border-t-2 border-yellow-500"></div>
+        <div class="absolute top-44 left-0 h-16 w-6 border-l-2 border-yellow-500"></div>
+        <div class="absolute top-56 left-0 w-8 border-t-2 border-yellow-500"></div>
       </div>
 
       <!-- Final -->
       <div class="col-span-2 flex flex-col items-center justify-center">
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 p-2 border border-yellow-500 rounded">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-12 h-12 rounded-full" />
           <span>Winner SF1</span>
         </div>
@@ -587,6 +596,7 @@ function closeModal() {
     </div>
   </div>
 </section>
+
 
 <!-- Commissioners (Compact 4-in-a-row) -->
 <section id="commissioners" class="fade-in py-12 bg-gray-800">
