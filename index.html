@@ -495,32 +495,82 @@ function closeModal() {
 
 
   <!-- Improved Schedule -->
-  <section id="schedule" class="fade-in py-16 bg-gray-900">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">Upcoming Games</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+  <!-- Animated Schedule -->
+<section id="schedule" class="py-16 bg-gray-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">Upcoming Games</h2>
+    <div id="games" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
 
-        <!-- Game Card -->
-        <div class="bg-gray-700 rounded-lg p-6 text-center hover:scale-105 hover:bg-gray-600 transition-all duration-300">
-          <div class="flex items-center justify-center space-x-4 mb-4">
-            <div class="flex flex-col items-center">
-              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-12 h-12 rounded-full" />
-              <p class="text-sm mt-1">SOE</p>
-            </div>
-            <span class="text-xl font-bold">VS</span>
-            <div class="flex flex-col items-center">
-              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/wear.jpg" class="w-12 h-12 rounded-full" />
-              <p class="text-sm mt-1">Stitch & Wear</p>
-            </div>
+      <!-- Game Card Example -->
+      <div class="game-card opacity-0 transform translate-y-8 bg-gray-700 rounded-lg p-6 text-center hover:scale-105 hover:bg-gray-600 transition-all duration-500">
+        <div class="flex items-center justify-center space-x-4 mb-4">
+          <div class="flex flex-col items-center animate-bounce-slow">
+            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-12 h-12 rounded-full" />
+            <p class="text-sm mt-1">SOE</p>
           </div>
-          <p class="text-gray-400">Date: Sept 15, 2025</p>
-          <p class="text-gray-400">Time: 6:00 PM</p>
+          <span class="text-xl font-bold">VS</span>
+          <div class="flex flex-col items-center animate-bounce-slow">
+            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/wear.jpg" class="w-12 h-12 rounded-full" />
+            <p class="text-sm mt-1">Stitch & Wear</p>
+          </div>
         </div>
-
+        <p class="text-gray-400">Date: Sept 15, 2025</p>
+        <p class="text-gray-400">Time: 6:00 PM</p>
       </div>
-    </div>
-  </section>
 
+      <!-- Duplicate cards for demonstration -->
+      <div class="game-card opacity-0 transform translate-y-8 bg-gray-700 rounded-lg p-6 text-center hover:scale-105 hover:bg-gray-600 transition-all duration-500">
+        <div class="flex items-center justify-center space-x-4 mb-4">
+          <div class="flex flex-col items-center animate-bounce-slow">
+            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-12 h-12 rounded-full" />
+            <p class="text-sm mt-1">In the Zone</p>
+          </div>
+          <span class="text-xl font-bold">VS</span>
+          <div class="flex flex-col items-center animate-bounce-slow">
+            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-12 h-12 rounded-full" />
+            <p class="text-sm mt-1">OUZO</p>
+          </div>
+        </div>
+        <p class="text-gray-400">Date: Sept 16, 2025</p>
+        <p class="text-gray-400">Time: 7:00 PM</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* Slow bounce effect for logos */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 2s infinite;
+}
+
+/* Fade-in + move-up animation */
+.fade-in-up {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+</style>
+
+<script>
+// Animate cards on scroll
+const cards = document.querySelectorAll('.game-card');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('fade-in-up');
+      observer.unobserve(entry.target); // animate once
+    }
+  });
+}, { threshold: 0.2 });
+
+cards.forEach(card => observer.observe(card));
+</script>
 	
   <!-- bracket  -->
 <section id="bracket" class="py-6 bg-gray-800 text-white overflow-x-auto">
