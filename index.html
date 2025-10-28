@@ -405,86 +405,94 @@ function closeModal() {
 <!-- No JS needed anymore -->
 
   <!-- Standings --------------------------->
-  <section id="standings" class="fade-in py-16 bg-gray-800">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">League Standings</h2>
-      <div class="overflow-x-auto">
-        <table class="min-w-full bg-gray-700 rounded-lg overflow-hidden">
-          <thead class="bg-gray-900">
-            <tr>
-              <th class="py-3 px-4 text-left">Team</th>
-              <th class="py-3 px-4">Wins</th>
-              <th class="py-3 px-4">Losses</th>
-              <th class="py-3 px-4">Points For</th>
-              <th class="py-3 px-4">Points Against</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="hover:bg-gray-600 transition">
-              <td class="py-3 px-4 flex items-center space-x-2">
-                <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-8 h-8 rounded-full" />
-                <span>AUTO Aesthetics</span>
-              </td>
-              <td class="text-center">8</td>
-              <td class="text-center">2</td>
-              <td class="text-center">0</td>
-              <td class="text-center">0</td>
-            </tr>
-            <tr class="hover:bg-gray-600 transition">
-              <td class="py-3 px-4 flex items-center space-x-2">
-                <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/wear.jpg" class="w-8 h-8 rounded-full" />
-                <span>Stitch & Wear</span>
-              </td>
-              <td class="text-center">0</td>
-              <td class="text-center">10</td>
-              <td class="text-center">0</td>
-              <td class="text-center">5</td>
-            </tr>
-               <tr class="hover:bg-gray-600 transition">
-              <td class="py-3 px-4 flex items-center space-x-2">
-                <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-8 h-8 rounded-full" />
-                <span>IN THE ZONE</span>
-              </td>
-              <td class="text-center">4</td>
-              <td class="text-center">6</td>
-              <td class="text-center">0</td>
-              <td class="text-center">0</td>
-            </tr>
-            <tr class="hover:bg-gray-600 transition">
-              <td class="py-3 px-4 flex items-center space-x-2">
-                <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" class="w-8 h-8 rounded-full" />
-                <span>SPMC Radiology Department</span>
-              </td>
-              <td class="text-center">2</td>
-              <td class="text-center">8</td>
-              <td class="text-center">0</td>
-              <td class="text-center">0</td>
-            </tr>
-			    <tr class="hover:bg-gray-600 transition">
-              <td class="py-3 px-4 flex items-center space-x-2">
-                <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-8 h-8 rounded-full" />
-                <span>OUZO</span>
-              </td>
-              <td class="text-center">6</td>
-              <td class="text-center">4</td>
-              <td class="text-center">0</td>
-              <td class="text-center">0</td>
-            </tr>
-            <tr class="hover:bg-gray-600 transition">
-              <td class="py-3 px-4 flex items-center space-x-2">
-                <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" class="w-8 h-8 rounded-full" />
-                <span>Secret of Eve</span>
-              </td>
-              <td class="text-center">8</td>
-              <td class="text-center">2</td>
-              <td class="text-center">0</td>
-              <td class="text-center">0</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+ <!-- Standings --------------------------->
+<section id="standings" class="fade-in py-16 bg-gray-800">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">League Standings</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-gray-700 rounded-lg overflow-hidden">
+        <thead class="bg-gray-900">
+          <tr>
+            <th class="py-3 px-4 text-left">Team</th>
+            <th class="py-3 px-4">Wins</th>
+            <th class="py-3 px-4">Losses</th>
+            <th class="py-3 px-4">Points For</th>
+            <th class="py-3 px-4">Points Against</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rank 1 -->
+          <tr class="hover:bg-gray-600 transition">
+            <td class="py-3 px-4 flex items-center space-x-2">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-8 h-8 rounded-full" />
+              <span>AUTO Aesthetics</span>
+            </td>
+            <td class="text-center">8</td>
+            <td class="text-center">2</td>
+            <td class="text-center">0</td>
+            <td class="text-center">0</td>
+          </tr>
+          <!-- Rank 2 -->
+          <tr class="hover:bg-gray-600 transition">
+            <td class="py-3 px-4 flex items-center space-x-2">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" class="w-8 h-8 rounded-full" />
+              <span>Secret of Eve</span>
+            </td>
+            <td class="text-center">8</td>
+            <td class="text-center">2</td>
+            <td class="text-center">0</td>
+            <td class="text-center">0</td>
+          </tr>
+          <!-- Rank 3 -->
+          <tr class="hover:bg-gray-600 transition">
+            <td class="py-3 px-4 flex items-center space-x-2">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-8 h-8 rounded-full" />
+              <span>OUZO</span>
+            </td>
+            <td class="text-center">6</td>
+            <td class="text-center">4</td>
+            <td class="text-center">0</td>
+            <td class="text-center">0</td>
+          </tr>
+          <!-- Rank 4 -->
+          <tr class="hover:bg-gray-600 transition">
+            <td class="py-3 px-4 flex items-center space-x-2">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-8 h-8 rounded-full" />
+              <span>IN THE ZONE</span>
+            </td>
+            <td class="text-center">4</td>
+            <td class="text-center">6</td>
+            <td class="text-center">0</td>
+            <td class="text-center">0</td>
+          </tr>
+          <!-- Rank 5 -->
+          <tr class="hover:bg-gray-600 transition">
+            <td class="py-3 px-4 flex items-center space-x-2">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" class="w-8 h-8 rounded-full" />
+              <span>SPMC Radiology Department</span>
+            </td>
+            <td class="text-center">2</td>
+            <td class="text-center">8</td>
+            <td class="text-center">0</td>
+            <td class="text-center">0</td>
+          </tr>
+          <!-- Rank 6 -->
+          <tr class="hover:bg-gray-600 transition">
+            <td class="py-3 px-4 flex items-center space-x-2">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/wear.jpg" class="w-8 h-8 rounded-full" />
+              <span>Stitch & Wear</span>
+            </td>
+            <td class="text-center">0</td>
+            <td class="text-center">10</td>
+            <td class="text-center">0</td>
+            <td class="text-center">5</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Improved Schedule -->
   <section id="schedule" class="fade-in py-16 bg-gray-900">
