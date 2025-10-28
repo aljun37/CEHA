@@ -523,10 +523,87 @@ function closeModal() {
 
 	
   <!-- bracket  -->
+<section id="bracket" class="py-6 bg-gray-800 text-white overflow-x-auto">
+  <div class="max-w-full px-4">
+    <h2 class="text-xl md:text-3xl font-bold text-center text-yellow-500 mb-6 md:mb-8">
+      Playoff Bracket
+    </h2>
+
+    <!-- Bracket container: relative for SVG overlay -->
+    <div id="bracket-wrapper" class="relative overflow-visible min-w-[800px]">
+
+      <!-- SVG overlay for connectors -->
+      <svg id="links" class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg"></svg>
+
+      <div class="flex flex-row justify-start gap-8 md:gap-12">
+
+        <!-- Quarterfinals column -->
+        <div class="flex flex-col justify-between space-y-6 py-6">
+          <div id="qf1-top" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700">
+            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
+            <span class="text-xs md:text-base">#3 OUZO</span>
+          </div>
+          <div id="qf1-bottom" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700">
+            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
+            <span class="text-xs md:text-base">#6 IN THE ZONE</span>
+          </div>
+
+          <div class="h-4 md:h-8"></div>
+
+          <div id="qf2-top" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700">
+            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
+            <span class="text-xs md:text-base">#4 Secret of Eve</span>
+          </div>
+          <div id="qf2-bottom" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700">
+            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
+            <span class="text-xs md:text-base">#5 SPMC Radiology</span>
+          </div>
+        </div>
+
+        <!-- Semifinals column -->
+        <div class="flex flex-col justify-between space-y-8 py-6">
+
+          <!-- SF1 (top seed #1) -->
+          <div class="flex flex-col items-center space-y-2">
+            <div id="sf1-top" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
+              <span class="text-xs md:text-base">#1</span>
+            </div>
+            <div id="sf1-winner" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-800 w-[160px]">
+              <span class="text-xs md:text-base text-gray-400">Winner #3/#6</span>
+            </div>
+          </div>
+
+          <!-- SF2 (top seed #2) -->
+          <div class="flex flex-col items-center space-y-2">
+            <div id="sf2-top" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
+              <span class="text-xs md:text-base">#2</span>
+            </div>
+            <div id="sf2-winner" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-800 w-[160px]">
+              <span class="text-xs md:text-base text-gray-400">Winner #4/#5</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Final column -->
+        <div class="flex flex-col justify-center items-center py-6">
+          <div id="final-box" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px]">
+            <span class="text-xs md:text-base">Winner SF1 vs SF2</span>
+          </div>
+          <div class="text-yellow-300 font-bold text-sm md:text-lg mt-4">🏆 Champion</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 <script>
 (function () {
   const svg = document.getElementById('links');
-  const padding = 5; // distance from box edge
+  const padding = 5;
 
   function getEdge(el, container, side) {
     const rect = el.getBoundingClientRect();
@@ -561,7 +638,7 @@ function closeModal() {
     // QF1 winner to SF1
     const src1Top = getEdge(document.getElementById('qf1-top'), container, 'right');
     const src1Bottom = getEdge(document.getElementById('qf1-bottom'), container, 'right');
-    const src1 = { x: src1Top.x, y: (src1Top.y + src1Bottom.y)/2 }; // midpoint
+    const src1 = { x: src1Top.x, y: (src1Top.y + src1Bottom.y)/2 };
     const tgt1 = getEdge(document.getElementById('sf1-winner'), container, 'left');
     drawElbowLine(src1, tgt1);
 
