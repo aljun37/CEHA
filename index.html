@@ -521,65 +521,162 @@ function closeModal() {
     </div>
   </section>
 
-	<!-- FIBA Style Bracket --------------------------->
-<section id="bracket" class="fade-in py-16 bg-gray-800 text-white">
+	<!-- Responsive FIBA-style bracket with SVG connectors -->
+<section id="bracket" class="fade-in py-12 bg-gray-800 text-white">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-4xl font-bold text-center text-yellow-500 mb-12">Playoff Bracket</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-yellow-500 mb-8">Playoff Bracket</h2>
 
-    <div class="flex flex-col items-center space-y-8">
+    <!-- container: mobile = stacked, md+ = 3 columns (QF | SF | Final) -->
+    <div class="relative">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
 
-      <!-- Left Side (Quarterfinals) -->
-      <div class="flex flex-row items-center justify-center space-x-4">
-        <div class="flex flex-col space-y-8 text-right">
-          <div>QF1: Team 3</div>
-          <div>QF2: Team 4</div>
+        <!-- Quarterfinals column -->
+        <div class="space-y-6">
+          <div class="text-sm text-gray-300 mb-1 font-semibold">Quarterfinals</div>
+
+          <!-- QF1 -->
+          <div class="bg-gray-700 p-3 rounded-lg flex items-center space-x-3 md:justify-end">
+            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" alt="IN THE ZONE" class="w-10 h-10 rounded-full flex-shrink-0" />
+            <div class="text-left md:text-right">
+              <div class="font-medium">IN THE ZONE</div>
+              <div class="text-xs text-gray-400">Seed 3</div>
+            </div>
+          </div>
+
+          <!-- QF2 -->
+          <div class="bg-gray-700 p-3 rounded-lg flex items-center space-x-3 md:justify-end">
+            <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" alt="SPMC Radiology Department" class="w-10 h-10 rounded-full flex-shrink-0" />
+            <div class="text-left md:text-right">
+              <div class="font-medium">SPMC Radiology Department</div>
+              <div class="text-xs text-gray-400">Seed 5</div>
+            </div>
+          </div>
         </div>
 
-        <!-- Connectors -->
-        <div class="flex flex-col justify-between h-32">
-          <div class="border-t-2 border-yellow-500 w-8 relative after:content-['▶'] after:text-yellow-500 after:absolute after:-right-4 after:-top-2"></div>
-          <div class="border-t-2 border-yellow-500 w-8 relative after:content-['▶'] after:text-yellow-500 after:absolute after:-right-4 after:-top-2"></div>
+        <!-- Semifinals column -->
+        <div class="space-y-12 flex flex-col justify-center">
+          <div class="text-sm text-gray-300 mb-1 font-semibold md:text-center">Semifinals</div>
+
+          <!-- SF1 (Winner QF1 vs Seed 1) -->
+          <div class="flex items-center justify-between md:justify-center space-x-4 md:space-x-8">
+            <!-- Left (winner QF1) -->
+            <div class="hidden md:flex items-center space-x-3 md:justify-end">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" alt="Winner QF1" class="w-10 h-10 rounded-full" />
+              <div class="text-right">
+                <div class="font-medium">Winner QF1</div>
+                <div class="text-xs text-gray-400">—</div>
+              </div>
+            </div>
+
+            <!-- center pairing for mobile -->
+            <div class="md:hidden bg-gray-700 p-3 rounded-lg w-full flex items-center space-x-3">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-8 h-8 rounded-full" />
+              <div class="flex-1">
+                <div class="font-medium">Winner QF1</div>
+                <div class="text-xs text-gray-400">vs</div>
+                <div class="font-medium">AUTO Aesthetics</div>
+                <div class="text-xs text-gray-400">Seed 1</div>
+              </div>
+            </div>
+
+            <!-- Right (seed 1) -->
+            <div class="hidden md:flex items-center space-x-3 md:justify-start">
+              <div class="text-left">
+                <div class="font-medium">AUTO Aesthetics</div>
+                <div class="text-xs text-gray-400">Seed 1</div>
+              </div>
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" alt="AUTO Aesthetics" class="w-10 h-10 rounded-full" />
+            </div>
+          </div>
+
+          <!-- SF2 (Winner QF2 vs Seed 2) -->
+          <div class="flex items-center justify-between md:justify-center space-x-4 md:space-x-8">
+            <!-- Left (winner QF2) -->
+            <div class="hidden md:flex items-center space-x-3 md:justify-end">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" alt="Winner QF2" class="w-10 h-10 rounded-full" />
+              <div class="text-right">
+                <div class="font-medium">Winner QF2</div>
+                <div class="text-xs text-gray-400">—</div>
+              </div>
+            </div>
+
+            <!-- center pairing for mobile -->
+            <div class="md:hidden bg-gray-700 p-3 rounded-lg w-full flex items-center space-x-3">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" class="w-8 h-8 rounded-full" />
+              <div class="flex-1">
+                <div class="font-medium">Winner QF2</div>
+                <div class="text-xs text-gray-400">vs</div>
+                <div class="font-medium">Secret of Eve</div>
+                <div class="text-xs text-gray-400">Seed 2</div>
+              </div>
+            </div>
+
+            <!-- Right (seed 2) -->
+            <div class="hidden md:flex items-center space-x-3 md:justify-start">
+              <div class="text-left">
+                <div class="font-medium">Secret of Eve</div>
+                <div class="text-xs text-gray-400">Seed 2</div>
+              </div>
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" alt="Secret of Eve" class="w-10 h-10 rounded-full" />
+            </div>
+          </div>
         </div>
 
-        <!-- Quarterfinal Opponents -->
-        <div class="flex flex-col space-y-8 text-left">
-          <div>Team 6</div>
-          <div>Team 5</div>
+        <!-- Finals column -->
+        <div class="space-y-6">
+          <div class="text-sm text-gray-300 mb-1 font-semibold text-right md:text-left">Final</div>
+
+          <!-- Final placeholder (desktop shows winners, mobile stacked view already displays) -->
+          <div class="bg-yellow-600/10 border border-yellow-600 p-4 rounded-lg flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" alt="Finalist 1" class="w-10 h-10 rounded-full" />
+              <div>
+                <div class="font-medium">Winner SF1</div>
+                <div class="text-xs text-gray-300">—</div>
+              </div>
+            </div>
+
+            <div class="text-center text-sm text-gray-300">vs</div>
+
+            <div class="flex items-center space-x-3">
+              <div>
+                <div class="font-medium">Winner SF2</div>
+                <div class="text-xs text-gray-300">—</div>
+              </div>
+              <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" alt="Finalist 2" class="w-10 h-10 rounded-full" />
+            </div>
+          </div>
+
+          <div class="text-yellow-300 text-center text-lg font-semibold mt-2">🏆 Champion</div>
         </div>
       </div>
 
-      <!-- Middle (Semifinals) -->
-      <div class="flex flex-row items-center justify-center space-x-4">
-        <div class="flex flex-col text-right space-y-16">
-          <div>Winner QF1</div>
-          <div>Winner QF2</div>
-        </div>
+      <!-- SVG connectors for md+ (hidden on mobile) -->
+      <svg class="hidden md:block absolute inset-0 pointer-events-none" viewBox="0 0 1000 600" preserveAspectRatio="none">
+        <!-- QF1 (left top) to SF1 center -->
+        <path d="M250 140 C 330 140, 380 160, 420 180" stroke="#FBBF24" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- SF1 to Final top -->
+        <path d="M520 180 C 620 180, 680 220, 760 240" stroke="#FBBF24" stroke-width="3" fill="none" stroke-linecap="round"/>
 
-        <!-- Arrows to Semifinal Opponents -->
-        <div class="flex flex-col justify-between h-40">
-          <div class="border-t-2 border-yellow-500 w-12 relative after:content-['▶'] after:text-yellow-500 after:absolute after:-right-4 after:-top-2"></div>
-          <div class="border-t-2 border-yellow-500 w-12 relative after:content-['▶'] after:text-yellow-500 after:absolute after:-right-4 after:-top-2"></div>
-        </div>
+        <!-- QF2 (left lower) to SF2 center -->
+        <path d="M250 340 C 330 340, 380 320, 420 300" stroke="#FBBF24" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- SF2 to Final bottom -->
+        <path d="M520 300 C 620 300, 680 260, 760 240" stroke="#FBBF24" stroke-width="3" fill="none" stroke-linecap="round"/>
 
-        <!-- Semifinal Matchups -->
-        <div class="flex flex-col space-y-16 text-left">
-          <div>Team 1</div>
-          <div>Team 2</div>
-        </div>
-      </div>
-
-      <!-- Final (Championship) -->
-      <div class="flex flex-row items-center justify-center space-x-4">
-        <div class="text-right">Winner SF1</div>
-        <div class="border-t-2 border-yellow-500 w-16 relative after:content-['🏆'] after:text-yellow-500 after:absolute after:-right-6 after:-top-3"></div>
-        <div class="text-left">Winner SF2</div>
-      </div>
-
-      <!-- Champion -->
-      <div class="text-yellow-400 text-2xl font-bold mt-6">🏆 Champion</div>
+        <!-- small arrowheads -->
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0 0 L8 4 L0 8 z" fill="#FBBF24"></path>
+          </marker>
+        </defs>
+        <path d="M420 180 L428 184" stroke="#FBBF24" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+        <path d="M420 300 L428 296" stroke="#FBBF24" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+        <path d="M760 240 L768 244" stroke="#FBBF24" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+      </svg>
     </div>
   </div>
 </section>
+
 
   
 <!-- Commissioners (Compact 4-in-a-row) -->
