@@ -595,6 +595,8 @@ cards.forEach(card => observer.observe(card));
 
 	
   <!----------- bracket  ----------->
+<!----------- Bracket ----------->
+
 <section id="bracket" class="py-6 bg-gray-800 text-white overflow-x-auto">
   <div class="max-w-full px-4">
     <h2 class="text-xl md:text-3xl font-bold text-center text-yellow-500 mb-6 md:mb-8">
@@ -603,6 +605,7 @@ cards.forEach(card => observer.observe(card));
 
     <div id="bracket-wrapper" class="relative overflow-visible min-w-[800px]">
 
+      <!-- SVG for connector lines -->
       <svg id="links" class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg"></svg>
 
       <div class="flex flex-row justify-start gap-8 md:gap-12">
@@ -653,12 +656,17 @@ cards.forEach(card => observer.observe(card));
           </div>
         </div>
 
-        <!-- Final -->
+        <!-- Final Winner Box -->
         <div class="flex flex-col justify-center items-center py-6">
-          <div id="final-box" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px]">
+          <div id="final-winner" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px]">
             <span class="text-xs md:text-base">Winner SF1 vs SF2</span>
           </div>
-          <div class="text-yellow-300 font-bold text-sm md:text-lg mt-4">🏆 Champion</div>
+
+          <!-- Champion -->
+          <div id="champion-box" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px] mt-4">
+            <span class="text-xs md:text-base">Champion</span>
+          </div>
+          <div class="text-yellow-300 font-bold text-sm md:text-lg mt-2">🏆 Champion</div>
         </div>
 
       </div>
@@ -692,7 +700,6 @@ cards.forEach(card => observer.observe(card));
     }
   }
 
-  // Draw smooth cubic Bezier curve
   function drawCurve(a, b, color = '#FBBF24', stroke = 3) {
     const dx = (b.x - a.x) * 0.5;
     const path = document.createElementNS('http://www.w3.org/2000/svg','path');
@@ -725,12 +732,17 @@ cards.forEach(card => observer.observe(card));
     const tgt2 = getEdge(document.getElementById('sf2-winner'), container, 'left');
     drawCurve(src2, tgt2);
 
-    // SF winners -> final
-    const sf1 = getEdge(document.getElementById('sf1-winner'), container, 'right');
-    const sf2 = getEdge(document.getElementById('sf2-winner'), container, 'right');
-    const final = getEdge(document.getElementById('final-box'), container, 'left');
-    drawCurve(sf1, final);
-    drawCurve(sf2, final);
+    // SF winners -> Final Winner
+    const sf1Edge = getEdge(document.getElementById('sf1-winner'), container, 'right');
+    const sf2Edge = getEdge(document.getElementById('sf2-winner'), container, 'right');
+    const finalWinnerEdge = getEdge(document.getElementById('final-winner'), container, 'left');
+    drawCurve(sf1Edge, finalWinnerEdge);
+    drawCurve(sf2Edge, finalWinnerEdge);
+
+    // Final Winner -> Champion
+    const finalWinnerRight = getEdge(document.getElementById('final-winner'), container, 'right');
+    const championEdge = getEdge(document.getElementById('champion-box'), container, 'left');
+    drawCurve(finalWinnerRight, championEdge);
   }
 
   // Click to select winner
