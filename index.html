@@ -657,18 +657,16 @@ cards.forEach(card => observer.observe(card));
           </div>
         </div>
 
-        <!-- Final stage -->
+        <!-- Final & Champion Vertical -->
         <div class="flex flex-col justify-center items-center py-6 space-y-6">
-          <div class="flex flex-row gap-6">
-            <div id="final-sf1" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[140px]">
-              <span class="text-xs md:text-base">SF1 Winner</span>
-            </div>
-            <div id="final-sf2" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[140px]">
-              <span class="text-xs md:text-base">SF2 Winner</span>
-            </div>
+          <div id="final-sf1" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[160px]">
+            <span class="text-xs md:text-base">SF1 Winner</span>
+          </div>
+          <div id="final-sf2" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[160px]">
+            <span class="text-xs md:text-base">SF2 Winner</span>
           </div>
 
-          <div id="champion-box" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px] mt-4">
+          <div id="champion-box" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px]">
             <span class="text-xs md:text-base">Champion</span>
           </div>
           <div class="text-yellow-300 font-bold text-sm md:text-lg mt-2">🏆 Champion</div>
@@ -735,11 +733,11 @@ cards.forEach(card => observer.observe(card));
       getEdge(document.getElementById('sf2-winner'),container,'left')
     );
 
-    // SF1 & SF2 Winners -> Final boxes
+    // SF1 & SF2 Winners -> Final vertical
     drawCurve(getEdge(document.getElementById('sf1-winner'),container,'right'),getEdge(document.getElementById('final-sf1'),container,'left'));
     drawCurve(getEdge(document.getElementById('sf2-winner'),container,'right'),getEdge(document.getElementById('final-sf2'),container,'left'));
 
-    // Final boxes -> Champion
+    // Final vertical -> Champion
     drawCurve(getEdge(document.getElementById('final-sf1'),container,'right'),getEdge(document.getElementById('champion-box'),container,'left'));
     drawCurve(getEdge(document.getElementById('final-sf2'),container,'right'),getEdge(document.getElementById('champion-box'),container,'left'));
   }
