@@ -555,17 +555,22 @@ function closeModal() {
       </div>
 
       <!-- Semifinals -->
-      <div class="flex flex-col justify-around space-y-6 md:space-y-12">
-        <!-- SF1: #1 vs Winner QF1 -->
-        <div class="team-box flex items-center space-x-2 p-1 md:p-2 border border-yellow-500 rounded">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
-          <span class="text-xs md:text-base">#1 Waiting</span>
+      <div class="flex flex-col justify-around space-y-6 md:space-y-12 relative">
+
+        <!-- Vacant box for #1 waiting -->
+        <div class="team-box flex items-center justify-center space-x-2 p-1 md:p-2 border border-yellow-500 rounded relative">
+          <span class="text-xs md:text-base text-gray-400">#1 Waiting</span>
+          <!-- Connector line from QF1 -->
+          <span class="absolute left-[-1.5rem] top-1/2 w-6 h-0.5 bg-yellow-500"></span>
         </div>
-        <!-- SF2: #2 vs Winner QF2 -->
-        <div class="team-box flex items-center space-x-2 p-1 md:p-2 border border-yellow-500 rounded">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
-          <span class="text-xs md:text-base">#2 Waiting</span>
+
+        <!-- Vacant box for #2 waiting -->
+        <div class="team-box flex items-center justify-center space-x-2 p-1 md:p-2 border border-yellow-500 rounded relative">
+          <span class="text-xs md:text-base text-gray-400">#2 Waiting</span>
+          <!-- Connector line from QF2 -->
+          <span class="absolute left-[-1.5rem] top-1/2 w-6 h-0.5 bg-yellow-500"></span>
         </div>
+
       </div>
 
       <!-- Final -->
