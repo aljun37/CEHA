@@ -527,57 +527,67 @@ function closeModal() {
   <div class="max-w-6xl mx-auto px-6">
     <h2 class="text-3xl md:text-4xl font-bold text-center text-yellow-500 mb-12">Playoff Bracket</h2>
 
-    <div class="relative flex flex-col items-center">
+    <div class="grid grid-cols-8 gap-4 relative">
       <!-- Quarterfinals -->
-      <div class="flex flex-col items-center space-y-8">
-        <div class="flex items-center space-x-4">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-12 h-12 rounded-full" />
+      <div class="col-span-2 space-y-4 flex flex-col justify-between">
+        <div class="flex items-center space-x-2">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-10 h-10 rounded-full" />
           <span>IN THE ZONE</span>
         </div>
-        <div class="flex items-center space-x-4">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" class="w-12 h-12 rounded-full" />
-          <span>SPMC Radiology Department</span>
+        <div class="flex items-center space-x-2">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" class="w-10 h-10 rounded-full" />
+          <span>SPMC Radiology</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-10 h-10 rounded-full" />
+          <span>OUZO</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" class="w-10 h-10 rounded-full" />
+          <span>Secret of Eve</span>
         </div>
       </div>
 
-      <!-- Connectors -->
-      <svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0 0 L8 4 L0 8 z" fill="#FBBF24"></path>
-          </marker>
-        </defs>
+      <!-- Connectors to Semifinals -->
+      <div class="col-span-1 relative">
         <!-- QF1 → SF1 -->
-        <path d="M120 50 C 200 50, 280 100, 400 100" stroke="#FBBF24" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+        <div class="absolute top-2 left-0 w-4 h-16 border-t-2 border-l-2 border-yellow-500"></div>
+        <div class="absolute top-20 left-0 w-4 h-16 border-t-2 border-l-2 border-yellow-500"></div>
         <!-- QF2 → SF2 -->
-        <path d="M120 180 C 200 180, 280 140, 400 160" stroke="#FBBF24" stroke-width="3" fill="none" marker-end="url(#arrow)" />
-      </svg>
+        <div class="absolute top-36 left-0 w-4 h-16 border-t-2 border-l-2 border-yellow-500"></div>
+        <div class="absolute top-54 left-0 w-4 h-16 border-t-2 border-l-2 border-yellow-500"></div>
+      </div>
 
       <!-- Semifinals -->
-      <div class="absolute top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-16">
-        <div class="flex items-center space-x-4">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-12 h-12 rounded-full" />
+      <div class="col-span-2 space-y-32 flex flex-col justify-between">
+        <div class="flex items-center space-x-2">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-10 h-10 rounded-full" />
           <span>Winner QF1</span>
         </div>
-        <div class="flex items-center space-x-4">
-          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-12 h-12 rounded-full" />
-          <span>AUTO Aesthetics</span>
+        <div class="flex items-center space-x-2">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" class="w-10 h-10 rounded-full" />
+          <span>Winner QF2</span>
         </div>
       </div>
 
-      <!-- Finals -->
-      <div class="absolute right-0 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-12">
-        <div class="flex items-center space-x-4">
+      <!-- Connectors to Final -->
+      <div class="col-span-1 relative">
+        <div class="absolute top-10 left-0 w-4 h-16 border-t-2 border-l-2 border-yellow-500"></div>
+        <div class="absolute top-40 left-0 w-4 h-16 border-t-2 border-l-2 border-yellow-500"></div>
+      </div>
+
+      <!-- Final -->
+      <div class="col-span-2 flex flex-col items-center justify-center">
+        <div class="flex items-center space-x-2">
           <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-12 h-12 rounded-full" />
           <span>Winner SF1</span>
         </div>
-        <div class="text-yellow-300 font-bold text-lg">🏆 Champion</div>
+        <div class="text-yellow-300 font-bold text-lg mt-2">🏆 Champion</div>
       </div>
     </div>
   </div>
 </section>
 
-  
 <!-- Commissioners (Compact 4-in-a-row) -->
 <section id="commissioners" class="fade-in py-12 bg-gray-800">
   <div class="max-w-7xl mx-auto px-4">
