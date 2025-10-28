@@ -529,15 +529,13 @@ function closeModal() {
       Playoff Bracket
     </h2>
 
-    <!-- Bracket container -->
     <div id="bracket-wrapper" class="relative overflow-visible min-w-[800px]">
 
-      <!-- SVG overlay for connectors -->
       <svg id="links" class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg"></svg>
 
       <div class="flex flex-row justify-start gap-8 md:gap-12">
 
-        <!-- Quarterfinals column -->
+        <!-- Quarterfinals -->
         <div class="flex flex-col justify-between space-y-6 py-6">
           <div id="qf1-top" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 cursor-pointer">
             <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
@@ -560,10 +558,8 @@ function closeModal() {
           </div>
         </div>
 
-        <!-- Semifinals column -->
+        <!-- Semifinals -->
         <div class="flex flex-col justify-between space-y-8 py-6">
-
-          <!-- SF1 -->
           <div class="flex flex-col items-center space-y-2">
             <div id="sf1-top" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700">
               <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
@@ -574,7 +570,6 @@ function closeModal() {
             </div>
           </div>
 
-          <!-- SF2 -->
           <div class="flex flex-col items-center space-y-2">
             <div id="sf2-top" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700">
               <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
@@ -584,10 +579,9 @@ function closeModal() {
               <span class="text-xs md:text-base text-gray-400">Winner #4/#5</span>
             </div>
           </div>
-
         </div>
 
-        <!-- Final column -->
+        <!-- Final -->
         <div class="flex flex-col justify-center items-center py-6">
           <div id="final-box" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px]">
             <span class="text-xs md:text-base">Winner SF1 vs SF2</span>
@@ -601,26 +595,22 @@ function closeModal() {
 </section>
 
 <style>
-/* Hover highlight */
 .team-box:hover {
   border-color: #facc15;
   transform: scale(1.05);
   transition: all 0.2s ease;
 }
-
-/* Winner selection */
 .team-box.winner {
-  background-color: #22c55e !important; /* green */
+  background-color: #22c55e !important;
   color: white;
 }
 </style>
 
 <script>
-(function () {
+(function() {
   const svg = document.getElementById('links');
   const padding = 5;
 
-  // Draw connector lines outside boxes
   function getEdge(el, container, side) {
     const rect = el.getBoundingClientRect();
     const cRect = container.getBoundingClientRect();
@@ -630,16 +620,16 @@ function closeModal() {
     }
   }
 
-  function drawElbowLine(a, b, color = '#FBBF24', stroke = 3) {
-    const mx = a.x + (b.x - a.x) * 0.5;
+  // Draw smooth cubic Bezier curve
+  function drawCurve(a, b, color = '#FBBF24', stroke = 3) {
+    const dx = (b.x - a.x) * 0.5;
     const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-    const d = `M ${a.x} ${a.y} L ${mx} ${a.y} L ${mx} ${b.y} L ${b.x} ${b.y}`;
+    const d = `M ${a.x} ${a.y} C ${a.x + dx} ${a.y}, ${b.x - dx} ${b.y}, ${b.x} ${b.y}`;
     path.setAttribute('d', d);
     path.setAttribute('fill','none');
     path.setAttribute('stroke',color);
     path.setAttribute('stroke-width',stroke);
     path.setAttribute('stroke-linecap','round');
-    path.setAttribute('stroke-linejoin','round');
     svg.appendChild(path);
   }
 
@@ -654,24 +644,24 @@ function closeModal() {
     const src1Bottom = getEdge(document.getElementById('qf1-bottom'), container, 'right');
     const src1 = { x: src1Top.x, y: (src1Top.y + src1Bottom.y)/2 };
     const tgt1 = getEdge(document.getElementById('sf1-winner'), container, 'left');
-    drawElbowLine(src1, tgt1);
+    drawCurve(src1, tgt1);
 
     // QF2 -> SF2
     const src2Top = getEdge(document.getElementById('qf2-top'), container, 'right');
     const src2Bottom = getEdge(document.getElementById('qf2-bottom'), container, 'right');
     const src2 = { x: src2Top.x, y: (src2Top.y + src2Bottom.y)/2 };
     const tgt2 = getEdge(document.getElementById('sf2-winner'), container, 'left');
-    drawElbowLine(src2, tgt2);
+    drawCurve(src2, tgt2);
 
     // SF winners -> final
     const sf1 = getEdge(document.getElementById('sf1-winner'), container, 'right');
     const sf2 = getEdge(document.getElementById('sf2-winner'), container, 'right');
     const final = getEdge(document.getElementById('final-box'), container, 'left');
-    drawElbowLine(sf1, final);
-    drawElbowLine(sf2, final);
+    drawCurve(sf1, final);
+    drawCurve(sf2, final);
   }
 
-  // Winner selection click
+  // Click to select winner
   document.querySelectorAll('.team-box').forEach(box => {
     box.addEventListener('click', () => {
       box.classList.toggle('winner');
@@ -680,7 +670,7 @@ function closeModal() {
 
   function debounce(fn, t=80){ let id; return (...args)=>{ clearTimeout(id); id=setTimeout(()=>fn(...args), t);}; }
 
-  function init(){
+  function init() {
     renderLines();
     window.addEventListener('resize', debounce(renderLines,60));
     window.addEventListener('load', renderLines);
@@ -690,7 +680,6 @@ function closeModal() {
   else { document.addEventListener('DOMContentLoaded', init); }
 })();
 </script>
-
 
 	
 <!-- Commissioners (Compact 4-in-a-row) -->
