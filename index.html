@@ -523,73 +523,64 @@ function closeModal() {
 
 	
   <!-- bracket  -->
-from PIL import Image, ImageDraw, ImageFont
+<section id="bracket" class="py-8 bg-gray-800 text-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold text-center text-yellow-500 mb-8">
+      Playoff Bracket
+    </h2>
 
-# -------- CONFIG --------
-teams = [
-    {"name": "Team 1", "logo": "team1.png"},
-    {"name": "Team 2", "logo": "team2.png"},
-    {"name": "Team 3", "logo": "team3.png"},
-    {"name": "Team 4", "logo": "team4.png"},
-    {"name": "Team 5", "logo": "team5.png"},
-    {"name": "Team 6", "logo": "team6.png"}
-]
+    <div class="flex flex-row justify-between gap-4 relative">
 
-# Output file
-output_file = "horizontal_bracket.png"
+      <!-- Quarterfinals -->
+      <div class="flex flex-col justify-around space-y-6">
+        <!-- QF1: #3 vs #6 -->
+        <div class="team-box flex items-center space-x-2 p-2 border border-yellow-500 rounded">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/ouzo.png" class="w-10 h-10 rounded-full">
+          <span>#3 OUZO</span>
+        </div>
+        <div class="team-box flex items-center space-x-2 p-2 border border-yellow-500 rounded">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-10 h-10 rounded-full">
+          <span>#6 IN THE ZONE</span>
+        </div>
 
-# Image settings
-width = 1200
-height = 400
-bg_color = (255, 255, 255)
-line_color = (0, 0, 0)
-font_path = "arial.ttf"  # change to a path to your font if needed
-font_size = 20
-logo_size = (60, 60)
+        <!-- QF2: #4 vs #5 -->
+        <div class="team-box flex items-center space-x-2 p-2 border border-yellow-500 rounded">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/Soe.jpg" class="w-10 h-10 rounded-full">
+          <span>#4 Secret of Eve</span>
+        </div>
+        <div class="team-box flex items-center space-x-2 p-2 border border-yellow-500 rounded">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/spmc.jpg" class="w-10 h-10 rounded-full">
+          <span>#5 SPMC Radiology</span>
+        </div>
+      </div>
 
-# -------- SETUP --------
-img = Image.new("RGB", (width, height), bg_color)
-draw = ImageDraw.Draw(img)
-font = ImageFont.truetype(font_path, font_size)
+      <!-- Semifinals -->
+      <div class="flex flex-col justify-around space-y-12">
+        <!-- SF1: #1 vs Winner QF1 -->
+        <div class="team-box flex items-center space-x-2 p-2 border border-yellow-500 rounded">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-10 h-10 rounded-full">
+          <span>#1 Waiting</span>
+        </div>
+        <!-- SF2: #2 vs Winner QF2 -->
+        <div class="team-box flex items-center space-x-2 p-2 border border-yellow-500 rounded">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-10 h-10 rounded-full">
+          <span>#2 Waiting</span>
+        </div>
+      </div>
 
-# Coordinates
-x_start = 50
-y_start = 50
-x_gap = 200
-y_gap = 60
+      <!-- Final -->
+      <div class="flex flex-col justify-center items-center space-y-6">
+        <div class="team-box flex items-center space-x-2 p-2 border border-yellow-500 rounded">
+          <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-12 h-12 rounded-full">
+          <span>Winner SF1</span>
+        </div>
+        <div class="text-yellow-300 font-bold text-lg">🏆 Champion</div>
+      </div>
 
-# Load logos
-for team in teams:
-    team["logo_img"] = Image.open(team["logo"]).resize(logo_size)
+    </div>
+  </div>
+</section>
 
-# Draw quarterfinals (3vs6 and 4vs5)
-quarter_y = [y_start, y_start + y_gap * 3]
-for i, idx in enumerate([(2, 5), (3, 4)]):
-    # Logos
-    img.paste(teams[idx[0]]["logo_img"], (x_start, quarter_y[i]))
-    img.paste(teams[idx[1]]["logo_img"], (x_start, quarter_y[i] + logo_size[1] + 10))
-    
-    # Names
-    draw.text((x_start + logo_size[0] + 10, quarter_y[i]), teams[idx[0]]["name"], fill=line_color, font=font)
-    draw.text((x_start + logo_size[0] + 10, quarter_y[i] + logo_size[1] + 10), teams[idx[1]]["name"], fill=line_color, font=font)
-    
-    # Connecting line
-    mid_y = quarter_y[i] + logo_size[1] + 5
-    draw.line([(x_start + logo_size[0] + 150, quarter_y[i] + logo_size[1]//2),
-               (x_start + logo_size[0] + 150, mid_y + logo_size[1]//2)], fill=line_color, width=3)
-
-# Draw semifinals (1 and 2 waiting)
-semifinal_x = x_start + x_gap
-# Team 1
-img.paste(teams[0]["logo_img"], (semifinal_x, y_start + y_gap//2))
-draw.text((semifinal_x + logo_size[0] + 10, y_start + y_gap//2), teams[0]["name"], fill=line_color, font=font)
-# Team 2
-img.paste(teams[1]["logo_img"], (semifinal_x, y_start + y_gap * 2 + logo_size[1]//2))
-draw.text((semifinal_x + logo_size[0] + 10, y_start + y_gap * 2 + logo_size[1]//2), teams[1]["name"], fill=line_color, font=font)
-
-# Save output
-img.save(output_file)
-print(f"Bracket saved to {output_file}")
 
 	
 <!-- Commissioners (Compact 4-in-a-row) -->
