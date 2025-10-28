@@ -495,14 +495,14 @@ function closeModal() {
 
 
   <!-- Improved Schedule -->
-<!-- Floating Animated Schedule -->
+<!-- Live Animated Schedule with Sway -->
 <section id="schedule" class="py-12 bg-gray-900 overflow-x-hidden">
   <div class="max-w-6xl mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center text-yellow-500 mb-10">Upcoming Games</h2>
     <div id="games" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
       <!-- Example Game Card -->
-      <div class="game-card opacity-0 transform -translate-x-10 bg-gray-700 rounded-lg p-4 text-center shadow-lg hover:scale-105 hover:bg-gray-600 transition-all duration-500 cursor-pointer">
+      <div class="game-card opacity-0 transform -translate-x-10 bg-gray-700 rounded-lg p-4 text-center shadow-lg hover:scale-105 hover:bg-gray-600 transition-all duration-500 cursor-pointer animate-sway">
         <div class="flex items-center justify-center space-x-3 mb-3">
           <div class="flex flex-col items-center animate-float">
             <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-10 h-10 md:w-12 md:h-12 rounded-full" />
@@ -519,7 +519,7 @@ function closeModal() {
       </div>
 
       <!-- Another Game Card -->
-      <div class="game-card opacity-0 transform translate-x-10 bg-gray-700 rounded-lg p-4 text-center shadow-lg hover:scale-105 hover:bg-gray-600 transition-all duration-500 cursor-pointer">
+      <div class="game-card opacity-0 transform translate-x-10 bg-gray-700 rounded-lg p-4 text-center shadow-lg hover:scale-105 hover:bg-gray-600 transition-all duration-500 cursor-pointer animate-sway">
         <div class="flex items-center justify-center space-x-3 mb-3">
           <div class="flex flex-col items-center animate-float">
             <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/zone.jpg" class="w-10 h-10 md:w-12 md:h-12 rounded-full" />
@@ -549,6 +549,17 @@ function closeModal() {
 }
 .animate-float {
   animation: float 2.5s ease-in-out infinite;
+}
+
+/* Sway effect for cards */
+@keyframes sway {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(2px) rotate(0.5deg); }
+  50% { transform: translateX(-2px) rotate(-0.5deg); }
+  75% { transform: translateX(2px) rotate(0.5deg); }
+}
+.animate-sway {
+  animation: sway 4s ease-in-out infinite;
 }
 
 /* Fade-in + slide animation */
