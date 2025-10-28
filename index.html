@@ -644,11 +644,9 @@ cards.forEach(card => observer.observe(card));
             <div id="sf1-winner" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-800 w-[160px]">
               <span class="text-xs md:text-base text-gray-400">Winner QF1 vs #1</span>
             </div>
-          </div>
 
-          <!-- SF2 -->
-          <div class="flex flex-col items-center space-y-2">
-            <div id="sf2-seed" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700">
+            <!-- SF2 below SF1 -->
+            <div id="sf2-seed" class="team-box flex items-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 mt-8">
               <img src="https://raw.githubusercontent.com/aljun37/CEHA/main/images/auto.jpg" class="w-8 h-8 md:w-10 md:h-10 rounded-full">
               <span class="text-xs md:text-base">#2</span>
             </div>
@@ -658,20 +656,10 @@ cards.forEach(card => observer.observe(card));
           </div>
         </div>
 
-        <!-- Champion Horizontal Between SF1 & SF2 -->
+        <!-- Champion Vertical -->
         <div class="flex flex-col justify-center items-center py-6 space-y-6">
-          <div class="flex flex-row items-center justify-center space-x-6">
-            <div id="final-sf1" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[160px]">
-              <span class="text-xs md:text-base">SF1 Winner</span>
-            </div>
-
-            <div id="champion-box" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px]">
-              <span class="text-xs md:text-base">Champion</span>
-            </div>
-
-            <div id="final-sf2" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[160px]">
-              <span class="text-xs md:text-base">SF2 Winner</span>
-            </div>
+          <div id="champion-box" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px]">
+            <span class="text-xs md:text-base">Champion</span>
           </div>
           <div class="text-yellow-300 font-bold text-sm md:text-lg mt-2">🏆 Champion</div>
         </div>
@@ -737,13 +725,9 @@ cards.forEach(card => observer.observe(card));
       getEdge(document.getElementById('sf2-winner'),container,'left')
     );
 
-    // SF1 & SF2 Winners -> Final horizontal champion
-    drawCurve(getEdge(document.getElementById('sf1-winner'),container,'right'), getEdge(document.getElementById('final-sf1'),container,'left'));
-    drawCurve(getEdge(document.getElementById('sf2-winner'),container,'right'), getEdge(document.getElementById('final-sf2'),container,'left'));
-
-    // Champion box horizontal
-    drawCurve(getEdge(document.getElementById('final-sf1'),container,'right'), getEdge(document.getElementById('champion-box'),container,'left'));
-    drawCurve(getEdge(document.getElementById('final-sf2'),container,'left'), getEdge(document.getElementById('champion-box'),container,'right'));
+    // SF1 & SF2 Winners -> Champion vertical
+    drawCurve(getEdge(document.getElementById('sf1-winner'),container,'right'), getEdge(document.getElementById('champion-box'),container,'left'));
+    drawCurve(getEdge(document.getElementById('sf2-winner'),container,'right'), getEdge(document.getElementById('champion-box'),container,'left'));
   }
 
   document.querySelectorAll('.team-box').forEach(box=>{
@@ -758,7 +742,6 @@ cards.forEach(card => observer.observe(card));
 
 })();
 </script>
-
 
 	
 <!-- Commissioners (Compact 4-in-a-row) -->
