@@ -595,6 +595,7 @@ cards.forEach(card => observer.observe(card));
 
 	
   <!----------- bracket  ----------->
+<!----------- bracket  ----------->
 <section id="bracket" class="py-6 bg-gray-800 text-white overflow-x-auto">
   <div class="max-w-full px-4">
     <h2 class="text-xl md:text-3xl font-bold text-center text-yellow-500 mb-6 md:mb-8">
@@ -657,17 +658,20 @@ cards.forEach(card => observer.observe(card));
           </div>
         </div>
 
-        <!-- Final & Champion Vertical -->
+        <!-- Champion Horizontal Between SF1 & SF2 -->
         <div class="flex flex-col justify-center items-center py-6 space-y-6">
-          <div id="final-sf1" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[160px]">
-            <span class="text-xs md:text-base">SF1 Winner</span>
-          </div>
-          <div id="final-sf2" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[160px]">
-            <span class="text-xs md:text-base">SF2 Winner</span>
-          </div>
+          <div class="flex flex-row items-center justify-center space-x-6">
+            <div id="final-sf1" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[160px]">
+              <span class="text-xs md:text-base">SF1 Winner</span>
+            </div>
 
-          <div id="champion-box" class="team-box flex items-center justify-center space-x-3 p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px]">
-            <span class="text-xs md:text-base">Champion</span>
+            <div id="champion-box" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[180px]">
+              <span class="text-xs md:text-base">Champion</span>
+            </div>
+
+            <div id="final-sf2" class="team-box flex items-center justify-center p-2 md:p-3 border border-yellow-500 rounded bg-gray-700 w-[160px]">
+              <span class="text-xs md:text-base">SF2 Winner</span>
+            </div>
           </div>
           <div class="text-yellow-300 font-bold text-sm md:text-lg mt-2">🏆 Champion</div>
         </div>
@@ -733,13 +737,13 @@ cards.forEach(card => observer.observe(card));
       getEdge(document.getElementById('sf2-winner'),container,'left')
     );
 
-    // SF1 & SF2 Winners -> Final vertical
-    drawCurve(getEdge(document.getElementById('sf1-winner'),container,'right'),getEdge(document.getElementById('final-sf1'),container,'left'));
-    drawCurve(getEdge(document.getElementById('sf2-winner'),container,'right'),getEdge(document.getElementById('final-sf2'),container,'left'));
+    // SF1 & SF2 Winners -> Final horizontal champion
+    drawCurve(getEdge(document.getElementById('sf1-winner'),container,'right'), getEdge(document.getElementById('final-sf1'),container,'left'));
+    drawCurve(getEdge(document.getElementById('sf2-winner'),container,'right'), getEdge(document.getElementById('final-sf2'),container,'left'));
 
-    // Final vertical -> Champion
-    drawCurve(getEdge(document.getElementById('final-sf1'),container,'right'),getEdge(document.getElementById('champion-box'),container,'left'));
-    drawCurve(getEdge(document.getElementById('final-sf2'),container,'right'),getEdge(document.getElementById('champion-box'),container,'left'));
+    // Champion box horizontal
+    drawCurve(getEdge(document.getElementById('final-sf1'),container,'right'), getEdge(document.getElementById('champion-box'),container,'left'));
+    drawCurve(getEdge(document.getElementById('final-sf2'),container,'left'), getEdge(document.getElementById('champion-box'),container,'right'));
   }
 
   document.querySelectorAll('.team-box').forEach(box=>{
@@ -754,6 +758,7 @@ cards.forEach(card => observer.observe(card));
 
 })();
 </script>
+
 
 	
 <!-- Commissioners (Compact 4-in-a-row) -->
